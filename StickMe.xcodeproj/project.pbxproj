@@ -1,0 +1,261 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		847CF5181676EFC000CC9411 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF5171676EFC000CC9411 /* UIKit.framework */; };
+		847CF51A1676EFC000CC9411 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF5191676EFC000CC9411 /* Foundation.framework */; };
+		847CF51C1676EFC000CC9411 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF51B1676EFC000CC9411 /* CoreGraphics.framework */; };
+		847CF5221676EFC000CC9411 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5201676EFC000CC9411 /* InfoPlist.strings */; };
+		847CF5241676EFC000CC9411 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5231676EFC000CC9411 /* main.m */; };
+		847CF5281676EFC000CC9411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5271676EFC000CC9411 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		847CF5131676EFC000CC9411 /* StickMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		847CF5171676EFC000CC9411 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		847CF5191676EFC000CC9411 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		847CF51B1676EFC000CC9411 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		847CF51F1676EFC000CC9411 /* StickMe-Info.plist */ = {isa = PBXFileReference; path = "StickMe-Info.plist"; sourceTree = "<group>"; };
+		847CF5211676EFC000CC9411 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		847CF5231676EFC000CC9411 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		847CF5251676EFC000CC9411 /* StickMe-Prefix.pch */ = {isa = PBXFileReference; path = "StickMe-Prefix.pch"; sourceTree = "<group>"; };
+		847CF5261676EFC000CC9411 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		847CF5271676EFC000CC9411 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		847CF5101676EFC000CC9411 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847CF5181676EFC000CC9411 /* UIKit.framework in Frameworks */,
+				847CF51A1676EFC000CC9411 /* Foundation.framework in Frameworks */,
+				847CF51C1676EFC000CC9411 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		847CF5081676EFC000CC9411 = {
+			isa = PBXGroup;
+			children = (
+				847CF51D1676EFC000CC9411 /* StickMe */,
+				847CF5161676EFC000CC9411 /* Frameworks */,
+				847CF5141676EFC000CC9411 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		847CF5141676EFC000CC9411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				847CF5131676EFC000CC9411 /* StickMe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		847CF5161676EFC000CC9411 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				847CF5171676EFC000CC9411 /* UIKit.framework */,
+				847CF5191676EFC000CC9411 /* Foundation.framework */,
+				847CF51B1676EFC000CC9411 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		847CF51D1676EFC000CC9411 /* StickMe */ = {
+			isa = PBXGroup;
+			children = (
+				847CF5261676EFC000CC9411 /* AppDelegate.h */,
+				847CF5271676EFC000CC9411 /* AppDelegate.m */,
+				847CF51E1676EFC000CC9411 /* Supporting Files */,
+			);
+			path = StickMe;
+			sourceTree = "<group>";
+		};
+		847CF51E1676EFC000CC9411 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				847CF51F1676EFC000CC9411 /* StickMe-Info.plist */,
+				847CF5201676EFC000CC9411 /* InfoPlist.strings */,
+				847CF5231676EFC000CC9411 /* main.m */,
+				847CF5251676EFC000CC9411 /* StickMe-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		847CF5121676EFC000CC9411 /* StickMe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847CF52B1676EFC000CC9411 /* Build configuration list for PBXNativeTarget "StickMe" */;
+			buildPhases = (
+				847CF50F1676EFC000CC9411 /* Sources */,
+				847CF5101676EFC000CC9411 /* Frameworks */,
+				847CF5111676EFC000CC9411 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StickMe;
+			productName = StickMe;
+			productReference = 847CF5131676EFC000CC9411 /* StickMe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		847CF50A1676EFC000CC9411 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 847CF50D1676EFC000CC9411 /* Build configuration list for PBXProject "StickMe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 847CF5081676EFC000CC9411;
+			productRefGroup = 847CF5141676EFC000CC9411 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				847CF5121676EFC000CC9411 /* StickMe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		847CF5111676EFC000CC9411 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847CF5221676EFC000CC9411 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		847CF50F1676EFC000CC9411 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847CF5241676EFC000CC9411 /* main.m in Sources */,
+				847CF5281676EFC000CC9411 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		847CF5201676EFC000CC9411 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847CF5211676EFC000CC9411 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		847CF5291676EFC000CC9411 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		847CF52A1676EFC000CC9411 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		847CF52C1676EFC000CC9411 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StickMe/StickMe-Prefix.pch";
+				INFOPLIST_FILE = "StickMe/StickMe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		847CF52D1676EFC000CC9411 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StickMe/StickMe-Prefix.pch";
+				INFOPLIST_FILE = "StickMe/StickMe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		847CF50D1676EFC000CC9411 /* Build configuration list for PBXProject "StickMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847CF5291676EFC000CC9411 /* Debug */,
+				847CF52A1676EFC000CC9411 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		847CF52B1676EFC000CC9411 /* Build configuration list for PBXNativeTarget "StickMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847CF52C1676EFC000CC9411 /* Debug */,
+				847CF52D1676EFC000CC9411 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 847CF50A1676EFC000CC9411 /* Project object */;
+}
