@@ -12,7 +12,20 @@
 		847CF51C1676EFC000CC9411 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF51B1676EFC000CC9411 /* CoreGraphics.framework */; };
 		847CF5221676EFC000CC9411 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5201676EFC000CC9411 /* InfoPlist.strings */; };
 		847CF5241676EFC000CC9411 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5231676EFC000CC9411 /* main.m */; };
-		847CF5281676EFC000CC9411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5271676EFC000CC9411 /* AppDelegate.m */; };
+		847CF5511676F08700CC9411 /* BLEDiscoveryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5361676F08700CC9411 /* BLEDiscoveryHelper.m */; };
+		847CF5521676F08700CC9411 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5381676F08700CC9411 /* Constants.m */; };
+		847CF5531676F08700CC9411 /* UserDefaultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF53B1676F08700CC9411 /* UserDefaultsHelper.m */; };
+		847CF5541676F08700CC9411 /* Discovery.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF53F1676F08700CC9411 /* Discovery.png */; };
+		847CF5551676F08700CC9411 /* Discovery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5401676F08700CC9411 /* Discovery@2x.png */; };
+		847CF5561676F08700CC9411 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5411676F08700CC9411 /* Settings.png */; };
+		847CF5571676F08700CC9411 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5421676F08700CC9411 /* Settings@2x.png */; };
+		847CF5581676F08700CC9411 /* DiscoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5441676F08700CC9411 /* DiscoveryViewController.xib */; };
+		847CF5591676F08700CC9411 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5451676F08700CC9411 /* SettingsViewController.xib */; };
+		847CF55A1676F08700CC9411 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5481676F08700CC9411 /* DiscoveryViewController.m */; };
+		847CF55B1676F08700CC9411 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF54A1676F08700CC9411 /* SettingsViewController.m */; };
+		847CF55C1676F08700CC9411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF54D1676F08700CC9411 /* AppDelegate.m */; };
+		847CF55D1676F08700CC9411 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 847CF54F1676F08700CC9411 /* InfoPlist.strings */; };
+		847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +33,31 @@
 		847CF5171676EFC000CC9411 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		847CF5191676EFC000CC9411 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		847CF51B1676EFC000CC9411 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		847CF51F1676EFC000CC9411 /* StickMe-Info.plist */ = {isa = PBXFileReference; path = "StickMe-Info.plist"; sourceTree = "<group>"; };
+		847CF51F1676EFC000CC9411 /* StickMe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StickMe-Info.plist"; sourceTree = "<group>"; };
 		847CF5211676EFC000CC9411 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		847CF5231676EFC000CC9411 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		847CF5251676EFC000CC9411 /* StickMe-Prefix.pch */ = {isa = PBXFileReference; path = "StickMe-Prefix.pch"; sourceTree = "<group>"; };
-		847CF5261676EFC000CC9411 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
-		847CF5271676EFC000CC9411 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		847CF5251676EFC000CC9411 /* StickMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StickMe-Prefix.pch"; sourceTree = "<group>"; };
+		847CF5351676F08700CC9411 /* BLEDiscoveryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDiscoveryHelper.h; sourceTree = "<group>"; };
+		847CF5361676F08700CC9411 /* BLEDiscoveryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDiscoveryHelper.m; sourceTree = "<group>"; };
+		847CF5371676F08700CC9411 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		847CF5381676F08700CC9411 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		847CF5391676F08700CC9411 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		847CF53A1676F08700CC9411 /* UserDefaultsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsHelper.h; sourceTree = "<group>"; };
+		847CF53B1676F08700CC9411 /* UserDefaultsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsHelper.m; sourceTree = "<group>"; };
+		847CF53F1676F08700CC9411 /* Discovery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Discovery.png; sourceTree = "<group>"; };
+		847CF5401676F08700CC9411 /* Discovery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Discovery@2x.png"; sourceTree = "<group>"; };
+		847CF5411676F08700CC9411 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		847CF5421676F08700CC9411 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
+		847CF5441676F08700CC9411 /* DiscoveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryViewController.xib; sourceTree = "<group>"; };
+		847CF5451676F08700CC9411 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		847CF5471676F08700CC9411 /* DiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryViewController.h; sourceTree = "<group>"; };
+		847CF5481676F08700CC9411 /* DiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
+		847CF5491676F08700CC9411 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		847CF54A1676F08700CC9411 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		847CF54C1676F08700CC9411 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		847CF54D1676F08700CC9411 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		847CF5501676F08700CC9411 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */,
 				847CF5181676EFC000CC9411 /* UIKit.framework in Frameworks */,
 				847CF51A1676EFC000CC9411 /* Foundation.framework in Frameworks */,
 				847CF51C1676EFC000CC9411 /* CoreGraphics.framework in Frameworks */,
@@ -62,6 +95,7 @@
 		847CF5161676EFC000CC9411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */,
 				847CF5171676EFC000CC9411 /* UIKit.framework */,
 				847CF5191676EFC000CC9411 /* Foundation.framework */,
 				847CF51B1676EFC000CC9411 /* CoreGraphics.framework */,
@@ -72,8 +106,11 @@
 		847CF51D1676EFC000CC9411 /* StickMe */ = {
 			isa = PBXGroup;
 			children = (
-				847CF5261676EFC000CC9411 /* AppDelegate.h */,
-				847CF5271676EFC000CC9411 /* AppDelegate.m */,
+				847CF5331676F08700CC9411 /* Utilities */,
+				847CF53C1676F08700CC9411 /* Resources */,
+				847CF5461676F08700CC9411 /* ViewControllers */,
+				847CF54B1676F08700CC9411 /* AppDelegate */,
+				847CF54E1676F08700CC9411 /* en.lproj */,
 				847CF51E1676EFC000CC9411 /* Supporting Files */,
 			);
 			path = StickMe;
@@ -88,6 +125,98 @@
 				847CF5251676EFC000CC9411 /* StickMe-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		847CF5331676F08700CC9411 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				847CF5341676F08700CC9411 /* BLEHelper */,
+				847CF5371676F08700CC9411 /* Constants.h */,
+				847CF5381676F08700CC9411 /* Constants.m */,
+				847CF5391676F08700CC9411 /* Defines.h */,
+				847CF53A1676F08700CC9411 /* UserDefaultsHelper.h */,
+				847CF53B1676F08700CC9411 /* UserDefaultsHelper.m */,
+			);
+			name = Utilities;
+			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities";
+			sourceTree = "<group>";
+		};
+		847CF5341676F08700CC9411 /* BLEHelper */ = {
+			isa = PBXGroup;
+			children = (
+				847CF5351676F08700CC9411 /* BLEDiscoveryHelper.h */,
+				847CF5361676F08700CC9411 /* BLEDiscoveryHelper.m */,
+			);
+			path = BLEHelper;
+			sourceTree = "<group>";
+		};
+		847CF53C1676F08700CC9411 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				847CF53D1676F08700CC9411 /* Images */,
+				847CF5431676F08700CC9411 /* Xibs */,
+			);
+			name = Resources;
+			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources";
+			sourceTree = "<group>";
+		};
+		847CF53D1676F08700CC9411 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				847CF53E1676F08700CC9411 /* TabIcons */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		847CF53E1676F08700CC9411 /* TabIcons */ = {
+			isa = PBXGroup;
+			children = (
+				847CF53F1676F08700CC9411 /* Discovery.png */,
+				847CF5401676F08700CC9411 /* Discovery@2x.png */,
+				847CF5411676F08700CC9411 /* Settings.png */,
+				847CF5421676F08700CC9411 /* Settings@2x.png */,
+			);
+			path = TabIcons;
+			sourceTree = "<group>";
+		};
+		847CF5431676F08700CC9411 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				847CF5441676F08700CC9411 /* DiscoveryViewController.xib */,
+				847CF5451676F08700CC9411 /* SettingsViewController.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		847CF5461676F08700CC9411 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				847CF5471676F08700CC9411 /* DiscoveryViewController.h */,
+				847CF5481676F08700CC9411 /* DiscoveryViewController.m */,
+				847CF5491676F08700CC9411 /* SettingsViewController.h */,
+				847CF54A1676F08700CC9411 /* SettingsViewController.m */,
+			);
+			name = ViewControllers;
+			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers";
+			sourceTree = "<group>";
+		};
+		847CF54B1676F08700CC9411 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				847CF54C1676F08700CC9411 /* AppDelegate.h */,
+				847CF54D1676F08700CC9411 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate";
+			sourceTree = "<group>";
+		};
+		847CF54E1676F08700CC9411 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				847CF54F1676F08700CC9411 /* InfoPlist.strings */,
+			);
+			name = en.lproj;
+			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/en.lproj";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +270,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				847CF5221676EFC000CC9411 /* InfoPlist.strings in Resources */,
+				847CF5541676F08700CC9411 /* Discovery.png in Resources */,
+				847CF5551676F08700CC9411 /* Discovery@2x.png in Resources */,
+				847CF5561676F08700CC9411 /* Settings.png in Resources */,
+				847CF5571676F08700CC9411 /* Settings@2x.png in Resources */,
+				847CF5581676F08700CC9411 /* DiscoveryViewController.xib in Resources */,
+				847CF5591676F08700CC9411 /* SettingsViewController.xib in Resources */,
+				847CF55D1676F08700CC9411 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +288,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				847CF5241676EFC000CC9411 /* main.m in Sources */,
-				847CF5281676EFC000CC9411 /* AppDelegate.m in Sources */,
+				847CF5511676F08700CC9411 /* BLEDiscoveryHelper.m in Sources */,
+				847CF5521676F08700CC9411 /* Constants.m in Sources */,
+				847CF5531676F08700CC9411 /* UserDefaultsHelper.m in Sources */,
+				847CF55A1676F08700CC9411 /* DiscoveryViewController.m in Sources */,
+				847CF55B1676F08700CC9411 /* SettingsViewController.m in Sources */,
+				847CF55C1676F08700CC9411 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +304,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				847CF5211676EFC000CC9411 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		847CF54F1676F08700CC9411 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847CF5501676F08700CC9411 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -254,6 +403,7 @@
 				847CF52D1676EFC000CC9411 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
