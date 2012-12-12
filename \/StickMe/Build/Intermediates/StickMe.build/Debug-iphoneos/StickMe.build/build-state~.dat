@@ -1,0 +1,545 @@
+TStickMe
+v5
+r1
+cCheck dependencies
+cCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist \/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist
+cProcessInfoPlistFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Info.plist StickMe/StickMe-Info.plist
+cProcessPCH /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch.pth StickMe/StickMe-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/main.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/BLEDiscoveryHelper.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/Constants.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/UserDefaultsHelper.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/DiscoveryViewController.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/SettingsViewController.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/AppDelegate.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/CBPeripheral+CustomProperties.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Extensions/CBPeripheral+CustomProperties.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe normal armv7
+cGenerateDSYMFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app.dSYM /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe
+cCopyStringsFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/en.lproj/InfoPlist.strings StickMe/en.lproj/InfoPlist.strings
+cCopyPNGFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery.png
+cCopyPNGFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery@2x.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery@2x.png
+cCopyPNGFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings.png
+cCopyPNGFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings@2x.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings@2x.png
+cCompileXIB /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/DiscoveryViewController.xib
+cCompileXIB /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/SettingsViewController.xib
+cProcessProductPackaging "/Users/admin/Library/MobileDevice/Provisioning Profiles/82A07F6E-2AAE-46BD-8086-D1EB07DB05CF.mobileprovision" /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovision
+cProcessProductPackaging "/Users/admin/Library/MobileDevice/Provisioning Profiles/82A07F6E-2AAE-46BD-8086-D1EB07DB05CF.mobileprovision" /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovision
+cTouch /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app
+cProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcent
+cCodeSign /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk
+c000000004F0371B50000000000000110
+t1325625781
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist
+c000000004F067BCE00000000000001A7
+t1325824974
+s423
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist
+c000000004F067BCE00000000000001E5
+t1325824974
+s485
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
+c000000004F067BD40000000000015C80
+t1325824980
+s89216
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004F067BD500000000003AE430
+t1325824981
+s3859504
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004F067BD8000000000052C940
+t1325824984
+s5425472
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004F067BE20000000000798C40
+t1325824994
+s7965760
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.m
+c0000000050C5C71900000000000010CE
+t1355138841
+s4302
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery.png
+c000000004F06721900000000000000FD
+t1325822489
+s253
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery@2x.png
+c000000004F0672190000000000000192
+t1325822489
+s402
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings.png
+c000000004F0672190000000000000080
+t1325822489
+s128
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings@2x.png
+c000000004F0672190000000000000082
+t1325822489
+s130
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/DiscoveryViewController.xib
+c0000000050C5A2460000000000001FE4
+t1355129414
+s8164
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/SettingsViewController.xib
+c0000000050C5542F000000000000148E
+t1355109423
+s5262
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m
+c0000000050C702DC00000000000053A5
+t1355219676
+s21413
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.m
+c0000000050C5465100000000000003E3
+t1355105873
+s995
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.m
+c0000000050C546510000000000000DB8
+t1355105873
+s3512
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m
+c0000000050C6FD2400000000000013C4
+t1355218212
+s5060
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.m
+c0000000050C553FE00000000000003FE
+t1355109374
+s1022
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Extensions/CBPeripheral+CustomProperties.m
+c0000000050C702DB000000000000024A
+t1355219675
+s586
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/StickMe-Prefix.pch
+c0000000050C6B840000000000000013D
+t1355200576
+s317
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/en.lproj/InfoPlist.strings
+c0000000050C54CEC000000000000002D
+t1355107564
+s45
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/main.m
+c0000000050C54CEC0000000000000156
+t1355107564
+s342
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch.pth
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/AppDelegate.o
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/BLEDiscoveryHelper.o
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/CBPeripheral+CustomProperties.o
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/Constants.o
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/DiscoveryViewController.o
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/SettingsViewController.o
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/StickMe.LinkFileList
+c0000000050C702E1000000000000050E
+t1355219681
+s1294
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/UserDefaultsHelper.o
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/main.o
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcent
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app.dSYM
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery.png
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery@2x.png
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/DiscoveryViewController.nib
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Info.plist
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/PkgInfo
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings.png
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings@2x.png
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/SettingsViewController.nib
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovision
+t2
+s0
+
+N/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/admin/Library/MobileDevice/Provisioning Profiles/82A07F6E-2AAE-46BD-8086-D1EB07DB05CF.mobileprovision
+c00000000501B7DD70000000000001D6F
+t1343978967
+s7535
+
+NStickMe/StickMe-Info.plist
+c0000000050C6ECE70000000000000477
+t1355214055
+s1143
+
+CBuild AST from /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.m
+r0
+
+CBuild AST from /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m
+r0
+
+CBuild AST from /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.m
+r0
+
+CBuild AST from /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.m
+r0
+
+CBuild AST from /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m
+r0
+
+CBuild AST from /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.m
+r0
+
+CBuild AST from /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Extensions/CBPeripheral+CustomProperties.m
+r0
+
+CBuild AST from /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies9a3eef603a77b641^abe912613a77b641^-156"[WARN]warning: no rule to process file '$(PROJECT_DIR)/StickMe/Extensions/CBPeripheral_ExtendingProperties.h' of type sourcecode.c.h for architecture armv71(21%IDEActivityLogMessage2@149"warning: no rule to process file '$(PROJECT_DIR)/StickMe/Extensions/CBPeripheral_ExtendingProperties.h' of type sourcecode.c.h for architecture armv7-376912481#18446744073709551615#0#-1#-----0#1#0#--18"Check dependencies36"9EDBC043-04EA-42A1-B61E-7D13B8AC3DA8-
+
+CCodeSign /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app
+s376912490.787675
+e376912492.013442
+r1
+xCodeSign
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"CodeSign \/StickMe/Build/Products/Debug-iphoneos/StickMe.appbdc3c96a3a77b641^ef70036c3a77b641^---0#0#0#-19%DVTDocumentLocation2@118"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/%5C/StickMe/Build/Products/Debug-iphoneos/StickMe.app/0000000000000000^920"CodeSign "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/codesign --force --sign "iPhone Developer: Phien Tram (622539H7F3)" "--resource-rules=/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist" --entitlements "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcent" "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app"36"C9BE023E-AEB9-484E-8668-3B3623CABDFE-
+
+CCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/AppDelegate.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912484.529098
+e376912484.751135
+r1
+xCompileC
+x\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/AppDelegate.o
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection137"Compile /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.mc6a887643a77b641^6addca643a77b641^---0#0#0#-19%DVTDocumentLocation2@145"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.m0000000000000000^3575"CompileC "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/AppDelegate.o" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -include "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/AppDelegate.d" --serialize-diagnostics "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/AppDelegate.dia" -c "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.m" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/AppDelegate.o"36"6977BD92-9B5C-45A7-BF3F-D964DC941C30-
+
+CCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/BLEDiscoveryHelper.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912483.867213
+e376912484.291465
+r1
+xCompileC
+x\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/BLEDiscoveryHelper.o
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection152"Compile /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m952dde633a77b641^fe9c4a643a77b641^---0#0#0#-19%DVTDocumentLocation2@160"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m0000000000000000^3633"CompileC "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/BLEDiscoveryHelper.o" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -include "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/BLEDiscoveryHelper.d" --serialize-diagnostics "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/BLEDiscoveryHelper.dia" -c "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/BLEHelper/BLEDiscoveryHelper.m" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/BLEDiscoveryHelper.o"36"2E7EA095-3BEC-4AAD-8C66-D6F945FDB499-
+
+CCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/CBPeripheral+CustomProperties.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Extensions/CBPeripheral+CustomProperties.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912484.620686
+e376912484.753026
+r1
+xCompileC
+x\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/CBPeripheral+CustomProperties.o
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Extensions/CBPeripheral+CustomProperties.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection106"Compile /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Extensions/CBPeripheral+CustomProperties.m16139f643a77b641^0befca643a77b641^---0#0#0#-19%DVTDocumentLocation2@114"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Extensions/CBPeripheral+CustomProperties.m0000000000000000^3581"CompileC "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/CBPeripheral+CustomProperties.o" StickMe/Extensions/CBPeripheral+CustomProperties.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -include "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/CBPeripheral+CustomProperties.d" --serialize-diagnostics "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/CBPeripheral+CustomProperties.dia" -c /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Extensions/CBPeripheral+CustomProperties.m -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/CBPeripheral+CustomProperties.o"36"E3FCDB01-1112-4DA4-A3CC-0E45B39E7DA7-
+
+CCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/Constants.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912484.237705
+e376912484.336000
+r1
+xCompileC
+x\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/Constants.o
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection133"Compile /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.ma60b3d643a77b641^bb0d56643a77b641^---0#0#0#-19%DVTDocumentLocation2@141"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.m0000000000000000^3559"CompileC "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/Constants.o" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -include "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/Constants.d" --serialize-diagnostics "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/Constants.dia" -c "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.m" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/Constants.o"36"A82DAB11-088D-4696-BE35-CA05C6CB3D5F-
+
+CCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/DiscoveryViewController.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912484.358324
+e376912484.527708
+r1
+xCompileC
+x\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/DiscoveryViewController.o
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m:82:15: warning: unused variable 'pUUID' [-Wunused-variable]
+o    NSString* pUUID = (NSString*)peripheral.UUID;
+o              ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection153"Compile /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m55f85b643a77b641^091687643a77b641^-293"/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m:82:15: warning: unused variable 'pUUID' [-Wunused-variable]    NSString* pUUID = (NSString*)peripheral.UUID;              ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@23"Unused variable 'pUUID'-376912484#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@161"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m0000000000000000^81#14#81#14#2129#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@161"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m0000000000000000^3655"CompileC "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/DiscoveryViewController.o" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -include "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/DiscoveryViewController.d" --serialize-diagnostics "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/DiscoveryViewController.dia" -c "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.m" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/DiscoveryViewController.o"36"34039F35-46F9-4BA2-8AA2-D3A425DDFD13-
+
+CCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/SettingsViewController.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912484.432676
+e376912484.619327
+r1
+xCompileC
+x\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/SettingsViewController.o
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection152"Compile /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.mf6ef6e643a77b641^c18b9e643a77b641^---0#0#0#-19%DVTDocumentLocation2@160"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.m0000000000000000^3649"CompileC "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/SettingsViewController.o" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -include "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/SettingsViewController.d" --serialize-diagnostics "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/SettingsViewController.dia" -c "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/SettingsViewController.m" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/SettingsViewController.o"36"ECF6AAA4-98EA-49B9-90C7-DF2C4FE89AA0-
+
+CCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/UserDefaultsHelper.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912484.292814
+e376912484.431332
+r1
+xCompileC
+x\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/UserDefaultsHelper.o
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection142"Compile /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.md1224b643a77b641^516b6e643a77b641^---0#0#0#-19%DVTDocumentLocation2@150"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.m0000000000000000^3613"CompileC "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/UserDefaultsHelper.o" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -include "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/UserDefaultsHelper.d" --serialize-diagnostics "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/UserDefaultsHelper.dia" -c "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.m" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/UserDefaultsHelper.o"36"E6AE7C3C-D041-4245-9E93-0FF7B0A01D28-
+
+CCompileC \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/main.o /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912483.867208
+e376912484.236316
+r1
+xCompileC
+x\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/main.o
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/main.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/main.m842dde633a77b641^567f3c643a77b641^---0#0#0#-19%DVTDocumentLocation2@78"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/main.m0000000000000000^3409"CompileC "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/main.o" StickMe/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -include "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/main.d" --serialize-diagnostics "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/main.dia" -c /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/main.m -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/main.o"36"34071AF8-4107-4690-9FD8-07DA89FBF66D-
+
+CCompileXIB /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/DiscoveryViewController.xib
+s376912486.059106
+e376912490.577714
+r1
+xCompileXIB
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/DiscoveryViewController.xib
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection156"Compiling /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/DiscoveryViewController.xib923c0f663a77b641^17f3936a3a77b641^---0#0#0#-19%DVTDocumentLocation2@162"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/DiscoveryViewController.xib0000000000000000^1020"CompileXIB "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/DiscoveryViewController.xib"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/DiscoveryViewController.nib" "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/DiscoveryViewController.xib" --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk36"8548A630-DB9E-4381-88D9-5B54A3EE3FE2-
+
+CCompileXIB /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/SettingsViewController.xib
+s376912486.072887
+e376912490.478033
+r1
+xCompileXIB
+x/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/SettingsViewController.xib
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection155"Compiling /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/SettingsViewController.xib7ec912663a77b641^ac717a6a3a77b641^---0#0#0#-19%DVTDocumentLocation2@161"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/SettingsViewController.xib0000000000000000^1017"CompileXIB "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/SettingsViewController.xib"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/SettingsViewController.nib" "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Xibs/SettingsViewController.xib" --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk36"6037ECF6-4C67-4D42-8E45-75F60313DE10-
+
+CCopyPNGFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery.png
+s376912485.670131
+e376912486.016522
+r1
+xCopyPNGFile
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery.png
+xStickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery.png
+olibpng warning: Warning: Input PNG does not have an 8 bit input depth.  Please convert your PNG to 8-bit for optimal performance on iPhone OS.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection173"CopyPNGFile \/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery.png94a4ab653a77b641^297a04663a77b641^-143"libpng warning: Warning: Input PNG does not have an 8 bit input depth.  Please convert your PNG to 8-bit for optimal performance on iPhone OS.-0#0#0#-19%DVTDocumentLocation2@159"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery.png0000000000000000^880"CopyPNGFile "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery.png" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery.png"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/PrivatePlugIns/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery.png" "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery.png"36"E42B4DA4-6FFE-44B2-8A72-652411F461EF-
+
+CCopyPNGFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery@2x.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery@2x.png
+s376912485.708160
+e376912486.031915
+r1
+xCopyPNGFile
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery@2x.png
+xStickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection179"CopyPNGFile \/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery@2x.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery@2x.png9967b5653a77b641^cd3d08663a77b641^---0#0#0#-19%DVTDocumentLocation2@162"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery@2x.png0000000000000000^892"CopyPNGFile "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery@2x.png" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery@2x.png"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/PrivatePlugIns/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Discovery@2x.png" "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Discovery@2x.png"36"AFA45056-58E7-4876-A5E5-22274AD8C2D5-
+
+CCopyPNGFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings.png
+s376912486.017975
+e376912486.057686
+r1
+xCopyPNGFile
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings.png
+xStickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings.png
+olibpng warning: Warning: Input PNG does not have an 8 bit input depth.  Please convert your PNG to 8-bit for optimal performance on iPhone OS.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection171"CopyPNGFile \/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings.pngddb504663a77b641^86c70e663a77b641^-143"libpng warning: Warning: Input PNG does not have an 8 bit input depth.  Please convert your PNG to 8-bit for optimal performance on iPhone OS.-0#0#0#-19%DVTDocumentLocation2@158"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings.png0000000000000000^876"CopyPNGFile "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings.png" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings.png"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/PrivatePlugIns/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings.png" "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings.png"36"B9E3DD8D-5358-42A4-9774-4C8D4F9076A2-
+
+CCopyPNGFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings@2x.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings@2x.png
+s376912486.033270
+e376912486.071476
+r1
+xCopyPNGFile
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings@2x.png
+xStickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings@2x.png
+olibpng warning: Warning: Input PNG does not have an 8 bit input depth.  Please convert your PNG to 8-bit for optimal performance on iPhone OS.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection177"CopyPNGFile \/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings@2x.png StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings@2x.pngf1a108663a77b641^a05112663a77b641^-143"libpng warning: Warning: Input PNG does not have an 8 bit input depth.  Please convert your PNG to 8-bit for optimal performance on iPhone OS.-0#0#0#-19%DVTDocumentLocation2@161"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings@2x.png0000000000000000^888"CopyPNGFile "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings@2x.png" "StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings@2x.png"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/PrivatePlugIns/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" "/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources/Images/TabIcons/Settings@2x.png" "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Settings@2x.png"36"27D7F88A-F6A3-4992-80A4-2DF4097CF780-
+
+CCopyStringsFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/en.lproj/InfoPlist.strings StickMe/en.lproj/InfoPlist.strings
+s376912485.669904
+e376912485.706821
+r1
+xCopyStringsFile
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/en.lproj/InfoPlist.strings
+xStickMe/en.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy StickMe/en.lproj/InfoPlist.strings1497ab653a77b641^39f2b4653a77b641^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/en.lproj/InfoPlist.strings0000000000000000^616"CopyStringsFile "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/en.lproj/InfoPlist.strings" StickMe/en.lproj/InfoPlist.strings    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/en.lproj" -- StickMe/en.lproj/InfoPlist.strings36"6B66E61F-F1A3-4063-858E-6BB511F44614-
+
+CCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist \/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist
+s376912481.080804
+e376912481.103035
+r1
+xCpResource
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist
+x\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection76"Copy \/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist3eca14613a77b641^30631a613a77b641^---0#0#0#-19%DVTDocumentLocation2@137"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/%5C/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist000000000080d041^893"CpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app"36"572194D9-EF7C-43A5-AA47-2244837D9DDC-
+
+CGenerateDSYMFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app.dSYM /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe
+s376912485.551330
+e376912485.660983
+r1
+xGenerateDSYMFile
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app.dSYM
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"Generating /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app.dSYMab408d653a77b641^fc35a9653a77b641^---0#0#0#-19%DVTDocumentLocation2@122"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/%5C/StickMe/Build/Products/Debug-iphoneos/StickMe.app.dSYM000000000080d041^669"GenerateDSYMFile "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app.dSYM" "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/usr/bin/dsymutil "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app.dSYM"36"BBA503DC-2E6B-4B96-B9B5-637E4CD20BB0-
+
+CLd /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe normal armv7
+s376912484.760611
+e376912485.543687
+r1
+xLd
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe
+xnormal
+xarmv7
+old: warning: directory not found for option '-L/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos'
+old: warning: directory not found for option '-F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos'
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Link /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMee0d5c2643a77b641^03428b653a77b641^-268"ld: warning: directory not found for option '-L/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos'ld: warning: directory not found for option '-F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos'2(21%IDEActivityLogMessage2@120"Directory not found for option '-L/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos'-376912484#0#134#-1#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#27"Apple Mach-O Linker Warning--2@120"Directory not found for option '-F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos'-376912484#134#134#-1#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#27"Apple Mach-O Linker Warning--0#0#0#--1178"Ld "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe" normal armv7    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv IPHONEOS_DEPLOYMENT_TARGET 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -L/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -filelist "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/Objects-normal/armv7/StickMe.LinkFileList" -dead_strip -miphoneos-version-min=5.1 -framework CoreBluetooth -framework UIKit -framework Foundation -framework CoreGraphics -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/StickMe"36"09ABA706-A628-4583-9CD1-67BC0DC15DAC-
+
+CProcessInfoPlistFile /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Info.plist StickMe/StickMe-Info.plist
+s376912481.081697
+e376912481.104255
+r1
+xProcessInfoPlistFile
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Info.plist
+xStickMe/StickMe-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection34"Process StickMe/StickMe-Info.plist9f0115613a77b641^d5b11a613a77b641^---0#0#0#-19%DVTDocumentLocation2@90"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/StickMe-Info.plist0000000000000000^850"ProcessInfoPlistFile "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Info.plist" StickMe/StickMe-Info.plist    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility StickMe/StickMe-Info.plist -genpkginfo "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/PkgInfo" -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/ResourceRules.plist" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/Info.plist"36"394C9900-C950-4A1E-8DD5-1AF6C7A1D656-
+
+CProcessPCH /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch.pth StickMe/StickMe-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376912481.114117
+e376912483.860042
+r1
+xProcessPCH
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch.pth
+xStickMe/StickMe-Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Precompile StickMe/StickMe-Prefix.pch99631d613a77b641^842bdc633a77b641^---0#0#0#-19%DVTDocumentLocation2@90"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/StickMe-Prefix.pch0000000000000000^3135"ProcessPCH "\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch.pth" StickMe/StickMe-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-conversion -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-generated-files.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-own-target-headers.hmap" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-all-target-headers.hmap" -iquote "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe-project-headers.hmap" -I/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos/include "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources/armv7" "-I/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/DerivedSources" -F/Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Build/Products/Debug-iphoneos -c /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/StickMe-Prefix.pch -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch.pth" -MMD -MT dependencies -MF "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/PrecompiledHeaders/StickMe-Prefix-frjwjfdjhswiabeqcyjficzjbgki/StickMe-Prefix.pch.d"36"78A32228-2889-4DB5-BD83-9F5D3781FBAD-
+
+CProcessPCH /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Index/PrecompiledHeaders/StickMe-Prefix-ablojjczqoqevddqxyjonygpjwpk_ast/StickMe-Prefix.pch.pth StickMe/StickMe-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessProductPackaging "/Users/admin/Library/MobileDevice/Provisioning Profiles/82A07F6E-2AAE-46BD-8086-D1EB07DB05CF.mobileprovision" /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovision
+s376912490.623213
+e376912490.661511
+r1
+xProcessProductPackaging
+x/Users/admin/Library/MobileDevice/Provisioning Profiles/82A07F6E-2AAE-46BD-8086-D1EB07DB05CF.mobileprovision
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovision
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection211"ProcessProductPackaging "/Users/admin/Library/MobileDevice/Provisioning Profiles/82A07F6E-2AAE-46BD-8086-D1EB07DB05CF.mobileprovision" \/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovisiondaab9f6a3a77b641^2158a96a3a77b641^---0#0#0#-19%DVTDocumentLocation2@142"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/%5C/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovision0000000000000000^736"ProcessProductPackaging "/Users/admin/Library/MobileDevice/Provisioning Profiles/82A07F6E-2AAE-46BD-8086-D1EB07DB05CF.mobileprovision" "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovision"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility "/Users/admin/Library/MobileDevice/Provisioning Profiles/82A07F6E-2AAE-46BD-8086-D1EB07DB05CF.mobileprovision" -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app/embedded.mobileprovision"36"C0FB89DF-CCA4-452B-A2C8-558831F1CECF-
+
+CProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcent
+s376912490.752441
+e376912490.779063
+r1
+xProcessProductPackaging
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcent
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection231"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist \/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcentb2bbc06a3a77b641^d61dcb6a3a77b641^---0#0#0#-19%DVTDocumentLocation2@152"file://localhost/Users/admin/Documents/Projects/StickMe/StickMe/%5C/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcent000000000080d041^802"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist "\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcent"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist -entitlements -format xml -o "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Intermediates/StickMe.build/Debug-iphoneos/StickMe.build/StickMe.xcent"36"EC1510BA-D2EF-49D9-B67C-546697397214-
+
+CTouch /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app
+s376912490.670633
+e376912490.743729
+r1
+xTouch
+x/Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"Touch /Users/admin/Documents/Projects/StickMe/StickMe/\/StickMe/Build/Products/Debug-iphoneos/StickMe.app80d7ab6a3a77b641^4d12cb6a3a77b641^---0#0#0#--429"Touch "\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app"    cd /Users/admin/Documents/Projects/StickMe/StickMe    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/admin/Documents/Projects/StickMe/StickMe/\\/StickMe/Build/Products/Debug-iphoneos/StickMe.app"36"6C8059C1-7E9E-422A-8F84-15BA33FCA817-
+
