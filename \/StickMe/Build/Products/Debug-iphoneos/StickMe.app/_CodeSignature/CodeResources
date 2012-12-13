@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>DetailStickedObjectViewController.nib</key>
+		<data>
+		UIrhRl/bJP3jyVBy0YsYrRWby0k=
+		</data>
 		<key>Discovery.png</key>
 		<data>
 		6iC2xAKG4E/kQmZt65P4M2IebSk=
@@ -12,9 +16,17 @@
 		<data>
 		/WOL49eINJPiPfR9IdE96TsLEac=
 		</data>
+		<key>DiscoveryCell.nib</key>
+		<data>
+		njb6fWy1SZgEml+xDa7liC+3Rzk=
+		</data>
+		<key>DiscoveryCell1.nib</key>
+		<data>
+		vlTkt/SI2bRpa+KF2uxrfDmaVV4=
+		</data>
 		<key>DiscoveryViewController.nib</key>
 		<data>
-		cdQrQFxUdiy1zMgkc1po9LmhaGA=
+		QZE+6H2RJFBowl+BKWkVfOzk4IU=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -30,7 +42,7 @@
 		</data>
 		<key>SettingsViewController.nib</key>
 		<data>
-		aJ2cmjVgLgd+M7/VrnPWstkXASE=
+		fo5JBicaSEU1we85jPKyONneqBY=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
