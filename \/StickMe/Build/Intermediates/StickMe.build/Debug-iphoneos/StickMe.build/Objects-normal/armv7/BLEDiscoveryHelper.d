@@ -5,5 +5,7 @@ dependencies: \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/UserDefaultsHelper.h \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.h \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Defines.h \
+  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Utilities.h \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate/AppDelegate.h \
-  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.h
+  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers/DiscoveryViewController.h \
+  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/StickObjectSummary.h

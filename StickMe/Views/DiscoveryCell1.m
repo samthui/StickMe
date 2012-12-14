@@ -11,6 +11,7 @@
 @implementation DiscoveryCell1
 
 @synthesize deviceName = _deviceName;
+@synthesize distanceLbl = _distanceLbl;
 @synthesize connectStatusBtn = _connectStatusBtn;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -32,7 +33,7 @@
 #pragma mark - IBActions
 -(IBAction)connectClicked:(id)sender
 {
-    [self.connectStatusBtn setTitle:@"Connecting..." forState:UIControlStateNormal];    
+    [self.connectStatusBtn setTitle:@"..." forState:UIControlStateNormal];    
 }
 
 @end

@@ -11,6 +11,7 @@
 @interface DiscoveryCell1 : UITableViewCell
 
 @property (nonatomic, retain) IBOutlet UILabel* deviceName;
+@property (nonatomic, retain) IBOutlet UILabel* distanceLbl;
 @property (nonatomic, retain) IBOutlet UIButton* connectStatusBtn;
 
 -(IBAction)connectClicked:(id)sender;

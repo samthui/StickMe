@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8413C5731679FCCA00EAF3F5 /* StickObjectSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8413C5721679FCCA00EAF3F5 /* StickObjectSummary.m */; };
 		847C094C167832F600EE33B3 /* StickObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 847C094B167832F600EE33B3 /* StickObject.m */; };
 		847C09501678812A00EE33B3 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847C094F1678812A00EE33B3 /* DiscoveryCell.m */; };
 		847C09521678837700EE33B3 /* DiscoveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847C09511678837700EE33B3 /* DiscoveryCell.xib */; };
@@ -32,9 +33,12 @@
 		847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */; };
 		84987D4E1678A37B00C4BA41 /* DetailStickedObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84987D4C1678A37B00C4BA41 /* DetailStickedObjectViewController.m */; };
 		84987D4F1678A37B00C4BA41 /* DetailStickedObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84987D4D1678A37B00C4BA41 /* DetailStickedObjectViewController.xib */; };
+		84D6917A167AC2BE00146B09 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D69178167AC2BE00146B09 /* Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8413C5711679FCCA00EAF3F5 /* StickObjectSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickObjectSummary.h; sourceTree = "<group>"; };
+		8413C5721679FCCA00EAF3F5 /* StickObjectSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickObjectSummary.m; sourceTree = "<group>"; };
 		847C094A167832F600EE33B3 /* StickObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickObject.h; sourceTree = "<group>"; };
 		847C094B167832F600EE33B3 /* StickObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickObject.m; sourceTree = "<group>"; };
 		847C094E1678812A00EE33B3 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		84987D4B1678A37B00C4BA41 /* DetailStickedObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStickedObjectViewController.h; sourceTree = "<group>"; };
 		84987D4C1678A37B00C4BA41 /* DetailStickedObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStickedObjectViewController.m; sourceTree = "<group>"; };
 		84987D4D1678A37B00C4BA41 /* DetailStickedObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailStickedObjectViewController.xib; path = ../../ViewControllers/DetailStickedObjectViewController.xib; sourceTree = "<group>"; };
+		84D69178167AC2BE00146B09 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		84D69179167AC2BE00146B09 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,8 @@
 		847CF5331676F08700CC9411 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				84D69179167AC2BE00146B09 /* Utilities.h */,
+				84D69178167AC2BE00146B09 /* Utilities.m */,
 				847C094A167832F600EE33B3 /* StickObject.h */,
 				847C094B167832F600EE33B3 /* StickObject.m */,
 				847CF5341676F08700CC9411 /* BLEHelper */,
@@ -173,6 +181,8 @@
 				847CF5391676F08700CC9411 /* Defines.h */,
 				847CF53A1676F08700CC9411 /* UserDefaultsHelper.h */,
 				847CF53B1676F08700CC9411 /* UserDefaultsHelper.m */,
+				8413C5711679FCCA00EAF3F5 /* StickObjectSummary.h */,
+				8413C5721679FCCA00EAF3F5 /* StickObjectSummary.m */,
 			);
 			name = Utilities;
 			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities";
@@ -333,6 +343,8 @@
 				847C09501678812A00EE33B3 /* DiscoveryCell.m in Sources */,
 				847C095E167895B600EE33B3 /* DiscoveryCell1.m in Sources */,
 				84987D4E1678A37B00C4BA41 /* DetailStickedObjectViewController.m in Sources */,
+				8413C5731679FCCA00EAF3F5 /* StickObjectSummary.m in Sources */,
+				84D6917A167AC2BE00146B09 /* Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
