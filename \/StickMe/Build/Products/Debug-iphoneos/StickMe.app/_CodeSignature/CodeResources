@@ -6,7 +6,7 @@
 	<dict>
 		<key>DetailStickedObjectViewController.nib</key>
 		<data>
-		TyCMFWBc2k4yD/uBUZBvQ392psI=
+		QfHNwDHASKNgzg6XIWAN45XQzh0=
 		</data>
 		<key>Discovery.png</key>
 		<data>
@@ -18,23 +18,27 @@
 		</data>
 		<key>DiscoveryCell.nib</key>
 		<data>
-		1I604RhtCyLc99NJ1uv35JdzedM=
+		4pS9vxf/WaFlNNd8f+/fRv0XWPw=
 		</data>
 		<key>DiscoveryCell1.nib</key>
 		<data>
-		tF8sPdVPvFvy9tPa8OnuGVIXrH0=
+		8MUJdBNxWeLxgCaw/iWwxStzNC4=
 		</data>
 		<key>DiscoveryViewController.nib</key>
 		<data>
-		Id4XQMUo9mrBx9CHDk5Lq8xuysA=
+		aIFGR31qjRpbNcrC7ct7LPhuJfA=
 		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
+		<key>RadarView.nib</key>
+		<data>
+		TDHadjZaMnQhJpoV3BFfyqYYr/c=
+		</data>
 		<key>RadarViewController.nib</key>
 		<data>
-		f5RNqatEtf3YS9lM4ZTDQuagSsY=
+		QvXCmb8BHVPyk1Pm6FhWv3wSU2Y=
 		</data>
 		<key>Settings.png</key>
 		<data>
@@ -46,7 +50,7 @@
 		</data>
 		<key>SettingsViewController.nib</key>
 		<data>
-		q8a/UawfO2dDGf7XoWNNSgBHROA=
+		AgeFW3ZaqgR2Pga3ANhVvquygks=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
