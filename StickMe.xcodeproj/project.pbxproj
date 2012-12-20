@@ -35,8 +35,6 @@
 		847E6939167B401D002B6F89 /* RadarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847E6937167B401D002B6F89 /* RadarViewController.xib */; };
 		84987D4E1678A37B00C4BA41 /* DetailStickedObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84987D4C1678A37B00C4BA41 /* DetailStickedObjectViewController.m */; };
 		84987D4F1678A37B00C4BA41 /* DetailStickedObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84987D4D1678A37B00C4BA41 /* DetailStickedObjectViewController.xib */; };
-		849D8A3A1681C4A1001528BC /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8A391681C4A1001528BC /* RadarView.m */; };
-		849D8A3D1681C4C7001528BC /* RadarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D8A3C1681C4C7001528BC /* RadarView.xib */; };
 		84D6917A167AC2BE00146B09 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D69178167AC2BE00146B09 /* Utilities.m */; };
 /* End PBXBuildFile section */
 
@@ -85,9 +83,6 @@
 		84987D4B1678A37B00C4BA41 /* DetailStickedObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStickedObjectViewController.h; sourceTree = "<group>"; };
 		84987D4C1678A37B00C4BA41 /* DetailStickedObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStickedObjectViewController.m; sourceTree = "<group>"; };
 		84987D4D1678A37B00C4BA41 /* DetailStickedObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailStickedObjectViewController.xib; path = ../../ViewControllers/DetailStickedObjectViewController.xib; sourceTree = "<group>"; };
-		849D8A381681C4A1001528BC /* RadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarView.h; sourceTree = "<group>"; };
-		849D8A391681C4A1001528BC /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
-		849D8A3C1681C4C7001528BC /* RadarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarView.xib; sourceTree = "<group>"; };
 		84D69178167AC2BE00146B09 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		84D69179167AC2BE00146B09 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,8 +116,6 @@
 				847C094F1678812A00EE33B3 /* DiscoveryCell.m */,
 				847C095C167895B600EE33B3 /* DiscoveryCell1.h */,
 				847C095D167895B600EE33B3 /* DiscoveryCell1.m */,
-				849D8A381681C4A1001528BC /* RadarView.h */,
-				849D8A391681C4A1001528BC /* RadarView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,7 +240,6 @@
 				84987D4D1678A37B00C4BA41 /* DetailStickedObjectViewController.xib */,
 				847C09511678837700EE33B3 /* DiscoveryCell.xib */,
 				847C095F167895CC00EE33B3 /* DiscoveryCell1.xib */,
-				849D8A3C1681C4C7001528BC /* RadarView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -339,7 +331,6 @@
 				847C0960167895CC00EE33B3 /* DiscoveryCell1.xib in Resources */,
 				84987D4F1678A37B00C4BA41 /* DetailStickedObjectViewController.xib in Resources */,
 				847E6939167B401D002B6F89 /* RadarViewController.xib in Resources */,
-				849D8A3D1681C4C7001528BC /* RadarView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +355,6 @@
 				8413C5731679FCCA00EAF3F5 /* StickObjectSummary.m in Sources */,
 				84D6917A167AC2BE00146B09 /* Utilities.m in Sources */,
 				847E6938167B401D002B6F89 /* RadarViewController.m in Sources */,
-				849D8A3A1681C4A1001528BC /* RadarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
