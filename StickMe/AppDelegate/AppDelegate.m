@@ -8,9 +8,13 @@
 
 #import "AppDelegate.h"
 
+#import "Constants.h"
+#import "RadarViewController.h"
 #import "DiscoveryViewController.h"
-
 #import "SettingsViewController.h"
+#import "DetailStickedObjectViewController.h"
+
+#import "Utilities.h"
 
 void uncaughtExceptionHandler(NSException *exception) {
     
@@ -27,6 +31,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
 
+@synthesize refreshViewsTimer = _refreshViewsTimer;
+
 - (void)dealloc
 {
     [_window release];
@@ -38,17 +44,35 @@ void uncaughtExceptionHandler(NSException *exception) {
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[[DiscoveryViewController alloc] initWithNibName:@"DiscoveryViewController" bundle:nil] autorelease];
-    UIViewController *viewController2 = [[[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil] autorelease];
+    RadarViewController* radarVc = [[RadarViewController alloc] initWithNibName:@"RadarView" bundle:nil];
+    UINavigationController* radarNavigationController = [[UINavigationController alloc] initWithRootViewController:radarVc];
+    [radarVc release];
+    
+    DiscoveryViewController *discoveryVC = [[DiscoveryViewController alloc] initWithNibName:@"DiscoveryViewController" bundle:nil];
+    UINavigationController* discoveryNavigationController = [[UINavigationController alloc] initWithRootViewController:discoveryVC];
+    [discoveryVC release];
+    
+    SettingsViewController *settingsVC = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    UINavigationController* settingsNavigationController = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    [settingsVC release];   
+    
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:radarNavigationController, discoveryNavigationController, settingsNavigationController, nil];
+    [radarNavigationController release];
+    [discoveryNavigationController release];
+    [settingsNavigationController release];
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
+//    [self scan];
     BLEDiscoveryHelper* bluetoothDiscovery = [BLEDiscoveryHelper sharedInstance];
     bluetoothDiscovery.BLEDiscoveryHelperDelegate = self;
     //[_bluetoothDiscovery startScanningForUUIDString:@"00000000-0000-0000-0000-000000001804"];
     [bluetoothDiscovery startScanning];
+    
+    //create file
+    [Utilities createStoredRSSIFile];
     
     return YES;
 }
@@ -94,17 +118,69 @@ void uncaughtExceptionHandler(NSException *exception) {
 }
 */
 
+#pragma mark - Bluetooth actions
+//-(void) scan
+//{
+//    BLEDiscoveryHelper* bluetoothDiscovery = [BLEDiscoveryHelper sharedInstance];
+//    bluetoothDiscovery.BLEDiscoveryHelperDelegate = self;
+//    //[_bluetoothDiscovery startScanningForUUIDString:@"00000000-0000-0000-0000-000000001804"];
+//    [bluetoothDiscovery startScanning];
+//}
+
 #pragma mark - BLEDiscoveryHelperDelegate
 -(void) discoveryDidRefresh
 { 
-    DiscoveryViewController* discoveryViewController = (DiscoveryViewController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+//    NSLog(@"discoveryDidRefresh");
+    if (!self.refreshViewsTimer) {
+        self.refreshViewsTimer = [NSTimer scheduledTimerWithTimeInterval:kRefreshViewsInterval target:self selector:@selector(refreshViews) userInfo:nil repeats:YES];
+    }
+    
+    //reload RadarView
+    UINavigationController* radarNavigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:RADAR_TAB_INDEX];
+    RadarViewController* radarViewController = (RadarViewController*)[radarNavigationController.viewControllers objectAtIndex:0];
+    //:D:D
+    [radarViewController reloadBluetoothDevicesList];
+    
+    //reload discoveryView
+    UINavigationController* discoveryNavigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:DISCOVERY_TAB_INDEX];
+    DiscoveryViewController* discoveryViewController = (DiscoveryViewController*)[discoveryNavigationController.viewControllers objectAtIndex:0];
 //    [discoveryViewController reloadBluetoothDevicesList];
-    [discoveryViewController reloadBluetoothDevicesList:((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).foundPeripherals];
+//    [discoveryViewController reloadBluetoothDevicesList:((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).foundPeripherals];
+    [discoveryViewController.bluetoothDevicesTable reloadData];
+}
+
+-(void) refreshViews
+{
+    BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
+    NSMutableArray* discoveredSticks = [BLEDiscover discoveredStickedObjectsList];
+    for (StickObject* stick in discoveredSticks) {
+        [stick averageRSSI];
+    }
+    
+//    [BLEDiscover checkOutOfRangeDevices];
 }
 
 -(void) discoveryStatePoweredOff
 {
     NSLog(@"Appdelegate discoveryStatePoweredOff");
+}
+
+-(void) updateStickedObjectAtIndex:(int)index
+{
+    //reload discoveryView
+    UINavigationController* discoveryNavigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:DISCOVERY_TAB_INDEX];
+    DiscoveryViewController* discoveryViewController = (DiscoveryViewController*)[discoveryNavigationController.viewControllers objectAtIndex:0];
+    
+    NSArray* indexesArray = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil];
+    [discoveryViewController.bluetoothDevicesTable reloadRowsAtIndexPaths:indexesArray withRowAnimation:UITableViewRowAnimationFade];    
+    
+    //reload detailStickedObjectView (if existed)
+    for (id viewController in [discoveryNavigationController viewControllers]) {
+        if ([viewController isKindOfClass:[DetailStickedObjectViewController class]]) {
+            DetailStickedObjectViewController* detailVC = (DetailStickedObjectViewController*)viewController;
+            [detailVC.detailTable reloadData];
+        }
+    }
 }
 
 @end

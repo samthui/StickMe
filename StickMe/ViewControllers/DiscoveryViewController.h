@@ -12,7 +12,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView* bluetoothDevicesTable;
 
-@property (nonatomic, retain) NSArray* bluetoothDevicesArray;
+//@property (nonatomic, retain) NSArray* bluetoothDevicesArray;
 
 -(void) reloadBluetoothDevicesList;
 -(void) reloadBluetoothDevicesList:(NSArray*) bluetoothDeviceArray;

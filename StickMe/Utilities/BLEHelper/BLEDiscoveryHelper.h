@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-
+#import "StickObject.h"
 
 
 /****************************************************************************/
@@ -18,6 +18,10 @@
 @protocol BLEDiscoveryHelperDelegate <NSObject>
 - (void) discoveryDidRefresh;
 - (void) discoveryStatePoweredOff;
+
+@optional
+- (void) updateStickedObjectAtIndex:(int)index;
+
 @end
 
 @interface BLEDiscoveryHelper : NSObject
@@ -36,6 +40,7 @@ extern NSString *kLockingServiceEnteredForegroundNotification;
 /****************************************************************************/
 /*								Actions										*/
 /****************************************************************************/
+- (void) reScan;
 - (void) startScanningForUUIDString:(NSString *)uuidString;
 - (void) startScanning;
 - (void) stopScanning;
@@ -46,18 +51,23 @@ extern NSString *kLockingServiceEnteredForegroundNotification;
 
 - (void)sendCommand:(int)command;
 - (void)sendCommand:(int)command toPeripheral:(CBPeripheral*)peripheral;
+- (void)sendCommand:(int)command toStickObject:(StickObject*)stick;
 
 /* Behave properly when heading into and out of the background */
 - (void)enteredBackground;
 - (void)enteredForeground;
 
-- (void)startAutoUnlock;
-- (void)stopAutoUnlock;
+//- (void)startAutoUnlock;
+//- (void)stopAutoUnlock;
+
+//samthui7
+-(void) checkOutOfRangeDevices;
+-(void) addToInRangeDevicesList:(NSString*)UUID;
 
 /****************************************************************************/
 /*							Access to the devices							*/
 /****************************************************************************/
-//@property (nonatomic, retain) CBPeripheral *foundPeripheral;
-@property (retain, nonatomic) NSMutableArray    *foundPeripherals;
+//@property (retain, nonatomic) NSMutableArray    *foundPeripherals;
+@property (retain, nonatomic) NSMutableArray    *discoveredStickedObjectsList;
 
 @end

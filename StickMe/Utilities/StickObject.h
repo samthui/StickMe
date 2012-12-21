@@ -14,9 +14,21 @@
 @property (nonatomic, retain) CBPeripheral* peripheral;
 @property (nonatomic, retain) CBCharacteristic* readCharacteristic;
 @property (nonatomic, retain) CBCharacteristic* writeCharacteristic;
+@property (nonatomic, assign) BOOL isBlinking;
+@property (nonatomic, assign) BOOL isRinging;
+@property (nonatomic, assign) NSRange range;
+@property (nonatomic, assign) int currentDistance;
+@property (nonatomic, assign) int setupDistance;
+
+@property (nonatomic, retain) NSMutableArray* RSSIsArray;
 
 -(id) initWithPeripheral: (CBPeripheral*)peripheral;
 
 -(void) sendCommand:(int)command;
+
+-(void) connectPeripheral;
+-(void) cancelConnection;
+
+-(void) averageRSSI;
 
 @end

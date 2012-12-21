@@ -29,12 +29,13 @@
 		847CF5591676F08700CC9411 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5451676F08700CC9411 /* SettingsViewController.xib */; };
 		847CF55A1676F08700CC9411 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5481676F08700CC9411 /* DiscoveryViewController.m */; };
 		847CF55B1676F08700CC9411 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF54A1676F08700CC9411 /* SettingsViewController.m */; };
-		847CF55C1676F08700CC9411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF54D1676F08700CC9411 /* AppDelegate.m */; };
 		847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */; };
 		847E6938167B401D002B6F89 /* RadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E6936167B401D002B6F89 /* RadarViewController.m */; };
-		847E6939167B401D002B6F89 /* RadarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847E6937167B401D002B6F89 /* RadarViewController.xib */; };
 		84987D4E1678A37B00C4BA41 /* DetailStickedObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84987D4C1678A37B00C4BA41 /* DetailStickedObjectViewController.m */; };
-		84987D4F1678A37B00C4BA41 /* DetailStickedObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84987D4D1678A37B00C4BA41 /* DetailStickedObjectViewController.xib */; };
+		84C6A5221684094400325741 /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A5211684094400325741 /* RadarView.m */; };
+		84C6A524168409B900325741 /* RadarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6A523168409B900325741 /* RadarView.xib */; };
+		84C6A55E16840D5A00325741 /* DetailStickedObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6A55D16840D5A00325741 /* DetailStickedObjectViewController.xib */; };
+		84C6A56216840DEE00325741 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A56116840DEE00325741 /* AppDelegate.m */; };
 		84D6917A167AC2BE00146B09 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D69178167AC2BE00146B09 /* Utilities.m */; };
 /* End PBXBuildFile section */
 
@@ -74,15 +75,17 @@
 		847CF5481676F08700CC9411 /* DiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
 		847CF5491676F08700CC9411 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		847CF54A1676F08700CC9411 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		847CF54C1676F08700CC9411 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		847CF54D1676F08700CC9411 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		847E6935167B401D002B6F89 /* RadarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarViewController.h; sourceTree = "<group>"; };
 		847E6936167B401D002B6F89 /* RadarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarViewController.m; sourceTree = "<group>"; };
-		847E6937167B401D002B6F89 /* RadarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RadarViewController.xib; path = ../../ViewControllers/RadarViewController.xib; sourceTree = "<group>"; };
 		84987D4B1678A37B00C4BA41 /* DetailStickedObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStickedObjectViewController.h; sourceTree = "<group>"; };
 		84987D4C1678A37B00C4BA41 /* DetailStickedObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStickedObjectViewController.m; sourceTree = "<group>"; };
-		84987D4D1678A37B00C4BA41 /* DetailStickedObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailStickedObjectViewController.xib; path = ../../ViewControllers/DetailStickedObjectViewController.xib; sourceTree = "<group>"; };
+		84C6A5201684094400325741 /* RadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarView.h; sourceTree = "<group>"; };
+		84C6A5211684094400325741 /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
+		84C6A523168409B900325741 /* RadarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarView.xib; sourceTree = "<group>"; };
+		84C6A55D16840D5A00325741 /* DetailStickedObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailStickedObjectViewController.xib; path = StickMe/Resources/Xibs/DetailStickedObjectViewController.xib; sourceTree = SOURCE_ROOT; };
+		84C6A56016840DEE00325741 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84C6A56116840DEE00325741 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84D69178167AC2BE00146B09 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		84D69179167AC2BE00146B09 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +115,8 @@
 		847C094D167880B600EE33B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84C6A5201684094400325741 /* RadarView.h */,
+				84C6A5211684094400325741 /* RadarView.m */,
 				847C094E1678812A00EE33B3 /* DiscoveryCell.h */,
 				847C094F1678812A00EE33B3 /* DiscoveryCell.m */,
 				847C095C167895B600EE33B3 /* DiscoveryCell1.h */,
@@ -156,7 +161,7 @@
 				847CF53C1676F08700CC9411 /* Resources */,
 				847CF5461676F08700CC9411 /* ViewControllers */,
 				847C094D167880B600EE33B3 /* Views */,
-				847CF54B1676F08700CC9411 /* AppDelegate */,
+				84C6A55F16840DEE00325741 /* AppDelegate */,
 				847CF51E1676EFC000CC9411 /* Supporting Files */,
 			);
 			path = StickMe;
@@ -234,10 +239,10 @@
 		847CF5431676F08700CC9411 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				847E6937167B401D002B6F89 /* RadarViewController.xib */,
+				84C6A55D16840D5A00325741 /* DetailStickedObjectViewController.xib */,
+				84C6A523168409B900325741 /* RadarView.xib */,
 				847CF5441676F08700CC9411 /* DiscoveryViewController.xib */,
 				847CF5451676F08700CC9411 /* SettingsViewController.xib */,
-				84987D4D1678A37B00C4BA41 /* DetailStickedObjectViewController.xib */,
 				847C09511678837700EE33B3 /* DiscoveryCell.xib */,
 				847C095F167895CC00EE33B3 /* DiscoveryCell1.xib */,
 			);
@@ -260,14 +265,13 @@
 			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/ViewControllers";
 			sourceTree = "<group>";
 		};
-		847CF54B1676F08700CC9411 /* AppDelegate */ = {
+		84C6A55F16840DEE00325741 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				847CF54C1676F08700CC9411 /* AppDelegate.h */,
-				847CF54D1676F08700CC9411 /* AppDelegate.m */,
+				84C6A56016840DEE00325741 /* AppDelegate.h */,
+				84C6A56116840DEE00325741 /* AppDelegate.m */,
 			);
-			name = AppDelegate;
-			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/AppDelegate";
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,8 +333,8 @@
 				847CF5591676F08700CC9411 /* SettingsViewController.xib in Resources */,
 				847C09521678837700EE33B3 /* DiscoveryCell.xib in Resources */,
 				847C0960167895CC00EE33B3 /* DiscoveryCell1.xib in Resources */,
-				84987D4F1678A37B00C4BA41 /* DetailStickedObjectViewController.xib in Resources */,
-				847E6939167B401D002B6F89 /* RadarViewController.xib in Resources */,
+				84C6A524168409B900325741 /* RadarView.xib in Resources */,
+				84C6A55E16840D5A00325741 /* DetailStickedObjectViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +351,6 @@
 				847CF5531676F08700CC9411 /* UserDefaultsHelper.m in Sources */,
 				847CF55A1676F08700CC9411 /* DiscoveryViewController.m in Sources */,
 				847CF55B1676F08700CC9411 /* SettingsViewController.m in Sources */,
-				847CF55C1676F08700CC9411 /* AppDelegate.m in Sources */,
 				847C094C167832F600EE33B3 /* StickObject.m in Sources */,
 				847C09501678812A00EE33B3 /* DiscoveryCell.m in Sources */,
 				847C095E167895B600EE33B3 /* DiscoveryCell1.m in Sources */,
@@ -355,6 +358,8 @@
 				8413C5731679FCCA00EAF3F5 /* StickObjectSummary.m in Sources */,
 				84D6917A167AC2BE00146B09 /* Utilities.m in Sources */,
 				847E6938167B401D002B6F89 /* RadarViewController.m in Sources */,
+				84C6A5221684094400325741 /* RadarView.m in Sources */,
+				84C6A56216840DEE00325741 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,34 +11,42 @@
 #import "UserDefaultsHelper.h"
 #import "Constants.h"
 #import "Defines.h"
+#import "Utilities.h"
 
 #import "AppDelegate.h"
+#import "StickObject.h"
+#import "StickObjectSummary.h"
 
 
 static BLEDiscoveryHelper *shareBLEDiscoveryHelper = nil;
 
 @interface BLEDiscoveryHelper () <CBCentralManagerDelegate, CBPeripheralDelegate>
 {
-//	CBCentralManager    *centralManager;
-    CBCharacteristic *readCharacteristic;
-    CBCharacteristic *writeCharacteristic;
-    int currentCommand;
+//    int currentCommand;
+//    
+//    BOOL isFirstLostConnection;
     
-    BOOL isFirstLostConnection;
+    NSMutableArray* _inRangeDevices;
 }
 
 @property (nonatomic, retain) NSTimer *timeoutToStopTimer;
-@property (nonatomic, retain) CBCharacteristic *readCharacteristic;
-@property (nonatomic, retain) CBCharacteristic *writeCharacteristic;
+@property (nonatomic, retain) NSTimer *reScanTimer;
 @property (nonatomic, retain) NSTimer *wakeupTimer;
+
+@property (nonatomic, retain) NSMutableArray* inRangeDevices;
+
+-(void) reScan;
 
 @end
 
 @implementation BLEDiscoveryHelper
 @synthesize wakeupTimer = _wakeupTimer;
 @synthesize timeoutToStopTimer = _timeoutToStopTimer;
-//@synthesize foundPeripheral = _foundPeripheral;
-@synthesize foundPeripherals = _foundPeripherals;
+@synthesize reScanTimer = _reScanTimer;
+
+//@synthesize foundPeripherals = _foundPeripherals;
+@synthesize inRangeDevices = _inRangeDevices;
+@synthesize discoveredStickedObjectsList = _discoveredStickedObjectsList;
 
 @synthesize centralManager = centralManager;
 
@@ -47,7 +55,7 @@ static BLEDiscoveryHelper *shareBLEDiscoveryHelper = nil;
 const NSString *kLockingServiceEnteredBackgroundNotification = @"LockingServiceEnteredBackgroundNotification";
 const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceEnteredForegroundNotification";
 
-@synthesize readCharacteristic, writeCharacteristic;
+//@synthesize readCharacteristic, writeCharacteristic;
 
 + (id)sharedInstance
 {
@@ -94,10 +102,43 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     if (self = [super init]) {
         //custom initialization.
         centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-        currentCommand = k_command_wakeup;
-		_foundPeripherals = [[NSMutableArray alloc] init];
+//        currentCommand = k_command_wakeup;
+//		_foundPeripherals = [[NSMutableArray alloc] init];
+        _inRangeDevices = [NSMutableArray new];
+        _discoveredStickedObjectsList = [NSMutableArray new];
     }
     return self;
+}
+
+-(void)dealloc
+{
+    self.BLEDiscoveryHelperDelegate = nil;
+    [self.centralManager release];
+//    self.foundPeripherals = nil;
+    self.discoveredStickedObjectsList = nil;
+    
+    if (self.timeoutToStopTimer) {
+        if ([_timeoutToStopTimer isValid]) {
+            [_timeoutToStopTimer invalidate];
+        }
+        self.timeoutToStopTimer = nil;
+    } 
+    
+    if (self.reScanTimer) {
+        if ([_reScanTimer isValid]) {
+            [_reScanTimer invalidate];
+        }
+        self.reScanTimer = nil;
+    } 
+    
+    if (self.wakeupTimer) {
+        if ([_wakeupTimer isValid]) {
+            [_wakeupTimer invalidate];
+        }
+        self.wakeupTimer = nil;
+    }
+    
+    [super dealloc];
 }
 
 #pragma mark - Handle background/foreground notification
@@ -137,49 +178,48 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 }
 
 #pragma mark - Private methods
-
 // Restoring
-- (void) loadSavedDevice
-{
-	NSString *deviceUUIDString	= [UserDefaultsHelper getStoredDeviceUUID];
-    
-	if (deviceUUIDString == nil) {
-        NSLog(@"No stored array to load");
-        return;
-    }
-    
-    CFUUIDRef uuid = CFUUIDCreateFromString(NULL, (CFStringRef)deviceUUIDString);
-    if (uuid != NULL) {
-        [centralManager retrievePeripherals:[NSArray arrayWithObject:(id)uuid]];
-    }
-    CFRelease(uuid);
-}
-
+//- (void) loadSavedDevice
+//{
+//	NSString *deviceUUIDString	= [UserDefaultsHelper getStoredDeviceUUID];
+//    
+//	if (deviceUUIDString == nil) {
+//        NSLog(@"No stored array to load");
+//        return;
+//    }
+//    
+//    CFUUIDRef uuid = CFUUIDCreateFromString(NULL, (CFStringRef)deviceUUIDString);
+//    if (uuid != NULL) {
+//        [centralManager retrievePeripherals:[NSArray arrayWithObject:(id)uuid]];
+//    }
+//    CFRelease(uuid);
+//}
+//
 - (void) removeSavedDevice:(CFUUIDRef) uuid
 {
-	NSString *deviceUUIDString	= [UserDefaultsHelper getStoredDeviceUUID];
-    if (deviceUUIDString == nil) {
-        NSLog(@"No stored array to load");
-        return;
-    }
-    
-    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
-    if (uuidString) {
-        if ([[UserDefaultsHelper getStoredDeviceUUID] isEqualToString:(NSString *)uuidString]) {
-            [UserDefaultsHelper setStoredDeviceUUID:@""];
-        }
-        CFRelease(uuidString);
-    }
+//	NSString *deviceUUIDString	= [UserDefaultsHelper getStoredDeviceUUID];
+//    if (deviceUUIDString == nil) {
+//        NSLog(@"No stored array to load");
+//        return;
+//    }
+//    
+//    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
+//    if (uuidString) {
+//        if ([[UserDefaultsHelper getStoredDeviceUUID] isEqualToString:(NSString *)uuidString]) {
+//            [UserDefaultsHelper setStoredDeviceUUID:@""];
+//        }
+//        CFRelease(uuidString);
+//    }
 }
-
-- (void)saveDevice:(CFUUIDRef) uuid
-{
-    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
-    if (uuidString) {
-        [UserDefaultsHelper setStoredDeviceUUID:(NSString *)uuidString];
-        CFRelease(uuidString);
-    }
-}
+//
+//- (void)saveDevice:(CFUUIDRef) uuid
+//{
+//    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
+//    if (uuidString) {
+//        [UserDefaultsHelper setStoredDeviceUUID:(NSString *)uuidString];
+//        CFRelease(uuidString);
+//    }
+//}
 
 - (void)writeValueForCommand
 {
@@ -229,35 +269,68 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 //    [_foundPeripheral writeValue:data forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithResponse];
 }
 
+/*samthui7*/
 - (void)writeValueForCommand:(int)command toPeripheral:(CBPeripheral*)peripheral
 {
-//    if (_foundPeripheral==nil || readCharacteristic==nil || writeCharacteristic==nil) {
+//    if (peripheral==nil || peripheral.readCharacteristic==nil || peripheral.writeCharacteristic==nil) {
 //        NSLog(@"peripheral or characteristic is null");
 //        [self startScanning]; //retry to scan
 //        return;
 //    }
+//
+//    unsigned char byteData[IO_CHARACTERISTIC_LENGTH];
+//    [peripheral.readCharacteristic.value getBytes:&byteData length:IO_CHARACTERISTIC_LENGTH];
+//
+//    unsigned char generatedData[IO_CHARACTERISTIC_LENGTH];
+//    generatedData[0] = (byteData[0] * (byteData[3] >> (byteData[2] % 8))) % 256;
+//    generatedData[1] = (byteData[1] * (byteData[0] >> (byteData[3] % 8))) % 256;
+//    generatedData[2] = (byteData[2] * (byteData[1] >> (byteData[0] % 8))) % 256;
+//    generatedData[3] = (byteData[3] * (byteData[2] >> (byteData[1] % 8))) % 256;
+//
+//    unsigned char phoneKey[4] = { 0x31, 0x32, 0x33, 0x34 };
+//
+//    generatedData[0] = generatedData[0] ^ (~phoneKey[0]);
+//    generatedData[1] = generatedData[1] ^ (~phoneKey[1]);
+//    generatedData[2] = generatedData[2] ^ (~phoneKey[2]);
+//    generatedData[3] = generatedData[3] ^ (~phoneKey[3]);
+//
+//    generatedData[0] = (generatedData[0] & 0xFC) | command;
+//
+//    //try to send command
+//    NSData *data = [NSData dataWithBytes:generatedData length:IO_CHARACTERISTIC_LENGTH];
+//    [peripheral writeValue:data forCharacteristic:peripheral.writeCharacteristic type:CBCharacteristicWriteWithResponse];
+}
 
+/*samthui7*/
+- (void)writeValueForCommand:(int)command toStickObject:(StickObject *)stick
+{
+    if (stick.peripheral==nil || stick.readCharacteristic==nil || stick.writeCharacteristic==nil) {
+        NSLog(@"peripheral or characteristic is null");
+//        [self startScanning]; //retry to scan
+        return;
+    }
+    
     unsigned char byteData[IO_CHARACTERISTIC_LENGTH];
-    [readCharacteristic.value getBytes:&byteData length:IO_CHARACTERISTIC_LENGTH];
-
+    [stick.readCharacteristic.value getBytes:&byteData length:IO_CHARACTERISTIC_LENGTH];
+    
     unsigned char generatedData[IO_CHARACTERISTIC_LENGTH];
     generatedData[0] = (byteData[0] * (byteData[3] >> (byteData[2] % 8))) % 256;
     generatedData[1] = (byteData[1] * (byteData[0] >> (byteData[3] % 8))) % 256;
     generatedData[2] = (byteData[2] * (byteData[1] >> (byteData[0] % 8))) % 256;
     generatedData[3] = (byteData[3] * (byteData[2] >> (byteData[1] % 8))) % 256;
-
+    
     unsigned char phoneKey[4] = { 0x31, 0x32, 0x33, 0x34 };
-
+    
     generatedData[0] = generatedData[0] ^ (~phoneKey[0]);
     generatedData[1] = generatedData[1] ^ (~phoneKey[1]);
     generatedData[2] = generatedData[2] ^ (~phoneKey[2]);
     generatedData[3] = generatedData[3] ^ (~phoneKey[3]);
-
+    
     generatedData[0] = (generatedData[0] & 0xFC) | command;
-
+    
     //try to send command
     NSData *data = [NSData dataWithBytes:generatedData length:IO_CHARACTERISTIC_LENGTH];
-    [peripheral writeValue:data forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithResponse];
+    [stick.peripheral writeValue:data forCharacteristic:stick.writeCharacteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (void)sendAutoUnlockCommand
@@ -272,6 +345,13 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 }
 
 #pragma mark - Public methods
+-(void) reScan
+{
+    NSLog(@"reScan");
+    [self stopScanning];
+    
+    [self startScanning];
+}
 
 // Discovery
 - (void) startScanningForUUIDString:(NSString *)uuidString
@@ -286,7 +366,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     if ([self.timeoutToStopTimer isValid]) {
         [self.timeoutToStopTimer invalidate];
     }
-//    self.timeoutToStopTimer = [NSTimer scheduledTimerWithTimeInterval:kConnectionTimeout target:self selector:@selector(stopScanning) userInfo:nil repeats:NO];
+//    self.timeoutToStopTimer = [NSTimer scheduledTimerWithTimeInterval:kScanInterval target:self selector:@selector(stopScanning) userInfo:nil repeats:NO];
     
     //start scanning
 	[centralManager scanForPeripheralsWithServices:uuidArray options:options];
@@ -303,7 +383,16 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     if ([self.timeoutToStopTimer isValid]) {
         [self.timeoutToStopTimer invalidate];
     }
-    self.timeoutToStopTimer = [NSTimer scheduledTimerWithTimeInterval:kConnectionTimeout target:self selector:@selector(stopScanning) userInfo:nil repeats:NO];
+    
+    //stopTimer??
+//    self.timeoutToStopTimer = [NSTimer scheduledTimerWithTimeInterval:kScanInterval target:self selector:@selector(stopScanning) userInfo:nil repeats:NO];
+    
+    if (self.reScanTimer) {
+        if ([_reScanTimer isValid]) {
+            [_reScanTimer invalidate];
+        }
+    }
+//    self.reScanTimer = [NSTimer scheduledTimerWithTimeInterval:kScanInterval target:self selector:@selector(reScan) userInfo:nil repeats:NO];
     
     //start scanning
 	[centralManager scanForPeripheralsWithServices:nil options:options];
@@ -316,42 +405,34 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 
 - (void)sendCommand:(int)command
 {
-    currentCommand = command;
-    [self writeValueForCommand];
-    switch (command) {
-        case k_command_lock:
-        {
-            [self stopAutoUnlock];
-        }
-            break;
-        case k_command_unlock:
-        {
-            [self startAutoUnlock];
-        }
-            break;
-        default:
-            break;
-    }
+//    currentCommand = command;
+//    [self writeValueForCommand];
+//    switch (command) {
+//        case k_command_lock:
+//        {
+//            [self stopAutoUnlock];
+//        }
+//            break;
+//        case k_command_unlock:
+//        {
+//            [self startAutoUnlock];
+//        }
+//            break;
+//        default:
+//            break;
+//    }
 }
 
+/*samthui7*/
 - (void)sendCommand:(int)command toPeripheral:(CBPeripheral *)peripheral
 {
-//    currentCommand = command;
-    [self writeValueForCommand];
-    switch (command) {
-        case k_command_lock:
-        {
-            [self stopAutoUnlock];
-        }
-            break;
-        case k_command_unlock:
-        {
-            [self startAutoUnlock];
-        }
-            break;
-        default:
-            break;
-    }
+    [self writeValueForCommand:command toPeripheral:peripheral];
+}
+
+/*samthui7*/
+- (void)sendCommand:(int)command toStickObject:(StickObject *)stick
+{
+    [self writeValueForCommand:command toStickObject:stick];
 }
 
 // Connection/Disconnection
@@ -377,16 +458,62 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 //auto lock/unlock
 - (void)startAutoUnlock
 {
-    if ([_wakeupTimer isValid]) {
-        [_wakeupTimer invalidate];
-    }
-    self.wakeupTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sendAutoUnlockCommand) userInfo:nil repeats:YES];
+//    if ([_wakeupTimer isValid]) {
+//        [_wakeupTimer invalidate];
+//    }
+//    self.wakeupTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sendAutoUnlockCommand) userInfo:nil repeats:YES];
 }
 
 - (void)stopAutoUnlock
 {
-    if ([_wakeupTimer isValid]) {
-        [_wakeupTimer invalidate];
+//    if ([_wakeupTimer isValid]) {
+//        [_wakeupTimer invalidate];
+//    }
+}
+
+//samthui7
+-(void) checkOutOfRangeDevices
+{
+    NSMutableArray* outRangeDevices = [NSMutableArray array];
+    
+    int index = 0;
+    
+    NSMutableArray* UUIDsList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+    for(StickObject* stick in self.discoveredStickedObjectsList)
+    {
+        NSString* stickUUID = [Utilities UUIDofPeripheral:stick.peripheral];
+        if (![self.inRangeDevices containsObject:stickUUID]) {
+            [outRangeDevices addObject:stick];
+//            NSLog(@"out %i", index);
+            
+            //re-order
+            StickObjectSummary* tempStickSummary = [[UUIDsList objectAtIndex:index] retain];
+            [UUIDsList removeObjectAtIndex:index];
+            [UUIDsList insertObject:tempStickSummary atIndex:0];
+            [tempStickSummary release];
+        }
+        index ++;
+    }
+    //save to NSUserDefault 
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:[NSKeyedArchiver archivedDataWithRootObject:UUIDsList] forKey:(NSString*)kUUIDsList];
+    [userDefault synchronize]; 
+    
+//    NSLog(@"discovered 1: %i", self.discoveredStickedObjectsList.count);
+    [self.discoveredStickedObjectsList removeObjectsInArray:(NSArray*)outRangeDevices];
+//    NSLog(@"discovered 2: %i", self.discoveredStickedObjectsList.count);
+    
+    if (self.BLEDiscoveryHelperDelegate && [_BLEDiscoveryHelperDelegate respondsToSelector:@selector(discoveryDidRefresh)]) {
+        [_BLEDiscoveryHelperDelegate discoveryDidRefresh];
+    }
+    
+    self.inRangeDevices = [NSMutableArray array];
+}
+
+-(void) addToInRangeDevicesList:(NSString *)UUID
+{
+    if (![self.inRangeDevices containsObject:UUID]) {
+        [self.inRangeDevices addObject:UUID];
     }
 }
 
@@ -399,8 +526,8 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 	switch ([centralManager state]) {
 		case CBCentralManagerStatePoweredOff:
 		{
-//            self.foundPeripheral = nil;
-            self.foundPeripherals = nil;
+//            self.foundPeripherals = nil;
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:(NSString*)kUsersStickedObjectList];
 			NSLog(@"PoweredOff");
             break;
 		}
@@ -421,15 +548,16 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
             
 		case CBCentralManagerStatePoweredOn:
 		{
-            [self loadSavedDevice];
-			[centralManager retrieveConnectedPeripherals];
+			NSLog(@"PoweredOn");
+//            [self loadSavedDevice];
+//			[centralManager retrieveConnectedPeripherals];
 			break;
 		}
             
 		case CBCentralManagerStateResetting:
 		{
-//            self.foundPeripheral = nil;
-            self.foundPeripherals = nil;
+//            self.foundPeripherals = nil;
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:(NSString*)kUsersStickedObjectList];
 			NSLog(@"Resetting");
             break;
 		}
@@ -446,48 +574,99 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     previousState = [centralManager state];
 }
 
-//- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
-//{
+/*samthui7*/
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+{
 //    NSLog(@"Advert:%@", advertisementData);
 //    CBUUID *uuid = [[advertisementData objectForKey:CBAdvertisementDataServiceUUIDsKey] objectAtIndex:0];
 //    NSLog(@"uuid:%@", uuid.description);
-//    NSLog(@"pUUID:%@", (NSString *)peripheral.UUID);
-//    if ([uuid isEqual:[CBUUID UUIDWithString:LOCK_SERVICE_UUID]]) {
-//        if (self.foundPeripheral==nil) {
-//            self.foundPeripheral = peripheral;
-//            self.foundPeripheral.delegate = self;
-//            [self saveDevice:peripheral.UUID];
-//            [central connectPeripheral:peripheral options:nil];
-//        }
-//    }
-//	
-//}
-
-- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
-{
-    NSLog(@"Advert:%@", advertisementData);
-    CBUUID *uuid = [[advertisementData objectForKey:CBAdvertisementDataServiceUUIDsKey] objectAtIndex:0];
-    NSLog(@"uuid:%@", uuid.description);
-    NSLog(@"pUUID:%@", (NSString *)peripheral.UUID);
-//    if ([uuid isEqual:[CBUUID UUIDWithString:LOCK_SERVICE_UUID]]) {
-//        if (self.foundPeripheral==nil) {
-//            self.foundPeripheral = peripheral;
-//            self.foundPeripheral.delegate = self;
-//            [self saveDevice:peripheral.UUID];
-//            [central connectPeripheral:peripheral options:nil];
-//        }
-//    }
-	
-	if (![_foundPeripherals containsObject:peripheral]) {
-		[_foundPeripherals addObject:peripheral];
-		[_BLEDiscoveryHelperDelegate discoveryDidRefresh];
-	}
+    NSString* pUUID = [Utilities UUIDofPeripheral:peripheral];
+    NSLog(@"pUUID:%@", pUUID);  
+    
+    //save to inRangeDevices list
+    [self addToInRangeDevicesList:pUUID];
+    
+    //save to NSUserDefault 
+     NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* UUIDsList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+    BOOL existed = NO;
+    int index;
+    StickObjectSummary* seekStickObjectSummary;
+    for (index = 0; index < UUIDsList.count; index++) {
+        seekStickObjectSummary = (StickObjectSummary*)[UUIDsList objectAtIndex:index];
+//        NSLog(@"seek: %@", seekStickObjectSummary.UUID);
+        if ([seekStickObjectSummary.UUID isEqual:pUUID]) {
+            existed = YES;
+            break;
+        }
+    }
+    if (!existed) {
+//        NSLog(@"not existed :D ^^");
+        StickObjectSummary* newItem = [[StickObjectSummary alloc] init];
+        newItem.name = [NSString stringWithFormat:@"NoName %i", UUIDsList.count];
+        newItem.UUID = pUUID;
+        [UUIDsList addObject:newItem];
+        [newItem release];
+        
+        StickObject* stick = [[StickObject alloc] initWithPeripheral:peripheral];
+        stick.range = [Utilities convertToRangeDistanceFromRSSI:[RSSI intValue]];
+        NSLog(@"range 1: %@", NSStringFromRange(stick.range));
+        stick.currentDistance = [RSSI intValue];
+        [_discoveredStickedObjectsList addObject:stick];
+        [stick release]; 
+    }
+    else {
+        //Update this founded object and put it at top of 2 arrays DiscoveredStickedObject + UUIDsList
+        
+//        NSLog(@"found at index: %i!!!", index);
+        
+        BOOL existed = NO;
+        for (int i = 0; i < _discoveredStickedObjectsList.count; i++) {
+            StickObject* stick = (StickObject*)[_discoveredStickedObjectsList objectAtIndex:i];
+            NSString* tempUUID = [Utilities UUIDofPeripheral:stick.peripheral];
+            if ([tempUUID isEqual:pUUID]) {
+                existed = YES;
+                 
+                if (!stick.RSSIsArray) {
+                    stick.RSSIsArray = [NSMutableArray array];
+                }
+                [stick.RSSIsArray addObject:RSSI];
+                break;
+            }
+        }
+        if (!existed) {            
+//            NSLog(@"not discovered yet");
+            StickObject* stick = [[StickObject alloc] initWithPeripheral:peripheral];
+            stick.range = [Utilities convertToRangeDistanceFromRSSI:[RSSI intValue]];
+//            NSLog(@"range 2: %@", NSStringFromRange(stick.range));
+            stick.currentDistance = [RSSI intValue];
+            
+            [_discoveredStickedObjectsList insertObject:stick atIndex:0];
+            [stick release];
+            
+            
+            //re-order
+            StickObjectSummary* tempStickSummary = [[UUIDsList objectAtIndex:index] retain];
+            [UUIDsList removeObjectAtIndex:index];
+            [UUIDsList insertObject:tempStickSummary atIndex:0];
+            [tempStickSummary release];  
+        }   
+        else {
+            return;
+        }
+    }
+    
+    [userDefault setObject:[NSKeyedArchiver archivedDataWithRootObject:UUIDsList] forKey:(NSString*)kUUIDsList];
+    [userDefault synchronize];    
+    
+    if (self.BLEDiscoveryHelperDelegate && [_BLEDiscoveryHelperDelegate respondsToSelector:@selector(discoveryDidRefresh)]) {
+        [_BLEDiscoveryHelperDelegate discoveryDidRefresh];
+    }
 }
-
-#pragma mark - CBPeripheralDelegate
 
 - (void) centralManager:(CBCentralManager *)central didRetrieveConnectedPeripherals:(NSArray *)peripherals
 {
+    NSLog(@"didRetrieveConnectedPeripherals");
 //	CBPeripheral	*peripheral;
 //	
 //	/* Add to list. */
@@ -515,94 +694,69 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 
 - (void) centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
+    NSLog(@"didConnectPeripheral");
+    NSLog(@"pUUID: %@", (NSString*)peripheral.UUID);
     NSArray	*serviceArray	= [NSArray arrayWithObjects:
                                [CBUUID UUIDWithString:LOCK_SERVICE_UUID],
                                nil];
     
     [peripheral discoverServices:serviceArray];
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
-{
-    if (error) {
-        NSLog(@"Error:%@", [error description]);
-    }
-    NSArray *services = peripheral.services;
-    if ([services count] > 0) {
-        for (CBService *service in services) {
-            NSLog(@"serviceUUID:%@", [service.UUID description]);
-            if ([service.UUID isEqual:[CBUUID UUIDWithString:LOCK_SERVICE_UUID]]) {
-                [peripheral discoverCharacteristics:service.characteristics forService:service];
-                break;
-            }
-        }
-       
-    }
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
-{
-    NSArray *characteristics = service.characteristics;
-    if ([characteristics count] > 0) {
-        NSArray *characteristics = service.characteristics;
-        if ([characteristics count] > 0) {
-            for (CBCharacteristic *characteristic in characteristics) {
-                NSData *data = characteristic.value;
-                NSLog(@"=====didDiscoverCharacteristicsForService read=====");
-                NSLog(@"%@:%@", [characteristic.UUID description], [data description]);
-                if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:READ_CHARACTERISTIC_UUID]]) {
-                    self.readCharacteristic = characteristic;
-                    //read character at uuid 0xFFF1
-                    [peripheral readValueForCharacteristic:characteristic];
-                } else if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:WRITE_CHARACTERISTIC_UUID]]) {
-                    NSLog(@"=====didDiscoverCharacteristicsForService write=====");
-                    self.writeCharacteristic = characteristic;
-                }
-            }
+    
+    int index;
+    for (index = 0; index < _discoveredStickedObjectsList.count; index++) {
+        StickObject* stick = (StickObject*)[_discoveredStickedObjectsList objectAtIndex:index];
+        if ([stick.peripheral isEqual:peripheral]) {
+            [Utilities createStoredRSSIFile];
+            //            NSLog(@"found disconnect");
+            [stick connectPeripheral];
+            break;
         }
     }
+    
+    [_BLEDiscoveryHelperDelegate discoveryDidRefresh];
 }
 
-- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
-{
-    if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:READ_CHARACTERISTIC_UUID]]) {
-        [self writeValueForCommand];
-    }
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
-{
-    if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:WRITE_CHARACTERISTIC_UUID]]) {
-        if (error) {
-            NSLog(@"%@", [error description]);
-            //maybe out of range, store location now
-            if (isFirstLostConnection) {
-                isFirstLostConnection = NO;
-//                CLLocationCoordinate2D coordinate = ShareCoordinate;
-//                [UserDefaultsHelper setLocationLatitude:coordinate.latitude];
-//                [UserDefaultsHelper setLocationLongitude:coordinate.longitude];
-//                
-                //TODO: send lat/long to server now
-                
-            }
-            
-        } else {
-            if (!isFirstLostConnection) {
-                isFirstLostConnection = YES;
-            }
-        }
-        unsigned char byteData[IO_CHARACTERISTIC_LENGTH];
-        [characteristic.value getBytes:&byteData length:IO_CHARACTERISTIC_LENGTH];
-        NSLog(@"%s", byteData);
-    }
-}
-
+/*samthui7*/
 - (void) centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
-//    self.foundPeripheral = nil;
-    self.foundPeripherals = nil;
-    self.readCharacteristic = nil;
-    self.writeCharacteristic = nil;
+//    self.foundPeripherals = nil;
+//    NSLog(@"didDisconnectPeripheral");
+//    [_BLEDiscoveryHelperDelegate discoveryDidRefresh];
+    int index;
+    for (index = 0; index < _discoveredStickedObjectsList.count; index++) {
+        StickObject* stick = (StickObject*)[_discoveredStickedObjectsList objectAtIndex:index];
+        if ([stick.peripheral isEqual:peripheral]) {
+            [Utilities createStoredRSSIFile];
+//            NSLog(@"found disconnect");
+            [stick cancelConnection];
+            break;
+        }
+    }
+    if (self.BLEDiscoveryHelperDelegate && [_BLEDiscoveryHelperDelegate respondsToSelector:@selector(updateStickedObjectAtIndex:)]) {
+        [_BLEDiscoveryHelperDelegate updateStickedObjectAtIndex:index];
+    }
+}
+
+-(void) centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    NSLog(@"didFailToConnectPeripheral");
+//    int index;
+//    for (index = 0; index < _discoveredStickedObjectsList.count; index++) {
+//        StickObject* stick = (StickObject*)[_discoveredStickedObjectsList objectAtIndex:index];
+//        if ([stick.peripheral isEqual:peripheral]) {
+//            //            NSLog(@"found disconnect");
+//            break;
+//        }
+//    }
+//    if (self.BLEDiscoveryHelperDelegate && [_BLEDiscoveryHelperDelegate respondsToSelector:@selector(updateStickedObjectAtIndex:)])
+//    {
+//        [_BLEDiscoveryHelperDelegate updateStickedObjectAtIndex:index];
+//    }
+}
+
+-(void)centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals
+{
+    NSLog(@"didRetrievePeripherals");
 }
 
 @end

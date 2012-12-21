@@ -15,10 +15,18 @@
 #define ShareCoordinate [((AppDelegate *)[[UIApplication sharedApplication] delegate]) getCoordinate]
 #define ShareCurrentLocation [((AppDelegate *)[[UIApplication sharedApplication] delegate]) currentLocation]
 
+#define RADAR_TAB_INDEX     0
+#define DISCOVERY_TAB_INDEX 1
+#define SETTINGS_TAB_INDEX  2
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, BLEDiscoveryHelperDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) UITabBarController *tabBarController;
+
+@property (strong, nonatomic) NSTimer* refreshViewsTimer;
+
+//-(void) scan;
+-(void) refreshViews;
 
 @end

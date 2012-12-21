@@ -8,25 +8,42 @@
 
 #import "DiscoveryViewController.h"
 #import "BLEDiscoveryHelper.h"
+#import "UserDefaultsHelper.h"
 #import "Defines.h"
+#import "Constants.h"
+#import "Utilities.h"
+
+#import "StickObject.h"
+#import "StickObjectSummary.h"
+#import "DiscoveryCell1.h"
+
+#import "DetailStickedObjectViewController.h"
 
 @interface DiscoveryViewController ()
+{
+//    NSArray* _stickObjectsArray;
+}
+
+//@property (nonatomic, retain) NSArray* stickObjectsArray;
 
 -(void) connect:(id) sender;
 -(void) blinkLed:(id) sender;
+
+-(void) createStickObjectsArrayFromPeripheralsList:(NSArray*) peripheralsArray;
 
 @end
 
 @implementation DiscoveryViewController
 
 @synthesize bluetoothDevicesTable = _bluetoothDevicesTable;
-@synthesize bluetoothDevicesArray = _bluetoothDevicesArray;
+//@synthesize bluetoothDevicesArray = _bluetoothDevicesArray;
+//@synthesize stickObjectsArray = _stickObjectsArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Discovery", @"Discovery");
+        self.title = NSLocalizedString(@"Discovery", @"Devices");
         self.tabBarItem.image = [UIImage imageNamed:@"Discovery"];
     }
     return self;
@@ -35,7 +52,8 @@
 -(void) dealloc
 {
     self.bluetoothDevicesTable = nil;
-    self.bluetoothDevicesArray = nil;
+//    self.bluetoothDevicesArray = nil;
+//    self.stickObjectsArray = nil;
     
     [super dealloc];
 }
@@ -52,83 +70,269 @@
     // Release any retained subviews of the main view.
 }
 
+#pragma mark - rotate
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Table View
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
+    //Test
+//    NSMutableArray* UUIDsList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+//    NSLog(@"=====UUIDsList=====");
+//    for (int i = 0; i < UUIDsList.count; i++) {
+//        StickObjectSummary* stickSummary = (StickObjectSummary*)[UUIDsList objectAtIndex:i];
+//        NSLog(@"%i %@ %@", i, stickSummary.UUID, stickSummary.name);
+//    }
+//    NSLog(@"=====discovered====");
+//    NSMutableArray* discoveredList = [(BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+//    for (int i = 0; i < discoveredList.count; i++) {
+//        StickObject* stick = (StickObject*)[discoveredList objectAtIndex:i];
+//        NSLog(@"%i %@", i, [Utilities UUIDofPeripheral:(CBPeripheral*)stick.peripheral]);
+//    }
+    
     return 1;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _bluetoothDevicesArray.count;
+//    return _stickObjectsArray.count;
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSData* savedData = [userDefault objectForKey:(NSString*)kUUIDsList];
+    NSMutableArray* UUIDsList = [[[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:savedData]] autorelease];
+//    NSMutableArray* UUIDsList = [NSMutableArray arrayWithArray:(NSArray*)[userDefault objectForKey:(NSString*)kUUIDsList]];
+//    NSLog(@"numb rows: %i", UUIDsList.count);
+    return UUIDsList.count;
 }
+
+//-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell* cell;
+//
+//    static NSString *cellID = @"BluetoothDeviceCell";
+//
+//    cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//    if (!cell)
+//    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID] autorelease];
+//
+////    StickObject* stick = (StickObject*)[_stickObjectsArray objectAtIndex:indexPath.row];
+////    CBPeripheral* peripheral = stick.peripheral;
+////    NSString* pUUID = (NSString*)peripheral.UUID;
+//
+//    [[cell textLabel] setText:[NSString stringWithFormat:@"No.%i", indexPath.row]];
+//    //    [cell.detailTextLabel setText:pUUID];
+//
+//    CGRect cellFrame = cell.frame;
+//    CGSize cellSize = cellFrame.size;
+//    CGSize btnSize = CGSizeMake(70, 30);
+//    int distanceBetween2Btns = 10;
+//    //connectBtn
+//    UIButton* connectBtn = [[UIButton alloc] initWithFrame:CGRectMake(cellSize.width - 2*distanceBetween2Btns - 2* btnSize.width, (cellSize.height - btnSize.height)/2, btnSize.width, btnSize.height)];
+//    [connectBtn setBackgroundColor:[UIColor greenColor]];
+//    [connectBtn setShowsTouchWhenHighlighted:YES];  
+//    [connectBtn setTag:indexPath.row];
+//    [connectBtn setTitle:@"Connect" forState:UIControlStateNormal];
+//    [connectBtn addTarget:self action:@selector(connect:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell addSubview:connectBtn];
+//    [connectBtn release];
+//
+//    //blinkLedBtn
+//    UIButton* blinkLedBtn = [[UIButton alloc] initWithFrame:CGRectMake(cellSize.width - distanceBetween2Btns - btnSize.width, (cellSize.height - btnSize.height)/2, btnSize.width, btnSize.height)];
+//    [blinkLedBtn setBackgroundColor:[UIColor redColor]];
+//    [blinkLedBtn setShowsTouchWhenHighlighted:YES];
+//    [blinkLedBtn setTag:indexPath.row];
+//    [blinkLedBtn setTitle:@"Light" forState:UIControlStateNormal];
+//    [blinkLedBtn addTarget:self action:@selector(blinkLed:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell addSubview:blinkLedBtn];
+//    [blinkLedBtn release];
+//
+//    return cell;
+//}
+
+
+//-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    DiscoveryCell1* cell;
+//    
+//    static NSString *cellID = @"DiscoveryCell1";
+//    
+//    cell = (DiscoveryCell1*)[tableView dequeueReusableCellWithIdentifier:cellID];
+//    if (!cell)
+//    {
+//        NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"DiscoveryCell1" owner:self options:nil];
+//        cell = [nib objectAtIndex:0];
+//    }
+//    
+//    StickObject* stick = (StickObject*)[_stickObjectsArray objectAtIndex:indexPath.row];
+//    CBPeripheral* peripheral = stick.peripheral;
+////    NSString* peripheralName = peripheral.name;
+////    NSString* pUUID = (NSString*)peripheral.UUID;
+//    
+////    [cell.deviceName setText: peripheralName];
+//    [cell.deviceName setText:@"test"];
+//    if (peripheral.isConnected) {
+//        [cell.connectStatusBtn setTitle:@"Disconnect" forState:UIControlStateNormal];
+//    }
+//    else {
+//        [cell.connectStatusBtn setTitle:@"Connect" forState:UIControlStateNormal];
+//    }
+//
+//    [cell.connectStatusBtn setTag:indexPath.row];
+//    [cell.connectStatusBtn addTarget:self action:@selector(connect:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    return cell;
+//}
+
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell;
-    
-    static NSString *cellID = @"BluetoothDeviceCell";
-    
-	cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-	if (!cell)
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID] autorelease];
-    
-    CBPeripheral* peripheral = (CBPeripheral*)[_bluetoothDevicesArray objectAtIndex:indexPath.row];
-    NSString* pUUID = (NSString*)peripheral.UUID;
-    
-    [[cell textLabel] setText:[NSString stringWithFormat:@"No.%i", indexPath.row]];
-    [cell.detailTextLabel setText:pUUID];
-    
-    CGRect cellFrame = cell.frame;
-    CGSize cellSize = cellFrame.size;
-    CGSize btnSize = CGSizeMake(50, 30);
-    int distanceBetween2Btns = 10;
-    //connectBtn
-    UIButton* connectBtn = [[UIButton alloc] initWithFrame:CGRectMake(cellSize.width - 2*distanceBetween2Btns - 2* btnSize.width, (cellSize.height - btnSize.height)/2, btnSize.width, btnSize.height)];
-    [connectBtn setTag:indexPath.row];
-    [connectBtn setTitle:@"Connect" forState:UIControlStateNormal];
-[connectBtn addTarget:self action:@selector(connect:) forControlEvents:UIControlEventTouchUpInside];
-    [cell addSubview:connectBtn];
-    [connectBtn release];
+    DiscoveryCell1* cell;
 
-    //blinkLedBtn
-    UIButton* blinkLedBtn = [[UIButton alloc] initWithFrame:CGRectMake(cellSize.width - distanceBetween2Btns - btnSize.width, (cellSize.height - btnSize.height)/2, btnSize.width, btnSize.height)];
-    [blinkLedBtn setTag:indexPath.row];
-    [blinkLedBtn setTitle:@"Connect" forState:UIControlStateNormal];
-    [blinkLedBtn addTarget:self action:@selector(blinkLed:) forControlEvents:UIControlEventTouchUpInside];
-    [cell addSubview:blinkLedBtn];
-    [blinkLedBtn release];
+    static NSString *cellID = @"DiscoveryCell1";
 
-	return cell;
+    cell = (DiscoveryCell1*)[tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell)
+    {
+        NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"DiscoveryCell1" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSData* savedData = [userDefault objectForKey:(NSString*)kUUIDsList];
+    NSMutableArray* UUIDsList = [[[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:savedData]] autorelease];
+    StickObjectSummary* stickSummary = (StickObjectSummary*)[UUIDsList objectAtIndex:indexPath.row];
+    
+    NSMutableArray* discoveredStickedObjectsList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+//    NSLog(@"discovered: %i", discoveredStickedObjectsList.count);
+    if (indexPath.row < discoveredStickedObjectsList.count)
+    {
+        //            NSLog(@"UserInteractionEnabled");
+        [cell.deviceName setEnabled:YES];
+        [cell.distanceLbl setEnabled:YES];
+        [cell.connectStatusBtn setEnabled:YES];
+        [cell setUserInteractionEnabled:YES];
+        
+        StickObject* stick = (StickObject*)[discoveredStickedObjectsList objectAtIndex:indexPath.row];
+        CBPeripheral* peripheral = stick.peripheral;
+        
+        [cell.deviceName setText:stickSummary.name];
+//        [cell.distanceLbl setText:[NSString stringWithFormat:@"%im", stick.currentDistance]];
+//        [cell.distanceLbl setText:[Utilities describeDistanceFromRSSI:stick.currentDistance]];
+        [cell.distanceLbl setText:[Utilities describeDistanceFromRange:stick.range]];
+        if (peripheral.isConnected) {
+            [cell.connectStatusBtn setTitle:@"Disconnect" forState:UIControlStateNormal];
+        }
+        else {
+            [cell.connectStatusBtn setTitle:@"Connect" forState:UIControlStateNormal];
+        }
+        
+        [cell.connectStatusBtn setTag:indexPath.row];
+        [cell.connectStatusBtn addTarget:self action:@selector(connect:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    else {
+        
+        //default
+//        NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+//        NSData* savedData = [userDefault objectForKey:(NSString*)kUUIDsList];
+//        NSMutableArray* UUIDsList = [[[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:savedData]] autorelease];
+//        StickObjectSummary* stickSummary = (StickObjectSummary*)[UUIDsList objectAtIndex:indexPath.row];
+        
+        [cell.deviceName setText: stickSummary.name];
+        [cell.deviceName setEnabled:NO];
+        
+        [cell.distanceLbl setText:@""];
+        [cell.connectStatusBtn setEnabled:NO];
+        
+        [cell.connectStatusBtn setTitle:@"" forState:UIControlStateNormal];
+        [cell.distanceLbl setEnabled:NO];
+        
+        [cell setUserInteractionEnabled:NO];
+    }
+
+    return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    NSLog(@"didSelectRowAtIndex: %i", indexPath.row);
+    DetailStickedObjectViewController* detailViewController = [[DetailStickedObjectViewController alloc] initWithNibName:@"DetailStickedObjectViewController" bundle:nil];
+    
+    NSMutableArray* usersDevicesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+    StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:indexPath.row];
+    NSString* deviceName = stickSummary.name;
+    [detailViewController setTitle: deviceName];
+    detailViewController.stickObjectIndex = indexPath.row;
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    [detailViewController release];
 }
 
 #pragma mark -
 -(void) reloadBluetoothDevicesList
 {
-    self.bluetoothDevicesArray = ((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).foundPeripherals;
-    [self.bluetoothDevicesTable reloadData];
+//    self.bluetoothDevicesArray = ((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).foundPeripherals;
+//    [self.bluetoothDevicesTable reloadData];
 }
 
 -(void) reloadBluetoothDevicesList:(NSArray *)bluetoothDeviceArray
 {
-    self.bluetoothDevicesArray = bluetoothDeviceArray;
+    [self createStickObjectsArrayFromPeripheralsList:bluetoothDeviceArray];
     
     [self.bluetoothDevicesTable reloadData];
+    
+    for (id viewController in [self.navigationController viewControllers]) {
+        if ([viewController isKindOfClass:[DetailStickedObjectViewController class]]) {
+            DetailStickedObjectViewController* detailVC = (DetailStickedObjectViewController*)viewController;
+            [detailVC.detailTable reloadData];
+        }
+    }
 }
 
 #pragma mark - private methods
+//-(void) connect:(id)sender
+//{
+//    int index = ((UIButton*)sender).tag;
+//
+//    StickObject* stick = (StickObject*)[_stickObjectsArray objectAtIndex:index];
+//    CBPeripheral* peripheral = stick.peripheral;
+//    if (![peripheral isConnected]) {
+//        [((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).centralManager connectPeripheral:peripheral options:nil];
+//    }
+//    else {
+//        [((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).centralManager cancelPeripheralConnection:peripheral];
+//    }
+//}
+//
+//-(void) blinkLed:(id)sender
+//{
+//    int index = ((UIButton*)sender).tag;
+//
+//    //    [[BLEDiscoveryHelper sharedInstance] sendCommand:k_command_lock];
+//
+//    StickObject* stick = (StickObject*)[_stickObjectsArray objectAtIndex:index];
+//    [stick sendCommand:k_command_lock];
+//}
+
 -(void) connect:(id)sender
 {
     int index = ((UIButton*)sender).tag;
-
-    CBPeripheral* peripheral = (CBPeripheral*)[_bluetoothDevicesArray objectAtIndex:index];
+    NSLog(@"connect %i", index);
+    
+    BLEDiscoveryHelper* BLEDiscover = (BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance];
+    NSMutableArray* discoveredStickList = BLEDiscover.discoveredStickedObjectsList;
+    NSLog(@"discoveredStickList count: %i", discoveredStickList.count);
+    StickObject* stick = (StickObject*)[discoveredStickList objectAtIndex:index];
+    CBPeripheral* peripheral = stick.peripheral;
     if (![peripheral isConnected]) {
-        [((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).centralManager connectPeripheral:peripheral options:nil];
+        NSLog(@"discovery Connect");
+        [stick connectPeripheral];
+    }
+    else {
+         NSLog(@"discovery cancelConnect");
+        [stick cancelConnection];
     }
 }
 
@@ -136,7 +340,25 @@
 {
     int index = ((UIButton*)sender).tag;
 
-    [[BLEDiscoveryHelper sharedInstance] sendCommand:k_command_lock];
+    //    [[BLEDiscoveryHelper sharedInstance] sendCommand:k_command_lock];
+
+    NSMutableArray* usersDevicesList = (NSMutableArray*)[[NSUserDefaults standardUserDefaults] objectForKey:(NSString*)kUsersStickedObjectList];
+    StickObject* stick = (StickObject*)[usersDevicesList objectAtIndex:index];
+    [stick sendCommand:k_command_lock];
+}
+
+-(void)createStickObjectsArrayFromPeripheralsList:(NSArray *)peripheralsArray
+{
+//    NSMutableArray* tempStickObjectsArray = [NSMutableArray array];
+//    for(CBPeripheral* peripheral in peripheralsArray)
+//    {
+//        StickObject* stick = [[StickObject alloc] initWithPeripheral:peripheral];
+//        
+//        [tempStickObjectsArray addObject:stick];
+//        [stick release];
+//    }
+//
+//    self.stickObjectsArray = tempStickObjectsArray;
 }
 
 @end

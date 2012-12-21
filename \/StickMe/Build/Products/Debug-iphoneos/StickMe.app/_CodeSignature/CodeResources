@@ -6,7 +6,7 @@
 	<dict>
 		<key>DetailStickedObjectViewController.nib</key>
 		<data>
-		TyCMFWBc2k4yD/uBUZBvQ392psI=
+		30a+qUFvN5DK9DyDbDhOLKALCl8=
 		</data>
 		<key>Discovery.png</key>
 		<data>
@@ -31,6 +31,10 @@
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
+		</data>
+		<key>RadarView.nib</key>
+		<data>
+		fMS518ubod0P+zrkHUjEuCTiKuU=
 		</data>
 		<key>RadarViewController.nib</key>
 		<data>
