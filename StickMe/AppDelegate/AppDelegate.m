@@ -157,7 +157,7 @@ void uncaughtExceptionHandler(NSException *exception) {
         [stick averageRSSI];
     }
     
-//    [BLEDiscover checkOutOfRangeDevices];
+    [BLEDiscover checkOutOfRangeDevices];
 }
 
 -(void) discoveryStatePoweredOff

@@ -18,6 +18,7 @@
 @interface RadarViewController ()
 {
     int _maxDistance;
+    unsigned short _numbPoints;
 }
 
 -(int) maxDistance;
@@ -31,7 +32,7 @@
 
 @implementation RadarViewController
 
-@synthesize userPoint = _userPoint;
+//@synthesize userPoint = _userPoint;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -113,6 +114,21 @@
             [UIView commitAnimations];
         }
     }
+
+    //remove unDiscoveredDevices
+    for(int i = discoveredStickedObjectsList.count; i < _numbPoints; i ++)
+    {
+        int tag = FIRST_DEVICE_TAG + i;
+//        NSLog(@"tag: %i", FIRST_DEVICE_TAG + tag);
+        UIView* searchView = [self.view viewWithTag:tag];
+        if (searchView)
+        {
+//            NSLog(@"remove subview");
+            [searchView removeFromSuperview];
+        }
+    }
+
+    _numbPoints = discoveredStickedObjectsList.count;
 }
 
 #pragma mark - private methods

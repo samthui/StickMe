@@ -10,7 +10,7 @@
 
 @interface RadarViewController : UIViewController
 
-@property (nonatomic, retain) IBOutlet UIImageView* userPoint;
+//@property (nonatomic, retain) IBOutlet UIImageView* userPoint;
 
 -(void)reloadBluetoothDevicesList;
 
