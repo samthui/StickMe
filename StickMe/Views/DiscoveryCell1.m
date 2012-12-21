@@ -12,6 +12,7 @@
 
 @synthesize deviceName = _deviceName;
 @synthesize distanceLbl = _distanceLbl;
+@synthesize waveView = _waveView;
 @synthesize connectStatusBtn = _connectStatusBtn;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -19,6 +20,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+//        NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"WaveStrengthView" owner:self options:nil];
+//        self.waveView = [nib objectAtIndex:0];
+//        [self.waveView setFrame:CGRectMake(175, 0, 40, 44)];
+//        [self addSubview:_waveView];
     }
     return self;
 }

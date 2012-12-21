@@ -7,4 +7,5 @@ dependencies: \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Constants.h \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Defines.h \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Views/DiscoveryCell1.h \
+  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Views/WaveStrengthView.h \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/StickObjectSummary.h

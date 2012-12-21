@@ -12,6 +12,9 @@
 		846635A01684204D000DB00C /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466359A1684204D000DB00C /* DiscoveryViewController.m */; };
 		846635A11684204D000DB00C /* RadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466359C1684204D000DB00C /* RadarViewController.m */; };
 		846635A21684204D000DB00C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466359E1684204D000DB00C /* SettingsViewController.m */; };
+		846635AA168423BA000DB00C /* WaveStrengthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846635A9168423BA000DB00C /* WaveStrengthView.m */; };
+		846635AD168423D2000DB00C /* WaveStrengthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846635AC168423D2000DB00C /* WaveStrengthView.xib */; };
+		846635B0168424BC000DB00C /* micro_ip.png in Resources */ = {isa = PBXBuildFile; fileRef = 846635AF168424BC000DB00C /* micro_ip.png */; };
 		847C094C167832F600EE33B3 /* StickObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 847C094B167832F600EE33B3 /* StickObject.m */; };
 		847C09501678812A00EE33B3 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847C094F1678812A00EE33B3 /* DiscoveryCell.m */; };
 		847C09521678837700EE33B3 /* DiscoveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847C09511678837700EE33B3 /* DiscoveryCell.xib */; };
@@ -50,6 +53,10 @@
 		8466359C1684204D000DB00C /* RadarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarViewController.m; sourceTree = "<group>"; };
 		8466359D1684204D000DB00C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		8466359E1684204D000DB00C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		846635A8168423BA000DB00C /* WaveStrengthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveStrengthView.h; sourceTree = "<group>"; };
+		846635A9168423BA000DB00C /* WaveStrengthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveStrengthView.m; sourceTree = "<group>"; };
+		846635AC168423D2000DB00C /* WaveStrengthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveStrengthView.xib; sourceTree = "<group>"; };
+		846635AF168424BC000DB00C /* micro_ip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = micro_ip.png; sourceTree = "<group>"; };
 		847C094A167832F600EE33B3 /* StickObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickObject.h; sourceTree = "<group>"; };
 		847C094B167832F600EE33B3 /* StickObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickObject.m; sourceTree = "<group>"; };
 		847C094E1678812A00EE33B3 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
@@ -115,16 +122,24 @@
 		846635961684204D000DB00C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				846635971684204D000DB00C /* DetailStickedObjectViewController.h */,
-				846635981684204D000DB00C /* DetailStickedObjectViewController.m */,
-				846635991684204D000DB00C /* DiscoveryViewController.h */,
-				8466359A1684204D000DB00C /* DiscoveryViewController.m */,
 				8466359B1684204D000DB00C /* RadarViewController.h */,
 				8466359C1684204D000DB00C /* RadarViewController.m */,
+				846635991684204D000DB00C /* DiscoveryViewController.h */,
+				8466359A1684204D000DB00C /* DiscoveryViewController.m */,
 				8466359D1684204D000DB00C /* SettingsViewController.h */,
 				8466359E1684204D000DB00C /* SettingsViewController.m */,
+				846635971684204D000DB00C /* DetailStickedObjectViewController.h */,
+				846635981684204D000DB00C /* DetailStickedObjectViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		846635AE168424BC000DB00C /* Wave */ = {
+			isa = PBXGroup;
+			children = (
+				846635AF168424BC000DB00C /* micro_ip.png */,
+			);
+			path = Wave;
 			sourceTree = "<group>";
 		};
 		847C094D167880B600EE33B3 /* Views */ = {
@@ -136,6 +151,8 @@
 				847C094F1678812A00EE33B3 /* DiscoveryCell.m */,
 				847C095C167895B600EE33B3 /* DiscoveryCell1.h */,
 				847C095D167895B600EE33B3 /* DiscoveryCell1.m */,
+				846635A8168423BA000DB00C /* WaveStrengthView.h */,
+				846635A9168423BA000DB00C /* WaveStrengthView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,11 +188,11 @@
 		847CF51D1676EFC000CC9411 /* StickMe */ = {
 			isa = PBXGroup;
 			children = (
-				846635961684204D000DB00C /* ViewControllers */,
 				841C9A0616770E970061991B /* Extensions */,
 				847CF5331676F08700CC9411 /* Utilities */,
 				847CF53C1676F08700CC9411 /* Resources */,
 				847C094D167880B600EE33B3 /* Views */,
+				846635961684204D000DB00C /* ViewControllers */,
 				84C6A55F16840DEE00325741 /* AppDelegate */,
 				847CF51E1676EFC000CC9411 /* Supporting Files */,
 			);
@@ -235,6 +252,7 @@
 		847CF53D1676F08700CC9411 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				846635AE168424BC000DB00C /* Wave */,
 				847CF53E1676F08700CC9411 /* TabIcons */,
 			);
 			path = Images;
@@ -260,6 +278,7 @@
 				84C6A55D16840D5A00325741 /* DetailStickedObjectViewController.xib */,
 				847C09511678837700EE33B3 /* DiscoveryCell.xib */,
 				847C095F167895CC00EE33B3 /* DiscoveryCell1.xib */,
+				846635AC168423D2000DB00C /* WaveStrengthView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -334,6 +353,8 @@
 				847C0960167895CC00EE33B3 /* DiscoveryCell1.xib in Resources */,
 				84C6A524168409B900325741 /* RadarView.xib in Resources */,
 				84C6A55E16840D5A00325741 /* DetailStickedObjectViewController.xib in Resources */,
+				846635AD168423D2000DB00C /* WaveStrengthView.xib in Resources */,
+				846635B0168424BC000DB00C /* micro_ip.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +380,7 @@
 				846635A01684204D000DB00C /* DiscoveryViewController.m in Sources */,
 				846635A11684204D000DB00C /* RadarViewController.m in Sources */,
 				846635A21684204D000DB00C /* SettingsViewController.m in Sources */,
+				846635AA168423BA000DB00C /* WaveStrengthView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

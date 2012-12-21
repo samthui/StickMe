@@ -197,6 +197,13 @@
     {
         NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"DiscoveryCell1" owner:self options:nil];
         cell = [nib objectAtIndex:0];
+        
+        
+        NSArray* waveNib = [[NSBundle mainBundle] loadNibNamed:@"WaveStrengthView" owner:self options:nil];
+        WaveStrengthView* waveView = [waveNib objectAtIndex:0];
+        [waveView setFrame:CGRectMake(115, -1, 40, 44)];
+        cell.waveView = waveView;
+        [cell addSubview:cell.waveView];
     }
     
     NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
@@ -221,6 +228,10 @@
 //        [cell.distanceLbl setText:[NSString stringWithFormat:@"%im", stick.currentDistance]];
 //        [cell.distanceLbl setText:[Utilities describeDistanceFromRSSI:stick.currentDistance]];
         [cell.distanceLbl setText:[Utilities describeDistanceFromRange:stick.range]];
+        
+        cell.waveView.range = stick.range.location + stick.range.length;
+        [cell.waveView setNeedsDisplay];
+        
         if (peripheral.isConnected) {
             [cell.connectStatusBtn setTitle:@"Disconnect" forState:UIControlStateNormal];
         }
@@ -243,10 +254,13 @@
         [cell.deviceName setEnabled:NO];
         
         [cell.distanceLbl setText:@""];
-        [cell.connectStatusBtn setEnabled:NO];
-        
-        [cell.connectStatusBtn setTitle:@"" forState:UIControlStateNormal];
         [cell.distanceLbl setEnabled:NO];
+        
+        cell.waveView.range = 40;
+        [cell.waveView setAlpha:0.5];
+        
+        [cell.connectStatusBtn setEnabled:NO];        
+        [cell.connectStatusBtn setTitle:@"" forState:UIControlStateNormal];
         
         [cell setUserInteractionEnabled:NO];
     }

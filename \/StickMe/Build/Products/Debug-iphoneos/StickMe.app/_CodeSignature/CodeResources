@@ -22,7 +22,7 @@
 		</data>
 		<key>DiscoveryCell1.nib</key>
 		<data>
-		tF8sPdVPvFvy9tPa8OnuGVIXrH0=
+		9zEg836ghU6PC60DkYVlv6yy5yg=
 		</data>
 		<key>DiscoveryViewController.nib</key>
 		<data>
@@ -52,6 +52,10 @@
 		<data>
 		q8a/UawfO2dDGf7XoWNNSgBHROA=
 		</data>
+		<key>WaveStrengthView.nib</key>
+		<data>
+		EIfVwEpSazs0PmgC563K5kNADNI=
+		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		5uRAukY2PXG4WrWDa09pyqHsVeU=
@@ -59,6 +63,10 @@
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
 		zmV6UqBSo6r1NOz798vd5O4zTBA=
+		</data>
+		<key>micro_ip.png</key>
+		<data>
+		OdOdT67a3l6Et91SS84IkLW2OiI=
 		</data>
 	</dict>
 	<key>rules</key>
