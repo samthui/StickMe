@@ -20,6 +20,7 @@
 		847CF5221676EFC000CC9411 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5201676EFC000CC9411 /* InfoPlist.strings */; };
 		847CF5241676EFC000CC9411 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5231676EFC000CC9411 /* main.m */; };
 		847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */; };
+		84BC3AEC168568C700505DD0 /* WaveStrengthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BC3AEB168568C700505DD0 /* WaveStrengthView.xib */; };
 		84C2280C168563860046A158 /* Discovery.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F0168563860046A158 /* Discovery.png */; };
 		84C2280D168563860046A158 /* Discovery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F1168563860046A158 /* Discovery@2x.png */; };
 		84C2280E168563860046A158 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F2168563860046A158 /* Settings.png */; };
@@ -65,6 +66,7 @@
 		847CF5231676EFC000CC9411 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847CF5251676EFC000CC9411 /* StickMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StickMe-Prefix.pch"; sourceTree = "<group>"; };
 		847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		84BC3AEB168568C700505DD0 /* WaveStrengthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveStrengthView.xib; sourceTree = "<group>"; };
 		84C227F0168563860046A158 /* Discovery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Discovery.png; sourceTree = "<group>"; };
 		84C227F1168563860046A158 /* Discovery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Discovery@2x.png"; sourceTree = "<group>"; };
 		84C227F2168563860046A158 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		84C227F6168563860046A158 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				84BC3AEB168568C700505DD0 /* WaveStrengthView.xib */,
 				84C227F7168563860046A158 /* DetailStickedObjectViewController.xib */,
 				84C227F8168563860046A158 /* DiscoveryCell.xib */,
 				84C227F9168563860046A158 /* DiscoveryCell1.xib */,
@@ -349,6 +352,7 @@
 				84C22814168563860046A158 /* DiscoveryViewController.xib in Resources */,
 				84C22815168563860046A158 /* RadarView.xib in Resources */,
 				84C22816168563860046A158 /* SettingsViewController.xib in Resources */,
+				84BC3AEC168568C700505DD0 /* WaveStrengthView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
