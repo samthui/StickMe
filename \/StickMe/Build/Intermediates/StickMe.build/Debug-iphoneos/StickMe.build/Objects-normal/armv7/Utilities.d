@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Utilities.m \
-  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities/Utilities.h
+  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Utilities/Utilities.m \
+  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Utilities/Utilities.h

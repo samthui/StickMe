@@ -7,44 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8413C5731679FCCA00EAF3F5 /* StickObjectSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8413C5721679FCCA00EAF3F5 /* StickObjectSummary.m */; };
 		8466359F1684204D000DB00C /* DetailStickedObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846635981684204D000DB00C /* DetailStickedObjectViewController.m */; };
 		846635A01684204D000DB00C /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466359A1684204D000DB00C /* DiscoveryViewController.m */; };
 		846635A11684204D000DB00C /* RadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466359C1684204D000DB00C /* RadarViewController.m */; };
 		846635A21684204D000DB00C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466359E1684204D000DB00C /* SettingsViewController.m */; };
 		846635AA168423BA000DB00C /* WaveStrengthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846635A9168423BA000DB00C /* WaveStrengthView.m */; };
-		846635AD168423D2000DB00C /* WaveStrengthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846635AC168423D2000DB00C /* WaveStrengthView.xib */; };
-		846635B0168424BC000DB00C /* micro_ip.png in Resources */ = {isa = PBXBuildFile; fileRef = 846635AF168424BC000DB00C /* micro_ip.png */; };
-		847C094C167832F600EE33B3 /* StickObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 847C094B167832F600EE33B3 /* StickObject.m */; };
 		847C09501678812A00EE33B3 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847C094F1678812A00EE33B3 /* DiscoveryCell.m */; };
-		847C09521678837700EE33B3 /* DiscoveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847C09511678837700EE33B3 /* DiscoveryCell.xib */; };
 		847C095E167895B600EE33B3 /* DiscoveryCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 847C095D167895B600EE33B3 /* DiscoveryCell1.m */; };
-		847C0960167895CC00EE33B3 /* DiscoveryCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847C095F167895CC00EE33B3 /* DiscoveryCell1.xib */; };
 		847CF5181676EFC000CC9411 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF5171676EFC000CC9411 /* UIKit.framework */; };
 		847CF51A1676EFC000CC9411 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF5191676EFC000CC9411 /* Foundation.framework */; };
 		847CF51C1676EFC000CC9411 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF51B1676EFC000CC9411 /* CoreGraphics.framework */; };
 		847CF5221676EFC000CC9411 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5201676EFC000CC9411 /* InfoPlist.strings */; };
 		847CF5241676EFC000CC9411 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5231676EFC000CC9411 /* main.m */; };
-		847CF5511676F08700CC9411 /* BLEDiscoveryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5361676F08700CC9411 /* BLEDiscoveryHelper.m */; };
-		847CF5521676F08700CC9411 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5381676F08700CC9411 /* Constants.m */; };
-		847CF5531676F08700CC9411 /* UserDefaultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF53B1676F08700CC9411 /* UserDefaultsHelper.m */; };
-		847CF5541676F08700CC9411 /* Discovery.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF53F1676F08700CC9411 /* Discovery.png */; };
-		847CF5551676F08700CC9411 /* Discovery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5401676F08700CC9411 /* Discovery@2x.png */; };
-		847CF5561676F08700CC9411 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5411676F08700CC9411 /* Settings.png */; };
-		847CF5571676F08700CC9411 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5421676F08700CC9411 /* Settings@2x.png */; };
-		847CF5581676F08700CC9411 /* DiscoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5441676F08700CC9411 /* DiscoveryViewController.xib */; };
-		847CF5591676F08700CC9411 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5451676F08700CC9411 /* SettingsViewController.xib */; };
 		847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */; };
+		84C2280C168563860046A158 /* Discovery.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F0168563860046A158 /* Discovery.png */; };
+		84C2280D168563860046A158 /* Discovery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F1168563860046A158 /* Discovery@2x.png */; };
+		84C2280E168563860046A158 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F2168563860046A158 /* Settings.png */; };
+		84C2280F168563860046A158 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F3168563860046A158 /* Settings@2x.png */; };
+		84C22810168563860046A158 /* micro_ip.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F5168563860046A158 /* micro_ip.png */; };
+		84C22811168563860046A158 /* DetailStickedObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F7168563860046A158 /* DetailStickedObjectViewController.xib */; };
+		84C22812168563860046A158 /* DiscoveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F8168563860046A158 /* DiscoveryCell.xib */; };
+		84C22813168563860046A158 /* DiscoveryCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F9168563860046A158 /* DiscoveryCell1.xib */; };
+		84C22814168563860046A158 /* DiscoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C227FA168563860046A158 /* DiscoveryViewController.xib */; };
+		84C22815168563860046A158 /* RadarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C227FB168563860046A158 /* RadarView.xib */; };
+		84C22816168563860046A158 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C227FC168563860046A158 /* SettingsViewController.xib */; };
+		84C22817168563860046A158 /* BLEDiscoveryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C22800168563860046A158 /* BLEDiscoveryHelper.m */; };
+		84C22818168563860046A158 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C22802168563860046A158 /* Constants.m */; };
+		84C22819168563860046A158 /* StickObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C22805168563860046A158 /* StickObject.m */; };
+		84C2281A168563860046A158 /* StickObjectSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C22807168563860046A158 /* StickObjectSummary.m */; };
+		84C2281B168563860046A158 /* UserDefaultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C22809168563860046A158 /* UserDefaultsHelper.m */; };
+		84C2281C168563860046A158 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2280B168563860046A158 /* Utilities.m */; };
 		84C6A5221684094400325741 /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A5211684094400325741 /* RadarView.m */; };
-		84C6A524168409B900325741 /* RadarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6A523168409B900325741 /* RadarView.xib */; };
-		84C6A55E16840D5A00325741 /* DetailStickedObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6A55D16840D5A00325741 /* DetailStickedObjectViewController.xib */; };
 		84C6A56216840DEE00325741 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A56116840DEE00325741 /* AppDelegate.m */; };
-		84D6917A167AC2BE00146B09 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D69178167AC2BE00146B09 /* Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8413C5711679FCCA00EAF3F5 /* StickObjectSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickObjectSummary.h; sourceTree = "<group>"; };
-		8413C5721679FCCA00EAF3F5 /* StickObjectSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickObjectSummary.m; sourceTree = "<group>"; };
 		846635971684204D000DB00C /* DetailStickedObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStickedObjectViewController.h; sourceTree = "<group>"; };
 		846635981684204D000DB00C /* DetailStickedObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStickedObjectViewController.m; sourceTree = "<group>"; };
 		846635991684204D000DB00C /* DiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryViewController.h; sourceTree = "<group>"; };
@@ -55,16 +52,10 @@
 		8466359E1684204D000DB00C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		846635A8168423BA000DB00C /* WaveStrengthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveStrengthView.h; sourceTree = "<group>"; };
 		846635A9168423BA000DB00C /* WaveStrengthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveStrengthView.m; sourceTree = "<group>"; };
-		846635AC168423D2000DB00C /* WaveStrengthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveStrengthView.xib; sourceTree = "<group>"; };
-		846635AF168424BC000DB00C /* micro_ip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = micro_ip.png; sourceTree = "<group>"; };
-		847C094A167832F600EE33B3 /* StickObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickObject.h; sourceTree = "<group>"; };
-		847C094B167832F600EE33B3 /* StickObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickObject.m; sourceTree = "<group>"; };
 		847C094E1678812A00EE33B3 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
 		847C094F1678812A00EE33B3 /* DiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCell.m; sourceTree = "<group>"; };
-		847C09511678837700EE33B3 /* DiscoveryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryCell.xib; sourceTree = "<group>"; };
 		847C095C167895B600EE33B3 /* DiscoveryCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell1.h; sourceTree = "<group>"; };
 		847C095D167895B600EE33B3 /* DiscoveryCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCell1.m; sourceTree = "<group>"; };
-		847C095F167895CC00EE33B3 /* DiscoveryCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryCell1.xib; sourceTree = "<group>"; };
 		847CF5131676EFC000CC9411 /* StickMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847CF5171676EFC000CC9411 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		847CF5191676EFC000CC9411 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,28 +64,35 @@
 		847CF5211676EFC000CC9411 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		847CF5231676EFC000CC9411 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847CF5251676EFC000CC9411 /* StickMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StickMe-Prefix.pch"; sourceTree = "<group>"; };
-		847CF5351676F08700CC9411 /* BLEDiscoveryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDiscoveryHelper.h; sourceTree = "<group>"; };
-		847CF5361676F08700CC9411 /* BLEDiscoveryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDiscoveryHelper.m; sourceTree = "<group>"; };
-		847CF5371676F08700CC9411 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		847CF5381676F08700CC9411 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		847CF5391676F08700CC9411 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
-		847CF53A1676F08700CC9411 /* UserDefaultsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsHelper.h; sourceTree = "<group>"; };
-		847CF53B1676F08700CC9411 /* UserDefaultsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsHelper.m; sourceTree = "<group>"; };
-		847CF53F1676F08700CC9411 /* Discovery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Discovery.png; sourceTree = "<group>"; };
-		847CF5401676F08700CC9411 /* Discovery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Discovery@2x.png"; sourceTree = "<group>"; };
-		847CF5411676F08700CC9411 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
-		847CF5421676F08700CC9411 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
-		847CF5441676F08700CC9411 /* DiscoveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryViewController.xib; sourceTree = "<group>"; };
-		847CF5451676F08700CC9411 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		84C227F0168563860046A158 /* Discovery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Discovery.png; sourceTree = "<group>"; };
+		84C227F1168563860046A158 /* Discovery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Discovery@2x.png"; sourceTree = "<group>"; };
+		84C227F2168563860046A158 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		84C227F3168563860046A158 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
+		84C227F5168563860046A158 /* micro_ip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = micro_ip.png; sourceTree = "<group>"; };
+		84C227F7168563860046A158 /* DetailStickedObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailStickedObjectViewController.xib; sourceTree = "<group>"; };
+		84C227F8168563860046A158 /* DiscoveryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryCell.xib; sourceTree = "<group>"; };
+		84C227F9168563860046A158 /* DiscoveryCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryCell1.xib; sourceTree = "<group>"; };
+		84C227FA168563860046A158 /* DiscoveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryViewController.xib; sourceTree = "<group>"; };
+		84C227FB168563860046A158 /* RadarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarView.xib; sourceTree = "<group>"; };
+		84C227FC168563860046A158 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		84C227FF168563860046A158 /* BLEDiscoveryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDiscoveryHelper.h; sourceTree = "<group>"; };
+		84C22800168563860046A158 /* BLEDiscoveryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDiscoveryHelper.m; sourceTree = "<group>"; };
+		84C22801168563860046A158 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		84C22802168563860046A158 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		84C22803168563860046A158 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		84C22804168563860046A158 /* StickObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickObject.h; sourceTree = "<group>"; };
+		84C22805168563860046A158 /* StickObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickObject.m; sourceTree = "<group>"; };
+		84C22806168563860046A158 /* StickObjectSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickObjectSummary.h; sourceTree = "<group>"; };
+		84C22807168563860046A158 /* StickObjectSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickObjectSummary.m; sourceTree = "<group>"; };
+		84C22808168563860046A158 /* UserDefaultsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsHelper.h; sourceTree = "<group>"; };
+		84C22809168563860046A158 /* UserDefaultsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsHelper.m; sourceTree = "<group>"; };
+		84C2280A168563860046A158 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		84C2280B168563860046A158 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		84C6A5201684094400325741 /* RadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarView.h; sourceTree = "<group>"; };
 		84C6A5211684094400325741 /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
-		84C6A523168409B900325741 /* RadarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarView.xib; sourceTree = "<group>"; };
-		84C6A55D16840D5A00325741 /* DetailStickedObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailStickedObjectViewController.xib; path = StickMe/Resources/Xibs/DetailStickedObjectViewController.xib; sourceTree = SOURCE_ROOT; };
 		84C6A56016840DEE00325741 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84C6A56116840DEE00325741 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84D69178167AC2BE00146B09 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
-		84D69179167AC2BE00146B09 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,14 +130,6 @@
 				846635981684204D000DB00C /* DetailStickedObjectViewController.m */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		846635AE168424BC000DB00C /* Wave */ = {
-			isa = PBXGroup;
-			children = (
-				846635AF168424BC000DB00C /* micro_ip.png */,
-			);
-			path = Wave;
 			sourceTree = "<group>";
 		};
 		847C094D167880B600EE33B3 /* Views */ = {
@@ -188,9 +178,9 @@
 		847CF51D1676EFC000CC9411 /* StickMe */ = {
 			isa = PBXGroup;
 			children = (
+				84C227ED168563860046A158 /* Resources */,
+				84C227FD168563860046A158 /* Utilities */,
 				841C9A0616770E970061991B /* Extensions */,
-				847CF5331676F08700CC9411 /* Utilities */,
-				847CF53C1676F08700CC9411 /* Resources */,
 				847C094D167880B600EE33B3 /* Views */,
 				846635961684204D000DB00C /* ViewControllers */,
 				84C6A55F16840DEE00325741 /* AppDelegate */,
@@ -210,77 +200,82 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		847CF5331676F08700CC9411 /* Utilities */ = {
+		84C227ED168563860046A158 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				84D69179167AC2BE00146B09 /* Utilities.h */,
-				84D69178167AC2BE00146B09 /* Utilities.m */,
-				847C094A167832F600EE33B3 /* StickObject.h */,
-				847C094B167832F600EE33B3 /* StickObject.m */,
-				847CF5341676F08700CC9411 /* BLEHelper */,
-				847CF5371676F08700CC9411 /* Constants.h */,
-				847CF5381676F08700CC9411 /* Constants.m */,
-				847CF5391676F08700CC9411 /* Defines.h */,
-				847CF53A1676F08700CC9411 /* UserDefaultsHelper.h */,
-				847CF53B1676F08700CC9411 /* UserDefaultsHelper.m */,
-				8413C5711679FCCA00EAF3F5 /* StickObjectSummary.h */,
-				8413C5721679FCCA00EAF3F5 /* StickObjectSummary.m */,
+				84C227EE168563860046A158 /* Images */,
+				84C227F6168563860046A158 /* Xibs */,
 			);
-			name = Utilities;
-			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Utilities";
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		847CF5341676F08700CC9411 /* BLEHelper */ = {
+		84C227EE168563860046A158 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				847CF5351676F08700CC9411 /* BLEDiscoveryHelper.h */,
-				847CF5361676F08700CC9411 /* BLEDiscoveryHelper.m */,
-			);
-			path = BLEHelper;
-			sourceTree = "<group>";
-		};
-		847CF53C1676F08700CC9411 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				847CF53D1676F08700CC9411 /* Images */,
-				847CF5431676F08700CC9411 /* Xibs */,
-			);
-			name = Resources;
-			path = "../../../Stick'n'Find/Stick'n'Find/Stick'n'Find/Resources";
-			sourceTree = "<group>";
-		};
-		847CF53D1676F08700CC9411 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				846635AE168424BC000DB00C /* Wave */,
-				847CF53E1676F08700CC9411 /* TabIcons */,
+				84C227EF168563860046A158 /* TabIcons */,
+				84C227F4168563860046A158 /* Wave */,
 			);
 			path = Images;
 			sourceTree = "<group>";
 		};
-		847CF53E1676F08700CC9411 /* TabIcons */ = {
+		84C227EF168563860046A158 /* TabIcons */ = {
 			isa = PBXGroup;
 			children = (
-				847CF53F1676F08700CC9411 /* Discovery.png */,
-				847CF5401676F08700CC9411 /* Discovery@2x.png */,
-				847CF5411676F08700CC9411 /* Settings.png */,
-				847CF5421676F08700CC9411 /* Settings@2x.png */,
+				84C227F0168563860046A158 /* Discovery.png */,
+				84C227F1168563860046A158 /* Discovery@2x.png */,
+				84C227F2168563860046A158 /* Settings.png */,
+				84C227F3168563860046A158 /* Settings@2x.png */,
 			);
 			path = TabIcons;
 			sourceTree = "<group>";
 		};
-		847CF5431676F08700CC9411 /* Xibs */ = {
+		84C227F4168563860046A158 /* Wave */ = {
 			isa = PBXGroup;
 			children = (
-				84C6A523168409B900325741 /* RadarView.xib */,
-				847CF5441676F08700CC9411 /* DiscoveryViewController.xib */,
-				847CF5451676F08700CC9411 /* SettingsViewController.xib */,
-				84C6A55D16840D5A00325741 /* DetailStickedObjectViewController.xib */,
-				847C09511678837700EE33B3 /* DiscoveryCell.xib */,
-				847C095F167895CC00EE33B3 /* DiscoveryCell1.xib */,
-				846635AC168423D2000DB00C /* WaveStrengthView.xib */,
+				84C227F5168563860046A158 /* micro_ip.png */,
+			);
+			path = Wave;
+			sourceTree = "<group>";
+		};
+		84C227F6168563860046A158 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				84C227F7168563860046A158 /* DetailStickedObjectViewController.xib */,
+				84C227F8168563860046A158 /* DiscoveryCell.xib */,
+				84C227F9168563860046A158 /* DiscoveryCell1.xib */,
+				84C227FA168563860046A158 /* DiscoveryViewController.xib */,
+				84C227FB168563860046A158 /* RadarView.xib */,
+				84C227FC168563860046A158 /* SettingsViewController.xib */,
 			);
 			path = Xibs;
+			sourceTree = "<group>";
+		};
+		84C227FD168563860046A158 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				84C227FE168563860046A158 /* BLEHelper */,
+				84C22801168563860046A158 /* Constants.h */,
+				84C22802168563860046A158 /* Constants.m */,
+				84C22803168563860046A158 /* Defines.h */,
+				84C22804168563860046A158 /* StickObject.h */,
+				84C22805168563860046A158 /* StickObject.m */,
+				84C22806168563860046A158 /* StickObjectSummary.h */,
+				84C22807168563860046A158 /* StickObjectSummary.m */,
+				84C22808168563860046A158 /* UserDefaultsHelper.h */,
+				84C22809168563860046A158 /* UserDefaultsHelper.m */,
+				84C2280A168563860046A158 /* Utilities.h */,
+				84C2280B168563860046A158 /* Utilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		84C227FE168563860046A158 /* BLEHelper */ = {
+			isa = PBXGroup;
+			children = (
+				84C227FF168563860046A158 /* BLEDiscoveryHelper.h */,
+				84C22800168563860046A158 /* BLEDiscoveryHelper.m */,
+			);
+			path = BLEHelper;
 			sourceTree = "<group>";
 		};
 		84C6A55F16840DEE00325741 /* AppDelegate */ = {
@@ -343,18 +338,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				847CF5221676EFC000CC9411 /* InfoPlist.strings in Resources */,
-				847CF5541676F08700CC9411 /* Discovery.png in Resources */,
-				847CF5551676F08700CC9411 /* Discovery@2x.png in Resources */,
-				847CF5561676F08700CC9411 /* Settings.png in Resources */,
-				847CF5571676F08700CC9411 /* Settings@2x.png in Resources */,
-				847CF5581676F08700CC9411 /* DiscoveryViewController.xib in Resources */,
-				847CF5591676F08700CC9411 /* SettingsViewController.xib in Resources */,
-				847C09521678837700EE33B3 /* DiscoveryCell.xib in Resources */,
-				847C0960167895CC00EE33B3 /* DiscoveryCell1.xib in Resources */,
-				84C6A524168409B900325741 /* RadarView.xib in Resources */,
-				84C6A55E16840D5A00325741 /* DetailStickedObjectViewController.xib in Resources */,
-				846635AD168423D2000DB00C /* WaveStrengthView.xib in Resources */,
-				846635B0168424BC000DB00C /* micro_ip.png in Resources */,
+				84C2280C168563860046A158 /* Discovery.png in Resources */,
+				84C2280D168563860046A158 /* Discovery@2x.png in Resources */,
+				84C2280E168563860046A158 /* Settings.png in Resources */,
+				84C2280F168563860046A158 /* Settings@2x.png in Resources */,
+				84C22810168563860046A158 /* micro_ip.png in Resources */,
+				84C22811168563860046A158 /* DetailStickedObjectViewController.xib in Resources */,
+				84C22812168563860046A158 /* DiscoveryCell.xib in Resources */,
+				84C22813168563860046A158 /* DiscoveryCell1.xib in Resources */,
+				84C22814168563860046A158 /* DiscoveryViewController.xib in Resources */,
+				84C22815168563860046A158 /* RadarView.xib in Resources */,
+				84C22816168563860046A158 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,14 +360,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				847CF5241676EFC000CC9411 /* main.m in Sources */,
-				847CF5511676F08700CC9411 /* BLEDiscoveryHelper.m in Sources */,
-				847CF5521676F08700CC9411 /* Constants.m in Sources */,
-				847CF5531676F08700CC9411 /* UserDefaultsHelper.m in Sources */,
-				847C094C167832F600EE33B3 /* StickObject.m in Sources */,
 				847C09501678812A00EE33B3 /* DiscoveryCell.m in Sources */,
 				847C095E167895B600EE33B3 /* DiscoveryCell1.m in Sources */,
-				8413C5731679FCCA00EAF3F5 /* StickObjectSummary.m in Sources */,
-				84D6917A167AC2BE00146B09 /* Utilities.m in Sources */,
 				84C6A5221684094400325741 /* RadarView.m in Sources */,
 				84C6A56216840DEE00325741 /* AppDelegate.m in Sources */,
 				8466359F1684204D000DB00C /* DetailStickedObjectViewController.m in Sources */,
@@ -381,6 +369,12 @@
 				846635A11684204D000DB00C /* RadarViewController.m in Sources */,
 				846635A21684204D000DB00C /* SettingsViewController.m in Sources */,
 				846635AA168423BA000DB00C /* WaveStrengthView.m in Sources */,
+				84C22817168563860046A158 /* BLEDiscoveryHelper.m in Sources */,
+				84C22818168563860046A158 /* Constants.m in Sources */,
+				84C22819168563860046A158 /* StickObject.m in Sources */,
+				84C2281A168563860046A158 /* StickObjectSummary.m in Sources */,
+				84C2281B168563860046A158 /* UserDefaultsHelper.m in Sources */,
+				84C2281C168563860046A158 /* Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
