@@ -347,7 +347,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 #pragma mark - Public methods
 -(void) reScan
 {
-    NSLog(@"reScan");
+//    NSLog(@"reScan");
     [self stopScanning];
     
     [self startScanning];
@@ -392,7 +392,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
             [_reScanTimer invalidate];
         }
     }
-//    self.reScanTimer = [NSTimer scheduledTimerWithTimeInterval:kScanInterval target:self selector:@selector(reScan) userInfo:nil repeats:NO];
+    self.reScanTimer = [NSTimer scheduledTimerWithTimeInterval:kScanInterval target:self selector:@selector(reScan) userInfo:nil repeats:NO];
     
     //start scanning
 	[centralManager scanForPeripheralsWithServices:nil options:options];
@@ -581,7 +581,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 //    CBUUID *uuid = [[advertisementData objectForKey:CBAdvertisementDataServiceUUIDsKey] objectAtIndex:0];
 //    NSLog(@"uuid:%@", uuid.description);
     NSString* pUUID = [Utilities UUIDofPeripheral:peripheral];
-    NSLog(@"pUUID:%@", pUUID);  
+//    NSLog(@"pUUID:%@", pUUID);  
     
     //save to inRangeDevices list
     [self addToInRangeDevicesList:pUUID];
@@ -610,7 +610,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
         
         StickObject* stick = [[StickObject alloc] initWithPeripheral:peripheral];
         stick.range = [Utilities convertToRangeDistanceFromRSSI:[RSSI intValue]];
-        NSLog(@"range 1: %@", NSStringFromRange(stick.range));
+//        NSLog(@"range 1: %@", NSStringFromRange(stick.range));
         stick.currentDistance = [RSSI intValue];
         [_discoveredStickedObjectsList addObject:stick];
         [stick release]; 
@@ -695,7 +695,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 - (void) centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
     NSLog(@"didConnectPeripheral");
-    NSLog(@"pUUID: %@", (NSString*)peripheral.UUID);
+//    NSLog(@"pUUID: %@", (NSString*)peripheral.UUID);
     NSArray	*serviceArray	= [NSArray arrayWithObjects:
                                [CBUUID UUIDWithString:LOCK_SERVICE_UUID],
                                nil];
@@ -706,9 +706,10 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     for (index = 0; index < _discoveredStickedObjectsList.count; index++) {
         StickObject* stick = (StickObject*)[_discoveredStickedObjectsList objectAtIndex:index];
         if ([stick.peripheral isEqual:peripheral]) {
-            [Utilities createStoredRSSIFile];
+//            [Utilities createStoredRSSIFile];
             //            NSLog(@"found disconnect");
-            [stick connectPeripheral];
+//            [stick connectPeripheral];
+            [stick startReadRSSI];
             break;
         }
     }
@@ -726,9 +727,10 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     for (index = 0; index < _discoveredStickedObjectsList.count; index++) {
         StickObject* stick = (StickObject*)[_discoveredStickedObjectsList objectAtIndex:index];
         if ([stick.peripheral isEqual:peripheral]) {
-            [Utilities createStoredRSSIFile];
+//            [Utilities createStoredRSSIFile];
 //            NSLog(@"found disconnect");
-            [stick cancelConnection];
+//            [stick cancelConnection];
+            [stick stopReadRSSI];
             break;
         }
     }

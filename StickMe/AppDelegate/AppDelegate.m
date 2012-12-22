@@ -72,7 +72,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     [bluetoothDiscovery startScanning];
     
     //create file
-    [Utilities createStoredRSSIFile];
+//    [Utilities createStoredRSSIFile];
     
     return YES;
 }

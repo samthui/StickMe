@@ -29,6 +29,8 @@
 -(void) connectPeripheral;
 -(void) cancelConnection;
 
+-(void) startReadRSSI;
+-(void) stopReadRSSI;
 -(void) averageRSSI;
 
 @end

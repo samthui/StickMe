@@ -198,10 +198,10 @@
         NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"DiscoveryCell1" owner:self options:nil];
         cell = [nib objectAtIndex:0];
         
-        
+        [cell.waveView removeFromSuperview];
         NSArray* waveNib = [[NSBundle mainBundle] loadNibNamed:@"WaveStrengthView" owner:self options:nil];
         WaveStrengthView* waveView = [waveNib objectAtIndex:0];
-        [waveView setFrame:CGRectMake(115, -1, 40, 44)];
+        [waveView setFrame:CGRectMake(115, 0, 40, 44)];
         cell.waveView = waveView;
         [cell addSubview:cell.waveView];
     }
