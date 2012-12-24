@@ -702,7 +702,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 
 - (void) centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    NSLog(@"didConnectPeripheral");
+//    NSLog(@"didConnectPeripheral");
 //    NSLog(@"pUUID: %@", (NSString*)peripheral.UUID);
     NSArray	*serviceArray	= [NSArray arrayWithObjects:
                                [CBUUID UUIDWithString:LOCK_SERVICE_UUID],
@@ -729,7 +729,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 - (void) centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
 //    self.foundPeripherals = nil;
-    NSLog(@"didDisconnectPeripheral");
+//    NSLog(@"didDisconnectPeripheral");
 //    [_BLEDiscoveryHelperDelegate discoveryDidRefresh];
     int index;
     for (index = 0; index < _discoveredStickedObjectsList.count; index++) {

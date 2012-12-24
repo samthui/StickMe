@@ -76,7 +76,7 @@
     float radius;
     CGRect viewFrame = self.frame;
     CGSize sizeFrame = viewFrame.size;
-    float maxRadius = sizeFrame.width/2.0;
+    float maxRadius = sizeFrame.width/2.0 - 5;
     
     int guardian = STEP_0_5m;
     for (int i = 0; guardian <= _maxDistance; i++) {

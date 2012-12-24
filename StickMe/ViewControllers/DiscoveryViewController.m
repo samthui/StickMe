@@ -99,10 +99,7 @@
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //    return _stickObjectsArray.count;
-    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
-    NSData* savedData = [userDefault objectForKey:(NSString*)kUUIDsList];
-    NSMutableArray* UUIDsList = [[[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:savedData]] autorelease];
-//    NSMutableArray* UUIDsList = [NSMutableArray arrayWithArray:(NSArray*)[userDefault objectForKey:(NSString*)kUUIDsList]];
+    NSMutableArray* UUIDsList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
 //    NSLog(@"numb rows: %i", UUIDsList.count);
     return UUIDsList.count;
 }
@@ -206,9 +203,7 @@
         [cell addSubview:cell.waveView];
     }
     
-    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
-    NSData* savedData = [userDefault objectForKey:(NSString*)kUUIDsList];
-    NSMutableArray* UUIDsList = [[[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:savedData]] autorelease];
+    NSMutableArray* UUIDsList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
     StickObjectSummary* stickSummary = (StickObjectSummary*)[UUIDsList objectAtIndex:indexPath.row];
     
     NSMutableArray* discoveredStickedObjectsList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
@@ -246,9 +241,7 @@
     else {
         
         //default
-//        NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
-//        NSData* savedData = [userDefault objectForKey:(NSString*)kUUIDsList];
-//        NSMutableArray* UUIDsList = [[[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:savedData]] autorelease];
+//        NSMutableArray* UUIDsList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
 //        StickObjectSummary* stickSummary = (StickObjectSummary*)[UUIDsList objectAtIndex:indexPath.row];
         
         [cell.deviceName setText: stickSummary.name];
