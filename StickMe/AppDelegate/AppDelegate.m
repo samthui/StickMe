@@ -220,8 +220,20 @@ void uncaughtExceptionHandler(NSException *exception) {
     [self noticeAction];
 }
 
+-(void) noticeInRangeObjectAtIndex:(int)index
+{
+    NSLog(@"Notice In %i", index);
+    [self noticeAction];
+}
+
 -(void) noticeStickedObjectOutRange
 {
+    [self noticeAction];
+}
+
+-(void) noticeOutRangeObjectAtIndex:(int)index
+{
+    NSLog(@"Notice Out %i", index);
     [self noticeAction];
 }
 

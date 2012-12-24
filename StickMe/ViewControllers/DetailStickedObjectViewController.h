@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView* detailTable;
 @property (nonatomic, assign) int stickObjectIndex;
+@property (nonatomic, assign) int stickIndex;
 
 -(void) reloadBluetoothDeviceUUID: (NSString*) UUID;
 -(void) reloadBluetoothDevice;

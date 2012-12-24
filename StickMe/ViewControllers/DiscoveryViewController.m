@@ -198,9 +198,11 @@
         [cell.waveView removeFromSuperview];
         NSArray* waveNib = [[NSBundle mainBundle] loadNibNamed:@"WaveStrengthView" owner:self options:nil];
         WaveStrengthView* waveView = [waveNib objectAtIndex:0];
-        [waveView setFrame:CGRectMake(115, 0, 40, 44)];
+//        [waveView setFrame:CGRectMake(115, 0, 40, 44)];
+        [waveView setFrame:CGRectMake(140, 0, 46, 44)];
         cell.waveView = waveView;
-        [cell addSubview:cell.waveView];
+//        [cell addSubview:cell.waveView];
+        [cell insertSubview:cell.waveView atIndex:0];
     }
     
     NSMutableArray* UUIDsList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
@@ -272,6 +274,7 @@
     NSString* deviceName = stickSummary.name;
     [detailViewController setTitle: deviceName];
     detailViewController.stickObjectIndex = indexPath.row;
+    detailViewController.stickIndex = indexPath.row;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
     

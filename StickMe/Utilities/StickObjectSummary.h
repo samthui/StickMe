@@ -12,5 +12,8 @@
 
 @property (nonatomic, retain) NSString* UUID;
 @property (nonatomic, retain) NSString* name;
+@property (nonatomic, assign) BOOL noticeInRange;
+@property (nonatomic, assign) BOOL noticeOutRange;
+@property (nonatomic, assign) int setupDistance;
 
 @end

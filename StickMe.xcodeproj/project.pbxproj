@@ -43,6 +43,7 @@
 		84C9FCB4168857F0009E34E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C9FCB3168857F0009E34E3 /* AVFoundation.framework */; };
 		84C9FCB7168857F8009E34E3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C9FCB6168857F8009E34E3 /* AudioToolbox.framework */; };
 		84C9FCBA16885874009E34E3 /* NewMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C9FCB916885874009E34E3 /* NewMessage.wav */; };
+		84C9FCBD16886A68009E34E3 /* bluetooth.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C9FCBC16886A68009E34E3 /* bluetooth.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		84C9FCB3168857F0009E34E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84C9FCB6168857F8009E34E3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		84C9FCB916885874009E34E3 /* NewMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = NewMessage.wav; sourceTree = "<group>"; };
+		84C9FCBC16886A68009E34E3 /* bluetooth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluetooth.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 		84C227EE168563860046A158 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				84C9FCBB16886A68009E34E3 /* Table Cell */,
 				84C227EF168563860046A158 /* TabIcons */,
 				84C227F4168563860046A158 /* Wave */,
 			);
@@ -309,6 +312,14 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		84C9FCBB16886A68009E34E3 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84C9FCBC16886A68009E34E3 /* bluetooth.png */,
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,6 +384,7 @@
 				84C22816168563860046A158 /* SettingsViewController.xib in Resources */,
 				84BC3AEC168568C700505DD0 /* WaveStrengthView.xib in Resources */,
 				84C9FCBA16885874009E34E3 /* NewMessage.wav in Resources */,
+				84C9FCBD16886A68009E34E3 /* bluetooth.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,6 +36,8 @@ static BLEDiscoveryHelper *shareBLEDiscoveryHelper = nil;
 @property (nonatomic, retain) NSMutableArray* inRangeDevices;
 
 -(void) reScan;
+-(void) noticeInRangeStickSummaryAtIndex:(int)index;
+-(void) noticeOutRangeStickSummaryAtIndex:(int)index;
 
 @end
 
@@ -344,6 +346,31 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 //    [oldLocation release];
 }
 
+//samthui7
+-(void)noticeInRangeStickSummaryAtIndex:(int)index
+{
+    NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*) kUUIDsList];
+    StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:index];
+
+    if(stickSummary.noticeInRange)
+    {
+        AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDel noticeInRangeObjectAtIndex:index];
+    }
+}
+
+-(void)noticeOutRangeStickSummaryAtIndex:(int)index
+{
+    NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*) kUUIDsList];
+    StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:index];
+
+    if(stickSummary.noticeOutRange)
+    {
+        AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDel noticeOutRangeObjectAtIndex:index];
+    }
+}
+
 #pragma mark - Public methods
 -(void) reScan
 {
@@ -474,8 +501,6 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 //samthui7
 -(void) checkOutOfRangeDevices
 {
-    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    
     NSMutableArray* outRangeDevices = [NSMutableArray array];
     
     int index = 0;
@@ -485,7 +510,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     {
         NSString* stickUUID = [Utilities UUIDofPeripheral:stick.peripheral];
         if (![self.inRangeDevices containsObject:stickUUID]) {
-            [appDel noticeStickedObjectOutRange];
+            [self noticeOutRangeStickSummaryAtIndex:index];
             
             [outRangeDevices addObject:stick];
 //            NSLog(@"out %i - %@", index, stickUUID);
@@ -617,6 +642,9 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 //            newItem.name = [NSString stringWithFormat:@"NoName %i", UUIDsList.count];
 //        }
         newItem.UUID = pUUID;
+        newItem.noticeInRange = NO;
+        newItem.noticeOutRange = NO;
+        newItem.setupDistance = MAX_DISTANCE;
         [UUIDsList addObject:newItem];
         [newItem release];
         
@@ -633,8 +661,9 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 //        NSLog(@"found at index: %i!!!", index);
         
         BOOL existed = NO;
-        for (int i = 0; i < _discoveredStickedObjectsList.count; i++) {
-            StickObject* stick = (StickObject*)[_discoveredStickedObjectsList objectAtIndex:i];
+        int index = 0;
+        for (index = 0; index < _discoveredStickedObjectsList.count; index++) {
+            StickObject* stick = (StickObject*)[_discoveredStickedObjectsList objectAtIndex:index];
             NSString* tempUUID = [Utilities UUIDofPeripheral:stick.peripheral];
             if ([tempUUID isEqual:pUUID]) {
                 existed = YES;
@@ -648,8 +677,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
         }
         if (!existed) {            
 //            NSLog(@"not discovered yet");
-            AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            [appDel noticeStickedObjectInRange];
+            [self noticeInRangeStickSummaryAtIndex:index];
             
             StickObject* stick = [[StickObject alloc] initWithPeripheral:peripheral];
             stick.range = [Utilities convertToRangeDistanceFromRSSI:[RSSI intValue]];

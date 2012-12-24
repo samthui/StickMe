@@ -31,6 +31,8 @@
 
 -(void) noticeAction;
 -(void) noticeStickedObjectInRange;
+-(void) noticeInRangeObjectAtIndex:(int)index;
 -(void) noticeStickedObjectOutRange;
+-(void) noticeOutRangeObjectAtIndex:(int)index;
 
 @end
