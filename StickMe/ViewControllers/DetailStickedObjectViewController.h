@@ -11,6 +11,9 @@
 @interface DetailStickedObjectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) IBOutlet UITableView* detailTable;
-@property (nonatomic, assign) unsigned short stickObjectIndex;
+@property (nonatomic, assign) int stickObjectIndex;
+
+-(void) reloadBluetoothDeviceUUID: (NSString*) UUID;
+-(void) reloadBluetoothDevice;
 
 @end

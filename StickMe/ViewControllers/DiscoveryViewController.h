@@ -16,5 +16,6 @@
 
 -(void) reloadBluetoothDevicesList;
 -(void) reloadBluetoothDevicesList:(NSArray*) bluetoothDeviceArray;
+-(void) reloadBluetoothDeviceAtIndex :(int)index;
 
 @end

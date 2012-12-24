@@ -289,6 +289,17 @@
 {
 //    self.bluetoothDevicesArray = ((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).foundPeripherals;
 //    [self.bluetoothDevicesTable reloadData];
+    
+    [self.bluetoothDevicesTable reloadData];  
+    
+    //reload detailStickedObjectView (if existed)
+    for (id viewController in [self.navigationController viewControllers]) {
+        if ([viewController isKindOfClass:[DetailStickedObjectViewController class]]) {
+            DetailStickedObjectViewController* detailVC = (DetailStickedObjectViewController*)viewController;
+//            [detailVC.detailTable reloadData];
+            [detailVC reloadBluetoothDevice];
+        }
+    }
 }
 
 -(void) reloadBluetoothDevicesList:(NSArray *)bluetoothDeviceArray
@@ -297,6 +308,20 @@
     
     [self.bluetoothDevicesTable reloadData];
     
+    for (id viewController in [self.navigationController viewControllers]) {
+        if ([viewController isKindOfClass:[DetailStickedObjectViewController class]]) {
+            DetailStickedObjectViewController* detailVC = (DetailStickedObjectViewController*)viewController;
+            [detailVC.detailTable reloadData];
+        }
+    }
+}
+
+-(void) reloadBluetoothDeviceAtIndex:(int)index
+{
+    NSArray* indexesArray = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil];
+    [self.bluetoothDevicesTable reloadRowsAtIndexPaths:indexesArray withRowAnimation:UITableViewRowAnimationFade];    
+    
+    //reload detailStickedObjectView (if existed)
     for (id viewController in [self.navigationController viewControllers]) {
         if ([viewController isKindOfClass:[DetailStickedObjectViewController class]]) {
             DetailStickedObjectViewController* detailVC = (DetailStickedObjectViewController*)viewController;

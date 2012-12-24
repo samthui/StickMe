@@ -72,7 +72,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     [bluetoothDiscovery startScanning];
     
     //create file
-    [Utilities createStoredRSSIFile];
+//    [Utilities createStoredRSSIFile];
     
     return YES;
 }
@@ -144,9 +144,9 @@ void uncaughtExceptionHandler(NSException *exception) {
     //reload discoveryView
     UINavigationController* discoveryNavigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:DISCOVERY_TAB_INDEX];
     DiscoveryViewController* discoveryViewController = (DiscoveryViewController*)[discoveryNavigationController.viewControllers objectAtIndex:0];
-//    [discoveryViewController reloadBluetoothDevicesList];
+    [discoveryViewController reloadBluetoothDevicesList];
 //    [discoveryViewController reloadBluetoothDevicesList:((BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance]).foundPeripherals];
-    [discoveryViewController.bluetoothDevicesTable reloadData];
+//    [discoveryViewController.bluetoothDevicesTable reloadData];
 }
 
 -(void) refreshViews
@@ -165,22 +165,31 @@ void uncaughtExceptionHandler(NSException *exception) {
     NSLog(@"Appdelegate discoveryStatePoweredOff");
 }
 
+//-(void) updateStickedObjectAtIndex:(int)index
+//{
+//    //reload discoveryView
+//    UINavigationController* discoveryNavigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:DISCOVERY_TAB_INDEX];
+//    DiscoveryViewController* discoveryViewController = (DiscoveryViewController*)[discoveryNavigationController.viewControllers objectAtIndex:0];
+//    
+//    NSArray* indexesArray = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil];
+//    [discoveryViewController.bluetoothDevicesTable reloadRowsAtIndexPaths:indexesArray withRowAnimation:UITableViewRowAnimationFade];    
+//    
+//    //reload detailStickedObjectView (if existed)
+//    for (id viewController in [discoveryNavigationController viewControllers]) {
+//        if ([viewController isKindOfClass:[DetailStickedObjectViewController class]]) {
+//            DetailStickedObjectViewController* detailVC = (DetailStickedObjectViewController*)viewController;
+//            [detailVC.detailTable reloadData];
+//        }
+//    }
+//}
+
 -(void) updateStickedObjectAtIndex:(int)index
 {
     //reload discoveryView
     UINavigationController* discoveryNavigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:DISCOVERY_TAB_INDEX];
     DiscoveryViewController* discoveryViewController = (DiscoveryViewController*)[discoveryNavigationController.viewControllers objectAtIndex:0];
     
-    NSArray* indexesArray = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil];
-    [discoveryViewController.bluetoothDevicesTable reloadRowsAtIndexPaths:indexesArray withRowAnimation:UITableViewRowAnimationFade];    
-    
-    //reload detailStickedObjectView (if existed)
-    for (id viewController in [discoveryNavigationController viewControllers]) {
-        if ([viewController isKindOfClass:[DetailStickedObjectViewController class]]) {
-            DetailStickedObjectViewController* detailVC = (DetailStickedObjectViewController*)viewController;
-            [detailVC.detailTable reloadData];
-        }
-    }
+    [discoveryViewController reloadBluetoothDeviceAtIndex:index];
 }
 
 @end

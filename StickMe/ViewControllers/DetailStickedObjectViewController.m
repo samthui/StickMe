@@ -16,8 +16,16 @@
 #import "DiscoveryCell1.h"
 
 #import "StickObjectSummary.h"
+#import "Utilities.h"
+
+#define CONFIG_ITEM_TAG 1
 
 @interface DetailStickedObjectViewController ()
+{
+    NSString* _UUID;
+}
+
+@property (nonatomic, retain) NSString* UUID;
 
 //-(void) switchConnectState:(id)sender;
 -(void) switchConnectState;
@@ -28,6 +36,8 @@
 @end
 
 @implementation DetailStickedObjectViewController
+
+@synthesize UUID = _UUID;
 
 @synthesize detailTable = _detailTable;
 @synthesize stickObjectIndex = _stickObjectIndex;
@@ -41,10 +51,23 @@
     return self;
 }
 
+-(void) dealloc
+{
+    self.UUID = nil;
+    
+    [super dealloc];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
+    NSMutableArray* discoveredArray = BLEDiscover.discoveredStickedObjectsList;
+    StickObject* stick = [discoveredArray objectAtIndex:_stickObjectIndex];
+    self.UUID = [Utilities UUIDofPeripheral:stick.peripheral];
+    
 }
 
 - (void)viewDidUnload
@@ -116,29 +139,47 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     
+    BOOL hadConfigItem = NO;
+    UIView* subview = [cell viewWithTag:CONFIG_ITEM_TAG];
+    if (subview) {
+        hadConfigItem = YES;
+    }
+    
     switch (indexPath.section) {
         case 0:{
             switch (indexPath.row) {
                 case 0:{
-                    NSMutableArray* usersDevicesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
-                    StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:_stickObjectIndex];
-                    NSString* deviceName = stickSummary.name;
-                    [cell.textLabel setText:deviceName];
-                    
-                    CGSize switchSize = CGSizeMake(80, 20);
-                    UISwitch* connectStateSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
-                    [connectStateSwitch addTarget:self action:@selector(switchConnectState) forControlEvents:UIControlEventValueChanged];
-                    
-                    //set state
-                    NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
-//                    NSLog(@"....... 9 .......");
-                    StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
-//                    NSLog(@"....... 10 .......");
-                    CBPeripheral* peripheral = stick.peripheral;
-                    [connectStateSwitch setOn: ([peripheral isConnected] ? YES : NO)];
-                    
-                    [cell addSubview:connectStateSwitch];
-                    [connectStateSwitch release];
+                    NSLog(@"_stickObjectIndex");
+                    if (_stickObjectIndex >= 0) {     
+                        NSLog(@"======= %i", _stickObjectIndex);
+                        NSMutableArray* usersDevicesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+                        StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:_stickObjectIndex];
+                        NSString* deviceName = stickSummary.name;
+                        [cell.textLabel setText:deviceName];
+                        
+                        if (!hadConfigItem) {
+                            CGSize switchSize = CGSizeMake(80, 20);
+                            UISwitch* connectStateSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
+                            connectStateSwitch.tag = CONFIG_ITEM_TAG;
+                            [connectStateSwitch addTarget:self action:@selector(switchConnectState) forControlEvents:UIControlEventValueChanged];
+                            
+                            //set state
+                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+                            //                    NSLog(@"....... 9 .......");
+                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
+                            //                    NSLog(@"....... 10 .......");
+                            CBPeripheral* peripheral = stick.peripheral;
+                            [connectStateSwitch setOn: ([peripheral isConnected] ? YES : NO)];
+                            
+                            [cell addSubview:connectStateSwitch];
+                            [connectStateSwitch release];
+                        }                    
+                    }
+                    else {
+                        NSLog(@"======= blaablaa");
+                        UISwitch* connectStateSwitch = (UISwitch*) subview;
+                        [connectStateSwitch setOn:NO];
+                    }
                 
                     break;
                  }   
@@ -152,14 +193,17 @@
                 case 0:{
                     [cell.textLabel setText:@"Light"];
                     
-                    CGSize switchSize = CGSizeMake(80, 20);
-                    UISwitch* lightSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
-                    [lightSwitch addTarget:self action:@selector(light:) forControlEvents:UIControlEventValueChanged];
-                    
-                    //set state
-                    
-                    [cell addSubview:lightSwitch];
-                    [lightSwitch release];
+                    if (!hadConfigItem) {
+                        CGSize switchSize = CGSizeMake(80, 20);
+                        UISwitch* lightSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
+                        lightSwitch.tag = CONFIG_ITEM_TAG;
+                        [lightSwitch addTarget:self action:@selector(light:) forControlEvents:UIControlEventValueChanged];
+                        
+                        //set state
+                        
+                        [cell addSubview:lightSwitch];
+                        [lightSwitch release];
+                    }
                     
                     break;
                 }
@@ -167,14 +211,17 @@
                 case 1:{
                     [cell.textLabel setText:@"Ring"];
                     
-                    CGSize switchSize = CGSizeMake(80, 20);
-                    UISwitch* ringSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
-                    [ringSwitch addTarget:self action:@selector(ring:) forControlEvents:UIControlEventValueChanged];
-                    
-                    //set state
-                    
-                    [cell addSubview:ringSwitch];
-                    [ringSwitch release];
+                    if (!hadConfigItem) {
+                        CGSize switchSize = CGSizeMake(80, 20);
+                        UISwitch* ringSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
+                        ringSwitch.tag = CONFIG_ITEM_TAG;
+                        [ringSwitch addTarget:self action:@selector(ring:) forControlEvents:UIControlEventValueChanged];
+                        
+                        //set state
+                        
+                        [cell addSubview:ringSwitch];
+                        [ringSwitch release];
+                    }
                     
                     break;
                 }
@@ -182,18 +229,21 @@
                 case 2:{
                     [cell.textLabel setText:@"Distance"];
                     
-                    CGSize slideSize = CGSizeMake(80, 20);
-                    UISlider* distanceSlider = [[UISlider alloc] initWithFrame:CGRectMake(cell.frame.size.width - slideSize.width - 11, (cell.frame.size.height - slideSize.height)/2, slideSize.width, slideSize.height)];
-                    
-                    //set state
-                    [distanceSlider setValue:0.0];
-//                    StickObject* stick = (StickObject*)[[[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList] objectAtIndex:_stickObjectIndex];
-//                    float distanceRef = -(float)stick.currentDistance / 17.0f;
-//                    NSLog(@"WRONG FORMULA distanceRef: %f", distanceRef);
-//                    [distanceSlider setValue:distanceRef];
-                    
-                    [cell addSubview:distanceSlider];
-                    [distanceSlider release];
+                    if (!hadConfigItem) {
+                        CGSize slideSize = CGSizeMake(80, 20);
+                        UISlider* distanceSlider = [[UISlider alloc] initWithFrame:CGRectMake(cell.frame.size.width - slideSize.width - 11, (cell.frame.size.height - slideSize.height)/2, slideSize.width, slideSize.height)];
+                        distanceSlider.tag = CONFIG_ITEM_TAG;
+                        
+                        //set state
+                        [distanceSlider setValue:0.0];
+                        //                    StickObject* stick = (StickObject*)[[[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList] objectAtIndex:_stickObjectIndex];
+                        //                    float distanceRef = -(float)stick.currentDistance / 17.0f;
+                        //                    NSLog(@"WRONG FORMULA distanceRef: %f", distanceRef);
+                        //                    [distanceSlider setValue:distanceRef];
+                        
+                        [cell addSubview:distanceSlider];
+                        [distanceSlider release];
+                    }
                     
                     break;
                 }
@@ -261,5 +311,59 @@
 
 -(void)vibrate:(id)sender
 {}
+
+-(void) reloadBluetoothDeviceUUID:(NSString *)UUID
+{
+    if (!self.UUID || ![_UUID isEqual:UUID]) {
+        return;
+    }
+    
+    BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
+    NSMutableArray* discoveredObjectList = BLEDiscover.discoveredStickedObjectsList;
+    
+    int foundIndex = 0;
+    BOOL found = NO;
+    for (StickObject* stick in discoveredObjectList) {
+        NSString* pUUID = [Utilities UUIDofPeripheral:stick.peripheral];
+        if (self.UUID && [_UUID isEqual:pUUID]) {
+            found = YES;
+            _stickObjectIndex = foundIndex;
+            break;
+        }
+        
+        foundIndex ++;
+    }
+    
+    if (!found) {
+        _stickObjectIndex = -1;
+    }
+    
+    [self.detailTable reloadData];
+}
+
+-(void) reloadBluetoothDevice
+{    
+    BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
+    NSMutableArray* discoveredObjectList = BLEDiscover.discoveredStickedObjectsList;
+    
+    int foundIndex = 0;
+    BOOL found = NO;
+    for (StickObject* stick in discoveredObjectList) {
+        NSString* pUUID = [Utilities UUIDofPeripheral:stick.peripheral];
+        if (self.UUID && [_UUID isEqual:pUUID]) {
+            found = YES;
+            _stickObjectIndex = foundIndex;
+            break;
+        }
+        
+        foundIndex ++;
+    }
+    
+    if (!found) {
+        _stickObjectIndex = -1;
+    }
+    
+    [self.detailTable reloadData];
+}
 
 @end

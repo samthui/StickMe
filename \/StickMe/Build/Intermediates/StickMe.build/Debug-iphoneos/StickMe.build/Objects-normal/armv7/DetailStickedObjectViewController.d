@@ -8,4 +8,5 @@ dependencies: \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Utilities/Defines.h \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Views/DiscoveryCell1.h \
   /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Views/WaveStrengthView.h \
-  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Utilities/StickObjectSummary.h
+  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Utilities/StickObjectSummary.h \
+  /Users/admin/Documents/Projects/StickMe/StickMe/StickMe/Utilities/Utilities.h
