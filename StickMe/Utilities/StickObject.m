@@ -133,7 +133,7 @@
 -(void) cancelConnection
 {
 //    NSLog(@"cancelConnection");  
-    
+    //should send disconnect command
     [(BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance] disconnectPeripheral:self.peripheral];
     
     [self stopReadRSSI];

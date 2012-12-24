@@ -484,7 +484,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
         NSString* stickUUID = [Utilities UUIDofPeripheral:stick.peripheral];
         if (![self.inRangeDevices containsObject:stickUUID]) {
             [outRangeDevices addObject:stick];
-//            NSLog(@"out %i", index);
+//            NSLog(@"out %i - %@", index, stickUUID);
             
             //re-order
             StickObjectSummary* tempStickSummary = [[UUIDsList objectAtIndex:index] retain];
@@ -513,6 +513,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 -(void) addToInRangeDevicesList:(NSString *)UUID
 {
     if (![self.inRangeDevices containsObject:UUID]) {
+//        NSLog(@"add to inRange: %@", UUID);
         [self.inRangeDevices addObject:UUID];
     }
 }
@@ -577,6 +578,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 /*samthui7*/
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
+//    NSLog(@"++ didDiscoverPeripheral");
 //    NSLog(@"Advert:%@", advertisementData);
 //    CBUUID *uuid = [[advertisementData objectForKey:CBAdvertisementDataServiceUUIDsKey] objectAtIndex:0];
 //    NSLog(@"uuid:%@", uuid.description);
