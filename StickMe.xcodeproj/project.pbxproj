@@ -40,6 +40,9 @@
 		84C2281C168563860046A158 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2280B168563860046A158 /* Utilities.m */; };
 		84C6A5221684094400325741 /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A5211684094400325741 /* RadarView.m */; };
 		84C6A56216840DEE00325741 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A56116840DEE00325741 /* AppDelegate.m */; };
+		84C9FCB4168857F0009E34E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C9FCB3168857F0009E34E3 /* AVFoundation.framework */; };
+		84C9FCB7168857F8009E34E3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C9FCB6168857F8009E34E3 /* AudioToolbox.framework */; };
+		84C9FCBA16885874009E34E3 /* NewMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C9FCB916885874009E34E3 /* NewMessage.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +98,9 @@
 		84C6A5211684094400325741 /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
 		84C6A56016840DEE00325741 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84C6A56116840DEE00325741 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84C9FCB3168857F0009E34E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		84C9FCB6168857F8009E34E3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		84C9FCB916885874009E34E3 /* NewMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = NewMessage.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C9FCB7168857F8009E34E3 /* AudioToolbox.framework in Frameworks */,
+				84C9FCB4168857F0009E34E3 /* AVFoundation.framework in Frameworks */,
 				847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */,
 				847CF5181676EFC000CC9411 /* UIKit.framework in Frameworks */,
 				847CF51A1676EFC000CC9411 /* Foundation.framework in Frameworks */,
@@ -169,6 +177,8 @@
 		847CF5161676EFC000CC9411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84C9FCB6168857F8009E34E3 /* AudioToolbox.framework */,
+				84C9FCB3168857F0009E34E3 /* AVFoundation.framework */,
 				847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */,
 				847CF5171676EFC000CC9411 /* UIKit.framework */,
 				847CF5191676EFC000CC9411 /* Foundation.framework */,
@@ -205,6 +215,7 @@
 		84C227ED168563860046A158 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84C9FCB816885874009E34E3 /* Sounds */,
 				84C227EE168563860046A158 /* Images */,
 				84C227F6168563860046A158 /* Xibs */,
 			);
@@ -290,6 +301,14 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
+		84C9FCB816885874009E34E3 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				84C9FCB916885874009E34E3 /* NewMessage.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,6 +372,7 @@
 				84C22815168563860046A158 /* RadarView.xib in Resources */,
 				84C22816168563860046A158 /* SettingsViewController.xib in Resources */,
 				84BC3AEC168568C700505DD0 /* WaveStrengthView.xib in Resources */,
+				84C9FCBA16885874009E34E3 /* NewMessage.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

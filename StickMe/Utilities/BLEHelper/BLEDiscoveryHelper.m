@@ -474,6 +474,8 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 //samthui7
 -(void) checkOutOfRangeDevices
 {
+    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
     NSMutableArray* outRangeDevices = [NSMutableArray array];
     
     int index = 0;
@@ -483,6 +485,8 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     {
         NSString* stickUUID = [Utilities UUIDofPeripheral:stick.peripheral];
         if (![self.inRangeDevices containsObject:stickUUID]) {
+            [appDel noticeStickedObjectOutRange];
+            
             [outRangeDevices addObject:stick];
 //            NSLog(@"out %i - %@", index, stickUUID);
             
@@ -644,6 +648,9 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
         }
         if (!existed) {            
 //            NSLog(@"not discovered yet");
+            AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+            [appDel noticeStickedObjectInRange];
+            
             StickObject* stick = [[StickObject alloc] initWithPeripheral:peripheral];
             stick.range = [Utilities convertToRangeDistanceFromRSSI:[RSSI intValue]];
 //            NSLog(@"range 2: %@", NSStringFromRange(stick.range));

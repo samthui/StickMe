@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <AudioToolbox/AudioServices.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "Constants.h"
 #import "RadarViewController.h"
@@ -149,6 +151,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 //    [discoveryViewController.bluetoothDevicesTable reloadData];
 }
 
+#pragma mark - public methods
+
 -(void) refreshViews
 {
     BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
@@ -190,6 +194,35 @@ void uncaughtExceptionHandler(NSException *exception) {
     DiscoveryViewController* discoveryViewController = (DiscoveryViewController*)[discoveryNavigationController.viewControllers objectAtIndex:0];
     
     [discoveryViewController reloadBluetoothDeviceAtIndex:index];
+}
+
+-(void) noticeAction
+{   
+    //    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
+    ;
+    
+    NSString *pathForSilentFile = [[NSBundle mainBundle] pathForResource:@"NewMessage" ofType:@"wav"];
+    NSURL *soundFile = [[NSURL alloc] initFileURLWithPath:pathForSilentFile];
+    AVAudioPlayer *sPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:NULL];
+    [soundFile release];            
+    [sPlayer play];
+    
+    //    // later...
+    //    
+    //    if ([sPlayer isPlaying])
+    //        [sPlayer stop];
+}
+
+-(void) noticeStickedObjectInRange
+{
+    [self noticeAction];
+}
+
+-(void) noticeStickedObjectOutRange
+{
+    [self noticeAction];
 }
 
 @end

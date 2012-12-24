@@ -29,4 +29,8 @@
 //-(void) scan;
 -(void) refreshViews;
 
+-(void) noticeAction;
+-(void) noticeStickedObjectInRange;
+-(void) noticeStickedObjectOutRange;
+
 @end
