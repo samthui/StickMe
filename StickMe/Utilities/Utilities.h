@@ -19,6 +19,9 @@
 @interface Utilities : NSObject
 +(BOOL) randBool;
 
++(NSString*) nameOfDeviceWithUUID:(NSString*)UUID;
++(NSString*) nameOfPeripheral:(CBPeripheral*)peripheral;
+
 +(NSString*) UUIDfromCFUUID:(NSString*)CFUUID;
 +(NSString*) UUIDofPeripheral:(CBPeripheral*)peripheral;
 

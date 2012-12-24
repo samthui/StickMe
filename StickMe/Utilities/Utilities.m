@@ -6,6 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "UserDefaultsHelper.h"
+#import "Constants.h"
+
+#import "StickObjectSummary.h"
+
 #import "Utilities.h"
 
 @implementation Utilities
@@ -15,6 +20,24 @@
     if(tmp % 5 == 0)
         return YES;
     return NO;
+}
+
++(NSString*) nameOfDeviceWithUUID:(NSString *)UUID
+{
+    NSMutableArray* stickSummariesArray = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+    
+    for (StickObjectSummary* stickSummary in stickSummariesArray) {
+        if ([stickSummary.UUID isEqual:UUID]) {
+            return stickSummary.name;
+        }
+    }
+    
+    return @"Not Found";
+}
+
++(NSString*) nameOfPeripheral:(CBPeripheral *)peripheral
+{
+    return [Utilities nameOfDeviceWithUUID:[Utilities UUIDofPeripheral:peripheral]];
 }
 
 +(NSString*) UUIDfromCFUUID:(NSString*)CFUUID

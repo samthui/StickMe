@@ -489,7 +489,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
             //re-order
             StickObjectSummary* tempStickSummary = [[UUIDsList objectAtIndex:index] retain];
             [UUIDsList removeObjectAtIndex:index];
-            [UUIDsList insertObject:tempStickSummary atIndex:0];
+            [UUIDsList addObject:tempStickSummary];
             [tempStickSummary release];
         }
         index ++;
@@ -603,7 +603,13 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     if (!existed) {
 //        NSLog(@"not existed :D ^^");
         StickObjectSummary* newItem = [[StickObjectSummary alloc] init];
-        newItem.name = [NSString stringWithFormat:@"NoName %i", UUIDsList.count];
+        newItem.name = [pUUID substringToIndex:7];
+//        if (newItem.name) {
+//            newItem.name = [pUUID substringToIndex:7];
+//        }
+//        else {
+//            newItem.name = [NSString stringWithFormat:@"NoName %i", UUIDsList.count];
+//        }
         newItem.UUID = pUUID;
         [UUIDsList addObject:newItem];
         [newItem release];

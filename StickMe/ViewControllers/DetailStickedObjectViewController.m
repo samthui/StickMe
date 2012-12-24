@@ -33,7 +33,7 @@
 -(void) switchConnectState;
 -(void) light:(id)sender;
 -(void) ring:(id)sender;
--(void) vibrate:(id)sender;
+-(void) setupDistance:(id)sender;
 
 @end
 
@@ -151,9 +151,9 @@
         case 0:{
             switch (indexPath.row) {
                 case 0:{
-                    NSLog(@"_stickObjectIndex");
+//                    NSLog(@"_stickObjectIndex");
                     if (_stickObjectIndex >= 0) {     
-                        NSLog(@"======= %i", _stickObjectIndex);
+//                        NSLog(@"======= %i", _stickObjectIndex);
                         NSMutableArray* usersDevicesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
                         StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:_stickObjectIndex];
                         NSString* deviceName = stickSummary.name;
@@ -178,7 +178,7 @@
                         }                    
                     }
                     else {
-                        NSLog(@"======= blaablaa");
+//                        NSLog(@"======= blaablaa");
                         UISwitch* connectStateSwitch = (UISwitch*) subview;
                         [connectStateSwitch setOn:NO];
                     }
@@ -202,6 +202,12 @@
                         [lightSwitch addTarget:self action:@selector(light:) forControlEvents:UIControlEventValueChanged];
                         
                         //set state
+                        if(_stickObjectIndex >= 0)
+                        {
+                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
+                            [lightSwitch setOn: (stick.isBlinking ? YES : NO)];
+                        }
                         
                         [cell addSubview:lightSwitch];
                         [lightSwitch release];
@@ -220,6 +226,12 @@
                         [ringSwitch addTarget:self action:@selector(ring:) forControlEvents:UIControlEventValueChanged];
                         
                         //set state
+                        if(_stickObjectIndex >= 0)
+                        {
+                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
+                            [ringSwitch setOn: (stick.isRinging ? YES : NO)];
+                        }
                         
                         [cell addSubview:ringSwitch];
                         [ringSwitch release];
@@ -235,9 +247,16 @@
                         CGSize slideSize = CGSizeMake(80, 20);
                         UISlider* distanceSlider = [[UISlider alloc] initWithFrame:CGRectMake(cell.frame.size.width - slideSize.width - 11, (cell.frame.size.height - slideSize.height)/2, slideSize.width, slideSize.height)];
                         distanceSlider.tag = CONFIG_ITEM_TAG;
+                        [distanceSlider addTarget:self action:@selector(setupDistance:) forControlEvents:UIControlEventValueChanged];
                         
                         //set state
-                        [distanceSlider setValue:0.0];
+                        if(_stickObjectIndex >= 0)
+                        {
+                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
+                            distanceSlider.value = stick.setupDistance / MAX_DISTANCE;
+                        }
+//                        [distanceSlider setValue:0.0];
                         //                    StickObject* stick = (StickObject*)[[[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList] objectAtIndex:_stickObjectIndex];
                         //                    float distanceRef = -(float)stick.currentDistance / 17.0f;
                         //                    NSLog(@"WRONG FORMULA distanceRef: %f", distanceRef);
@@ -302,17 +321,48 @@
 
 -(void)light:(id)sender
 {
+    if (_stickObjectIndex < 0) {
+        return;
+    }
+    
+    UISwitch* lightSwitch = (UISwitch*) sender;
+    
     BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
     StickObject* stick = (StickObject*)[[BLEDiscover discoveredStickedObjectsList] objectAtIndex:_stickObjectIndex];
+    
+    stick.isBlinking = lightSwitch.isOn;
     
     [stick sendCommand:k_command_lock];
 }
 
 -(void)ring:(id)sender
-{}
+{
+    if (_stickObjectIndex < 0) {
+        return;
+    }
+    
+    UISwitch* ringSwitch = (UISwitch*) sender;
+    
+    BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
+    StickObject* stick = (StickObject*)[[BLEDiscover discoveredStickedObjectsList] objectAtIndex:_stickObjectIndex];
+    
+    stick.isRinging = ringSwitch.isOn;
+}
 
--(void)vibrate:(id)sender
-{}
+-(void)setupDistance:(id)sender
+{
+    if (_stickObjectIndex < 0)
+    {
+        return;
+    }
+    UISlider* distanceSlider = (UISlider*) sender;
+
+    BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
+    StickObject* stick = (StickObject*)[[BLEDiscover discoveredStickedObjectsList] objectAtIndex:_stickObjectIndex];
+
+    stick.setupDistance = distanceSlider.value * MAX_DISTANCE;
+//    NSLog(@"stick.setupDistance: %i", stick.setupDistance);
+}
 
 -(void) reloadBluetoothDeviceUUID:(NSString *)UUID
 {

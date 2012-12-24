@@ -225,6 +225,7 @@
         CBPeripheral* peripheral = stick.peripheral;
         
         [cell.deviceName setText:stickSummary.name];
+//        [cell.deviceName setText:[Utilities nameOfPeripheral:stick.peripheral]];
 //        [cell.distanceLbl setText:[NSString stringWithFormat:@"%im", stick.currentDistance]];
 //        [cell.distanceLbl setText:[Utilities describeDistanceFromRSSI:stick.currentDistance]];
         [cell.distanceLbl setText:[Utilities describeDistanceFromRange:stick.range]];
@@ -358,19 +359,19 @@
 -(void) connect:(id)sender
 {
     int index = ((UIButton*)sender).tag;
-    NSLog(@"connect %i", index);
+//    NSLog(@"connect %i", index);
     
     BLEDiscoveryHelper* BLEDiscover = (BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance];
     NSMutableArray* discoveredStickList = BLEDiscover.discoveredStickedObjectsList;
-    NSLog(@"discoveredStickList count: %i", discoveredStickList.count);
+//    NSLog(@"discoveredStickList count: %i", discoveredStickList.count);
     StickObject* stick = (StickObject*)[discoveredStickList objectAtIndex:index];
     CBPeripheral* peripheral = stick.peripheral;
     if (![peripheral isConnected]) {
-        NSLog(@"discovery Connect");
+//        NSLog(@"discovery Connect");
         [stick connectPeripheral];
     }
     else {
-         NSLog(@"discovery cancelConnect");
+//         NSLog(@"discovery cancelConnect");
         [stick cancelConnection];
     }
 }

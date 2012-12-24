@@ -9,6 +9,8 @@
 #ifndef MasterLocking_Defines_h
 #define MasterLocking_Defines_h
 
+#define MAX_DISTANCE    30.0
+
 #define LOCK_SERVICE_UUID               @"FFF0"
 #define READ_CHARACTERISTIC_UUID        @"FFF1"
 #define WRITE_CHARACTERISTIC_UUID       @"FFF2"

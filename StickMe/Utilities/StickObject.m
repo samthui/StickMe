@@ -190,7 +190,7 @@
 #pragma mark - CBPeripheralDelegate
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
-    NSLog(@"++ didDiscoverServices");
+//    NSLog(@"++ didDiscoverServices");
     if (error) {
         NSLog(@"Error:%@", [error description]);
     }
@@ -210,7 +210,7 @@
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
-    NSLog(@"++ didDiscoverCharacteristicsForService");
+//    NSLog(@"++ didDiscoverCharacteristicsForService");
     NSArray *characteristics = service.characteristics;
     if ([characteristics count] > 0) {
         for (CBCharacteristic *characteristic in characteristics) {
@@ -234,7 +234,7 @@
 /*samthui7*/
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-    NSLog(@"++ didUpdateValueForCharacteristic");
+//    NSLog(@"++ didUpdateValueForCharacteristic");
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:READ_CHARACTERISTIC_UUID]]) {
         //        [self writeValueForCommand];
         //        [self writeValueForCommand:k_command_lock toPeripheral:peripheral];
@@ -243,7 +243,7 @@
 
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-NSLog(@"++ didWriteValueForCharacteristic");
+//NSLog(@"++ didWriteValueForCharacteristic");
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:WRITE_CHARACTERISTIC_UUID]]) {
         if (error) {
             NSLog(@"%@", [error description]);
@@ -252,7 +252,7 @@ NSLog(@"++ didWriteValueForCharacteristic");
         }
         unsigned char byteData[IO_CHARACTERISTIC_LENGTH];
         [characteristic.value getBytes:&byteData length:IO_CHARACTERISTIC_LENGTH];
-        NSLog(@"%s", byteData);
+//        NSLog(@"%s", byteData);
     }
 }
 
