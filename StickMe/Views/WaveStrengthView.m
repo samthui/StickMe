@@ -72,7 +72,7 @@
     int radius = 0;
     
     if (range < 4) {
-        radius = self.frame.size.height;
+        radius = 34;
     }
     else if (range < 8) {
         radius = 29;

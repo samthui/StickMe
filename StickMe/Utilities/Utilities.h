@@ -29,6 +29,7 @@
 
 +(void) createStoredRSSIFile;
 +(void) addData:(NSString*)data;
++(void) reScanTimer:(NSString *)data;
 
 +(int) averageOfInts:(NSMutableArray*)integersArray;
 

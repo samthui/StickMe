@@ -20,6 +20,8 @@
 
 #define CONFIG_ITEM_TAG 1
 
+#define CONFIG_ITEM_TAG 1
+
 @interface DetailStickedObjectViewController ()
 {
     NSString* _UUID;
@@ -192,7 +194,7 @@
             switch (indexPath.row) {
                 case 0:{
                     [cell.textLabel setText:@"Light"];
-                    
+              
                     if (!hadConfigItem) {
                         CGSize switchSize = CGSizeMake(80, 20);
                         UISwitch* lightSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
@@ -228,7 +230,7 @@
                     
                 case 2:{
                     [cell.textLabel setText:@"Distance"];
-                    
+                
                     if (!hadConfigItem) {
                         CGSize slideSize = CGSizeMake(80, 20);
                         UISlider* distanceSlider = [[UISlider alloc] initWithFrame:CGRectMake(cell.frame.size.width - slideSize.width - 11, (cell.frame.size.height - slideSize.height)/2, slideSize.width, slideSize.height)];

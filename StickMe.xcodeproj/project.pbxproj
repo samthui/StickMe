@@ -242,13 +242,13 @@
 		84C227F6168563860046A158 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				84BC3AEB168568C700505DD0 /* WaveStrengthView.xib */,
+				84C227FB168563860046A158 /* RadarView.xib */,
+				84C227FA168563860046A158 /* DiscoveryViewController.xib */,
+				84C227FC168563860046A158 /* SettingsViewController.xib */,
 				84C227F7168563860046A158 /* DetailStickedObjectViewController.xib */,
 				84C227F8168563860046A158 /* DiscoveryCell.xib */,
 				84C227F9168563860046A158 /* DiscoveryCell1.xib */,
-				84C227FA168563860046A158 /* DiscoveryViewController.xib */,
-				84C227FB168563860046A158 /* RadarView.xib */,
-				84C227FC168563860046A158 /* SettingsViewController.xib */,
+				84BC3AEB168568C700505DD0 /* WaveStrengthView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";

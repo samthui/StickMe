@@ -695,7 +695,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 - (void) centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
     NSLog(@"didConnectPeripheral");
-    NSLog(@"pUUID: %@", (NSString*)peripheral.UUID);
+//    NSLog(@"pUUID: %@", (NSString*)peripheral.UUID);
     NSArray	*serviceArray	= [NSArray arrayWithObjects:
                                [CBUUID UUIDWithString:LOCK_SERVICE_UUID],
                                nil];
@@ -708,7 +708,8 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
         if ([stick.peripheral isEqual:peripheral]) {
 //            [Utilities createStoredRSSIFile];
             //            NSLog(@"found disconnect");
-            [stick connectPeripheral];
+//            [stick connectPeripheral];
+            [stick startReadRSSI];
             break;
         }
     }
@@ -728,7 +729,8 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
         if ([stick.peripheral isEqual:peripheral]) {
 //            [Utilities createStoredRSSIFile];
 //            NSLog(@"found disconnect");
-            [stick cancelConnection];
+//            [stick cancelConnection];
+            [stick stopReadRSSI];
             break;
         }
     }

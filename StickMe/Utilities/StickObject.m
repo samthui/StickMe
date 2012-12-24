@@ -18,13 +18,13 @@
 @interface StickObject ()
 {
     NSTimer* _averageRSSITimer;
-//    NSTimer* _readRSSITimer;
+    NSTimer* _readRSSITimer;
     unsigned int _counterReadRSSI;
 //    NSMutableArray* _RSSIsArray;
 }
 
 @property (nonatomic, retain) NSTimer* cancelConnectionTimer;
-//@property (nonatomic, retain) NSTimer* readRSSITimer;
+@property (nonatomic, retain) NSTimer* readRSSITimer;
 @property (nonatomic, retain) NSTimer* averageRSSITimer;
 
 -(void) cancelConnectionByTimer;
@@ -45,7 +45,7 @@
 @synthesize setupDistance = _setupDistance;
 
 @synthesize cancelConnectionTimer = _cancelConnectionTimer;
-//@synthesize readRSSITimer = _readRSSITimer;
+@synthesize readRSSITimer = _readRSSITimer;
 @synthesize averageRSSITimer = _averageRSSITimer;
 
 @synthesize RSSIsArray = _RSSIsArray;
@@ -90,12 +90,12 @@
     }
     self.cancelConnectionTimer = nil;
 
-//    if (self.readRSSITimer) {
-//        if ([_readRSSITimer isValid]) {
-//            [_readRSSITimer invalidate];
-//        }
-//    }
-//    self.readRSSITimer = nil;
+    if (self.readRSSITimer) {
+        if ([_readRSSITimer isValid]) {
+            [_readRSSITimer invalidate];
+        }
+    }
+    self.readRSSITimer = nil;
     
     if (_RSSIsArray) {
         [_RSSIsArray release];
@@ -127,12 +127,7 @@
     self.cancelConnectionTimer = [NSTimer scheduledTimerWithTimeInterval:kConnectionTimeout target:self selector:@selector(cancelConnectionByTimer) userInfo:nil repeats:NO];
 
     //start readRSSI
-//    if (self.readRSSITimer) {
-//        if ([_readRSSITimer isValid]) {
-//            [_readRSSITimer invalidate];
-//        }
-//    }
-//    self.readRSSITimer = [NSTimer scheduledTimerWithTimeInterval:kReadRSSIInterval target:self.peripheral selector:@selector(readRSSI) userInfo:nil repeats:YES];
+    [self startReadRSSI];
 }
 
 -(void) cancelConnection
@@ -141,12 +136,7 @@
     
     [(BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance] disconnectPeripheral:self.peripheral];
     
-//    if (self.readRSSITimer) {
-//        if ([_readRSSITimer isValid]) {
-//            [_readRSSITimer invalidate];
-//        }
-//        self.readRSSITimer = nil;
-//    }
+    [self stopReadRSSI];
 }
 
 #pragma mark - private methods
@@ -157,13 +147,29 @@
 //        NSLog(@"timeOut!!!!!");  
         [(BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance] disconnectPeripheral:self.peripheral];
         
-//        if (self.readRSSITimer) {
-//            if ([_readRSSITimer isValid]) {
-//                [_readRSSITimer invalidate];
-//            }
-//            self.readRSSITimer = nil;
-//        }
+        [self stopReadRSSI];
     } 
+}
+
+-(void) startReadRSSI
+{    
+    //start readRSSI
+    if (self.readRSSITimer) {
+        if ([_readRSSITimer isValid]) {
+            [_readRSSITimer invalidate];
+        }
+    }
+    self.readRSSITimer = [NSTimer scheduledTimerWithTimeInterval:kReadRSSIInterval target:self.peripheral selector:@selector(readRSSI) userInfo:nil repeats:YES];
+}
+
+-(void) stopReadRSSI
+{    
+    if (self.readRSSITimer) {
+        if ([_readRSSITimer isValid]) {
+            [_readRSSITimer invalidate];
+        }
+        self.readRSSITimer = nil;
+    }
 }
 
 -(void) averageRSSI
@@ -311,7 +317,7 @@ NSLog(@"++ didWriteValueForCharacteristic");
 -(void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error
 {
     //write to file
-    [Utilities addData:[NSString stringWithFormat:@"RSSI: %i", [peripheral.RSSI intValue]]];
+//    [Utilities addData:[NSString stringWithFormat:@"RSSI: %i", [peripheral.RSSI intValue]]];
     //    NSLog(@"++ peripheralDidUpdateRSSI: %i", [peripheral.RSSI intValue]);   
     [[BLEDiscoveryHelper sharedInstance] addToInRangeDevicesList:[Utilities UUIDofPeripheral:peripheral]];
     
