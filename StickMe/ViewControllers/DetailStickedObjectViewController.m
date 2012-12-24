@@ -68,8 +68,7 @@
     BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];
     NSMutableArray* discoveredArray = BLEDiscover.discoveredStickedObjectsList;
     StickObject* stick = [discoveredArray objectAtIndex:_stickObjectIndex];
-    self.UUID = [Utilities UUIDofPeripheral:stick.peripheral];
-    
+    self.UUID = [Utilities UUIDofPeripheral:stick.peripheral];    
 }
 
 - (void)viewDidUnload
@@ -77,6 +76,19 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (_stickObjectIndex < 0) {
+        return;
+    }
+    
+    NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+    StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
+    [stick cancelConnection];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -167,15 +179,26 @@
                             
                             //set state
                             NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
-                            //                    NSLog(@"....... 9 .......");
+//                                                NSLog(@"....... 9 .......");
                             StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
-                            //                    NSLog(@"....... 10 .......");
+//                                                NSLog(@"....... 10 .......");
                             CBPeripheral* peripheral = stick.peripheral;
                             [connectStateSwitch setOn: ([peripheral isConnected] ? YES : NO)];
                             
                             [cell addSubview:connectStateSwitch];
                             [connectStateSwitch release];
-                        }                    
+                        }        
+                        else {
+                            UISwitch* connectStateSwitch = (UISwitch*) subview;
+                            
+                            //set state
+                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+//                            NSLog(@"....... 9 .......");
+                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
+//                            NSLog(@"....... 10 .......");
+                            CBPeripheral* peripheral = stick.peripheral;
+                            [connectStateSwitch setOn: ([peripheral isConnected] ? YES : NO)];
+                        }
                     }
                     else {
 //                        NSLog(@"======= blaablaa");

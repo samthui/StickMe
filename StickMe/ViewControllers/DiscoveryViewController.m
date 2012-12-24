@@ -27,6 +27,7 @@
 //@property (nonatomic, retain) NSArray* stickObjectsArray;
 
 -(void) connect:(id) sender;
+-(void) connectToPeripheralAtIndex:(int)index;
 -(void) blinkLed:(id) sender;
 
 -(void) createStickObjectsArrayFromPeripheralsList:(NSArray*) peripheralsArray;
@@ -262,19 +263,38 @@
     return cell;
 }
 
+//-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+////    NSLog(@"didSelectRowAtIndex: %i", indexPath.row);
+//    DetailStickedObjectViewController* detailViewController = [[DetailStickedObjectViewController alloc] initWithNibName:@"DetailStickedObjectViewController" bundle:nil];
+//    
+//    NSMutableArray* usersDevicesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+//    StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:indexPath.row];
+//    NSString* deviceName = stickSummary.name;
+//    [detailViewController setTitle: deviceName];
+//    detailViewController.stickObjectIndex = indexPath.row;
+//    
+//    [self.navigationController pushViewController:detailViewController animated:YES];
+//    
+//    [detailViewController release];
+//}
+
+
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    NSLog(@"didSelectRowAtIndex: %i", indexPath.row);
+    [self connectToPeripheralAtIndex:indexPath.row];
+
     DetailStickedObjectViewController* detailViewController = [[DetailStickedObjectViewController alloc] initWithNibName:@"DetailStickedObjectViewController" bundle:nil];
-    
+
     NSMutableArray* usersDevicesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
     StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:indexPath.row];
     NSString* deviceName = stickSummary.name;
     [detailViewController setTitle: deviceName];
     detailViewController.stickObjectIndex = indexPath.row;
-    
+
     [self.navigationController pushViewController:detailViewController animated:YES];
-    
+
     [detailViewController release];
 }
 
@@ -366,6 +386,19 @@
     else {
 //         NSLog(@"discovery cancelConnect");
         [stick cancelConnection];
+    }
+}
+
+-(void) connectToPeripheralAtIndex:(int)index
+{
+    BLEDiscoveryHelper* BLEDiscover = (BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance];
+    NSMutableArray* discoveredStickList = BLEDiscover.discoveredStickedObjectsList;
+    //    NSLog(@"discoveredStickList count: %i", discoveredStickList.count);
+    StickObject* stick = (StickObject*)[discoveredStickList objectAtIndex:index];
+    CBPeripheral* peripheral = stick.peripheral;
+    if (![peripheral isConnected]) {
+//      NSLog(@"discovery Connect");
+        [stick connectPeripheral];
     }
 }
 
