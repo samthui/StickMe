@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define BOUND_MARGIN    5
+
 @interface RadarView : UIView
 
 @property (nonatomic, retain) NSMutableArray* rangesArray;

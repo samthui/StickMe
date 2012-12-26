@@ -20,6 +20,8 @@
 
 #import "ButtonWithCallOut.h"
 
+#define ARC4RANDOM_MAX      0x100000000
+
 #define FIRST_DEVICE_TAG    1000
 
 @interface RadarViewController ()
@@ -310,14 +312,16 @@
 -(CGPoint) generateRandomPointObjectRange:(NSRange)stickRange
 {
     //random distance in range
-    float randDistance = rand() % stickRange.length + stickRange.location;
+    double val = ((double)arc4random() / ARC4RANDOM_MAX);
+    while(val > 0.5){val = ((double)arc4random() / ARC4RANDOM_MAX);}
+    float randDistance = rand() % stickRange.length + stickRange.location + val;
 
     //calculate maxDistance
 //    int maxDistance = [self maxDistance];
 
     //random position with this distance.
     CGRect viewFrame = self.view.frame;
-    int maxDistanceInView = viewFrame.size.width / 2.0;
+    int maxDistanceInView = viewFrame.size.width / 2.0 - BOUND_MARGIN;
 
     //convert randDistance into view
     float randDistanceInView = (float)randDistance * (float)maxDistanceInView /(float)_maxDistance ;
