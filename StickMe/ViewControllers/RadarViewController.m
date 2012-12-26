@@ -204,6 +204,7 @@
             obj.callOut.title = stickSummary.name;            
             
             [self.view addSubview:obj];
+            [obj setFrame:CGRectMake(stickPoint.x, stickPoint.y, OBJ_ICON_SIZE, OBJ_ICON_SIZE)];
             [obj release];            
         }
         else {            
@@ -341,7 +342,7 @@
     sign = negative ? -1 : 1;
     float y = viewFrame.size.height/2 + sign*pow(pow(randDistanceInView, 2) - pow(randXInView, 2), 0.5) ;
 
-//    NSLog(@"{%f, %f}", (float)x, y);
+    NSLog(@"{%f, %f}", (float)x, y);
     return CGPointMake(x, y);
 }
 
