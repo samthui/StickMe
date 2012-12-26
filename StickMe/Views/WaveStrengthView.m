@@ -72,7 +72,7 @@
     int radius = 0;
     
     if (range < 4) {
-        radius = 34;
+        radius = 36;
     }
     else if (range < 8) {
         radius = 29;

@@ -20,6 +20,8 @@
 #define k_command_unlock    0x01
 #define k_command_lock      0x02
 
+#define OBJ_ICON_SIZE   30
+
 typedef enum {
     BikeStatusNone,
     BikeStatusParking,

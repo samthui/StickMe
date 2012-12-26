@@ -363,8 +363,11 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 {
     NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*) kUUIDsList];
     StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:index];
+    
+    StickObject* stick = [_discoveredStickedObjectsList objectAtIndex:index];
+//    NSLog(@"%i - %i", stickSummary.setupDistance, stick.currentDistance);
 
-    if(stickSummary.noticeOutRange)
+    if(stickSummary.noticeOutRange && stick.currentDistance >= stickSummary.setupDistance)
     {
         AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
         [appDel noticeOutRangeObjectAtIndex:index];
@@ -521,6 +524,9 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
             [UUIDsList addObject:tempStickSummary];
             [tempStickSummary release];
         }
+        else {
+            [self noticeOutRangeStickSummaryAtIndex:index];
+        }
         index ++;
     }
     //save to NSUserDefault 
@@ -651,7 +657,8 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
         StickObject* stick = [[StickObject alloc] initWithPeripheral:peripheral];
         stick.range = [Utilities convertToRangeDistanceFromRSSI:[RSSI intValue]];
 //        NSLog(@"range 1: %@", NSStringFromRange(stick.range));
-        stick.currentDistance = [RSSI intValue];
+//        stick.currentDistance = [RSSI intValue];
+        stick.currentDistance = (2*stick.range.location + stick.range.length)/2;
         [_discoveredStickedObjectsList addObject:stick];
         [stick release]; 
     }
@@ -682,11 +689,11 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
             StickObject* stick = [[StickObject alloc] initWithPeripheral:peripheral];
             stick.range = [Utilities convertToRangeDistanceFromRSSI:[RSSI intValue]];
 //            NSLog(@"range 2: %@", NSStringFromRange(stick.range));
-            stick.currentDistance = [RSSI intValue];
+//            stick.currentDistance = [RSSI intValue];
+            stick.currentDistance = (2*stick.range.location + stick.range.length)/2;
             
             [_discoveredStickedObjectsList insertObject:stick atIndex:0];
-            [stick release];
-            
+            [stick release];            
             
             //re-order
             StickObjectSummary* tempStickSummary = [[UUIDsList objectAtIndex:index] retain];

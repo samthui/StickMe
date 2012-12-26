@@ -19,8 +19,7 @@
 #import "Utilities.h"
 
 #define CONFIG_ITEM_TAG 1
-
-#define CONFIG_ITEM_TAG 1
+#define DISTANCE_LBL_TAG    2
 
 @interface DetailStickedObjectViewController ()
 {
@@ -548,6 +547,15 @@
                         
                         [cell addSubview:distanceSlider];
                         [distanceSlider release];
+                        
+                        //setupDistanceLbl
+                        UILabel* setupDistanceLbl = [[UILabel alloc] initWithFrame:CGRectMake(cell.frame.size.width - 50 - 80 - 2*11, 0, 50, cell.frame.size.height)];
+                        [setupDistanceLbl setTextAlignment:UITextAlignmentRight];
+                        [setupDistanceLbl setBackgroundColor:[UIColor clearColor]];
+                        setupDistanceLbl.tag = DISTANCE_LBL_TAG;
+                        [setupDistanceLbl setText:[NSString stringWithFormat:@"%im", stickSummary.setupDistance]];
+                        [cell addSubview:setupDistanceLbl];
+                        [setupDistanceLbl release];
                     }
                     
                     break;
@@ -682,6 +690,13 @@
     stickSummary.setupDistance = distanceSlider.value * MAX_DISTANCE;
     //    NSLog(@"stick.setupDistance: %i", stick.setupDistance);
     
+    //set distance text
+    UITableViewCell* cell = (UITableViewCell*)[distanceSlider superview];
+    UIView* setupDistanceLbl = [cell viewWithTag:DISTANCE_LBL_TAG];
+    if (setupDistanceLbl && [setupDistanceLbl isKindOfClass:[UILabel class]]) {
+        [(UILabel*)setupDistanceLbl setText:[NSString stringWithFormat:@"%im", stickSummary.setupDistance]];
+    }
+    
     [UserDefaultsHelper saveToUserDefaultWithKey:(NSString*)kUUIDsList forArray:stickSummariesList];
 }
 
@@ -725,6 +740,8 @@
         NSString* pUUID = [Utilities UUIDofPeripheral:stick.peripheral];
         if (self.UUID && [_UUID isEqual:pUUID]) {
             found = YES;
+//            NSLog(@"reloadBluetoothDevice _stickObjectIndex: %i", foundIndex);
+            _stickIndex = foundIndex;
             _stickObjectIndex = foundIndex;
             break;
         }

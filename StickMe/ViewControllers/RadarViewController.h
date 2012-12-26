@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMCalloutView.h"
 
-@interface RadarViewController : UIViewController
+@interface RadarViewController : UIViewController<SMCalloutViewDelegate>
 
 //@property (nonatomic, retain) IBOutlet UIImageView* userPoint;
 

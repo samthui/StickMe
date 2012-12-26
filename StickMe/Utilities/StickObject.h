@@ -18,7 +18,7 @@
 @property (nonatomic, assign) BOOL isRinging;
 @property (nonatomic, assign) NSRange range;
 @property (nonatomic, assign) int currentDistance;
-@property (nonatomic, assign) int setupDistance;
+//@property (nonatomic, assign) int setupDistance;
 
 @property (nonatomic, retain) NSMutableArray* RSSIsArray;
 

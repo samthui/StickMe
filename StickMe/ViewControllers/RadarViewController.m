@@ -10,8 +10,15 @@
 #import "RadarView.h"
 
 #import "BLEDiscoveryHelper.h"
+#import "UserDefaultsHelper.h"
 #import "Utilities.h"
+#import "Constants.h"
+#import "Defines.h"
+
 #import "AppDelegate.h"
+#import "StickObjectSummary.h"
+
+#import "ButtonWithCallOut.h"
 
 #define FIRST_DEVICE_TAG    1000
 
@@ -19,6 +26,7 @@
 {
     int _maxDistance;
     unsigned short _numbPoints;
+    
 }
 
 -(int) maxDistance;
@@ -27,6 +35,8 @@
 -(void) drawCircles;
 
 -(void)reScan;
+
+-(void)objectTapped:(id)sender;
 
 @end
 
@@ -76,6 +86,85 @@
 }
 
 #pragma mark - public methods
+//-(void) reloadBluetoothDevicesList
+//{   
+//    //NSLog(@"Radar reloadBluetoothDevicesList");
+//    //calculate maxDistance
+//    _maxDistance = [self maxDistance];
+//
+//    //update rangesArray of RadarView
+//    [self updateRangesArray];
+//    
+//    //draw circles
+//    [self drawCircles];
+//    
+//    NSMutableArray* discoveredStickedObjectsList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
+//    NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+//    
+//    for (int i = 0; i < discoveredStickedObjectsList.count; i++) {        
+//        StickObject* stick = (StickObject*)[discoveredStickedObjectsList objectAtIndex:i];
+//        if (stick.range.location == NSNotFound) {
+//            NSLog(@"stick.range NSNotFound continue");
+//            continue;
+//        }
+//        CGPoint stickPoint = [self generateRandomPointObjectRange:stick.range];
+//        
+//        UIView* searchView = [self.view viewWithTag:i + FIRST_DEVICE_TAG];
+//        if (!searchView)
+//        {
+////            UIImageView* obj = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Discovery"]];
+////            
+////            [obj addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(objectTapped)]];              
+//            
+////            [obj setTag:i + FIRST_DEVICE_TAG];
+////            obj.center = CGPointMake(0.5, 0.5);
+////            [obj setFrame:CGRectMake(stickPoint.x, stickPoint.y, 20, 20)];
+////            [self.view addSubview:obj];
+////            [obj release];
+//            
+//            UIButton* obj = [[UIButton alloc] initWithFrame:CGRectMake(stickPoint.x, stickPoint.y, 20, 20)];
+//            [obj setTag:i + FIRST_DEVICE_TAG];
+//            [obj addTarget:self action:@selector(objectTapped) forControlEvents:UIControlEventTouchUpInside];
+//            obj.center = CGPointMake(0.5, 0.5);
+//            [obj setImage:[UIImage imageNamed:@"Discovery"] forState:UIControlStateNormal];
+//            [self.view addSubview:obj];
+//            [obj release];
+//            
+//            UIButton *topDisclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//            [topDisclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disclosureTapped)]];
+//            
+//            StickObjectSummary* stickSummary = (StickObjectSummary*)[stickSummariesList objectAtIndex:i];
+//            calloutView = [SMCalloutView new];
+//            calloutView.delegate = self;
+//            calloutView.title = stickSummary.name;
+//            calloutView.rightAccessoryView = topDisclosure;
+//            calloutView.calloutOffset = CGPointMake(10, 0);
+//            
+//        }
+//        else {            
+//            [UIView beginAnimations:@"Calibrate position" context:nil];
+//            [searchView setFrame:CGRectMake(stickPoint.x, stickPoint.y, 20, 20)];
+//            [UIView commitAnimations];
+//        }
+//    }
+//
+//    //remove unDiscoveredDevices
+//    for(int i = discoveredStickedObjectsList.count; i < _numbPoints; i ++)
+//    {
+//        int tag = FIRST_DEVICE_TAG + i;
+////        NSLog(@"tag: %i", FIRST_DEVICE_TAG + tag);
+//        UIView* searchView = [self.view viewWithTag:tag];
+//        if (searchView)
+//        {
+////            NSLog(@"remove subview");
+//            [searchView removeFromSuperview];
+//        }
+//    }
+//
+//    _numbPoints = discoveredStickedObjectsList.count;
+//}
+
+
 -(void) reloadBluetoothDevicesList
 {   
     //NSLog(@"Radar reloadBluetoothDevicesList");
@@ -84,12 +173,13 @@
 
     //update rangesArray of RadarView
     [self updateRangesArray];
-    
+
     //draw circles
     [self drawCircles];
-    
+
     NSMutableArray* discoveredStickedObjectsList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
-    
+    NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+
     for (int i = 0; i < discoveredStickedObjectsList.count; i++) {        
         StickObject* stick = (StickObject*)[discoveredStickedObjectsList objectAtIndex:i];
         if (stick.range.location == NSNotFound) {
@@ -100,17 +190,31 @@
         
         UIView* searchView = [self.view viewWithTag:i + FIRST_DEVICE_TAG];
         if (!searchView)
-        {
-            UIImageView* obj = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Discovery"]];
+        {        
+            ButtonWithCallOut* obj = [[ButtonWithCallOut alloc] initWithFrame:CGRectMake(stickPoint.x, stickPoint.y, OBJ_ICON_SIZE, OBJ_ICON_SIZE)];
             [obj setTag:i + FIRST_DEVICE_TAG];
+            [obj addTarget:self action:@selector(objectTapped:) forControlEvents:UIControlEventTouchUpInside];
             obj.center = CGPointMake(0.5, 0.5);
-            [obj setFrame:CGRectMake(stickPoint.x, stickPoint.y, 20, 20)];
+            [obj setImage:[UIImage imageNamed:@"Discovery"] forState:UIControlStateNormal];
+            
+            StickObjectSummary* stickSummary = (StickObjectSummary*)[stickSummariesList objectAtIndex:i];            
+            obj.callOut.delegate = self;
+            obj.callOut.title = stickSummary.name;            
+            
             [self.view addSubview:obj];
-            [obj release];
+            [obj release];            
         }
         else {            
+            StickObjectSummary* stickSummary = (StickObjectSummary*)[stickSummariesList objectAtIndex:i];
+            ButtonWithCallOut* objBtn = (ButtonWithCallOut*)searchView;
+            objBtn.callOut.title = stickSummary.name;
             [UIView beginAnimations:@"Calibrate position" context:nil];
-            [searchView setFrame:CGRectMake(stickPoint.x, stickPoint.y, 20, 20)];
+            [objBtn setFrame:CGRectMake(stickPoint.x, stickPoint.y, OBJ_ICON_SIZE, OBJ_ICON_SIZE)];
+            if(objBtn.callOut.window)
+            {
+    //            NSLog(@"bla");
+                [objBtn.callOut presentCalloutFromRect:CGRectMake(objBtn.frame.origin.x, objBtn.frame.origin.y, 1, 1) inView:self.view constrainedToView:self.view permittedArrowDirections:SMCalloutArrowDirectionDown animated:NO];
+            }
             [UIView commitAnimations];
         }
     }
@@ -119,17 +223,21 @@
     for(int i = discoveredStickedObjectsList.count; i < _numbPoints; i ++)
     {
         int tag = FIRST_DEVICE_TAG + i;
-//        NSLog(@"tag: %i", FIRST_DEVICE_TAG + tag);
+        //        NSLog(@"tag: %i", FIRST_DEVICE_TAG + tag);
         UIView* searchView = [self.view viewWithTag:tag];
         if (searchView)
         {
-//            NSLog(@"remove subview");
+            //            NSLog(@"remove subview");
             [searchView removeFromSuperview];
+            
+            //dismiss its callOut
+            [((ButtonWithCallOut*)searchView).callOut dismissCalloutAnimated:NO];
         }
     }
 
     _numbPoints = discoveredStickedObjectsList.count;
 }
+
 
 #pragma mark - private methods
 //-(void) updateRangesArray
@@ -241,6 +349,27 @@
     
     BLEDiscoveryHelper* bluetoothDiscovery = [BLEDiscoveryHelper sharedInstance];
     [bluetoothDiscovery reScan];
+}
+
+#pragma mark - SMCallout
+- (void)objectTapped:(id)sender {
+    ButtonWithCallOut* objBtn = (ButtonWithCallOut*)sender;
+    [objBtn onTapped];
+}
+
+#pragma mark - SMCalloutViewDelegate
+- (NSTimeInterval)calloutView:(SMCalloutView *)theCalloutView delayForRepositionWithSize:(CGSize)offset {
+    return kSMCalloutViewRepositionDelayForUIScrollView;
+}
+
+- (void)disclosureTapped {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tap!" message:@"You tapped the disclosure button."
+                                                   delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Whatevs",nil];
+    [alert show];
+}
+
+- (void)dismissCallout {
+//[calloutView dismissCalloutAnimated:NO];
 }
 
 @end

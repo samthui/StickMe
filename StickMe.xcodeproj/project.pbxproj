@@ -20,6 +20,9 @@
 		847CF5221676EFC000CC9411 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 847CF5201676EFC000CC9411 /* InfoPlist.strings */; };
 		847CF5241676EFC000CC9411 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF5231676EFC000CC9411 /* main.m */; };
 		847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */; };
+		847EFB99168A9B7D006A4035 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847EFB98168A9B7D006A4035 /* SMCalloutView.m */; };
+		847EFB9C168A9E1F006A4035 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847EFB9B168A9E1F006A4035 /* QuartzCore.framework */; };
+		847EFBB6168AB905006A4035 /* ButtonWithCallOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 847EFBB5168AB905006A4035 /* ButtonWithCallOut.m */; };
 		84BC3AEC168568C700505DD0 /* WaveStrengthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BC3AEB168568C700505DD0 /* WaveStrengthView.xib */; };
 		84C2280C168563860046A158 /* Discovery.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F0168563860046A158 /* Discovery.png */; };
 		84C2280D168563860046A158 /* Discovery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C227F1168563860046A158 /* Discovery@2x.png */; };
@@ -70,6 +73,11 @@
 		847CF5231676EFC000CC9411 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847CF5251676EFC000CC9411 /* StickMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StickMe-Prefix.pch"; sourceTree = "<group>"; };
 		847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		847EFB97168A9B7D006A4035 /* SMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalloutView.h; sourceTree = "<group>"; };
+		847EFB98168A9B7D006A4035 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
+		847EFB9B168A9E1F006A4035 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		847EFBB4168AB905006A4035 /* ButtonWithCallOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWithCallOut.h; sourceTree = "<group>"; };
+		847EFBB5168AB905006A4035 /* ButtonWithCallOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonWithCallOut.m; sourceTree = "<group>"; };
 		84BC3AEB168568C700505DD0 /* WaveStrengthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveStrengthView.xib; sourceTree = "<group>"; };
 		84C227F0168563860046A158 /* Discovery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Discovery.png; sourceTree = "<group>"; };
 		84C227F1168563860046A158 /* Discovery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Discovery@2x.png"; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847EFB9C168A9E1F006A4035 /* QuartzCore.framework in Frameworks */,
 				84C9FCB7168857F8009E34E3 /* AudioToolbox.framework in Frameworks */,
 				84C9FCB4168857F0009E34E3 /* AVFoundation.framework in Frameworks */,
 				847CF55F1676F0A100CC9411 /* CoreBluetooth.framework in Frameworks */,
@@ -147,6 +156,10 @@
 		847C094D167880B600EE33B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				847EFBB4168AB905006A4035 /* ButtonWithCallOut.h */,
+				847EFBB5168AB905006A4035 /* ButtonWithCallOut.m */,
+				847EFB97168A9B7D006A4035 /* SMCalloutView.h */,
+				847EFB98168A9B7D006A4035 /* SMCalloutView.m */,
 				84C6A5201684094400325741 /* RadarView.h */,
 				84C6A5211684094400325741 /* RadarView.m */,
 				847C094E1678812A00EE33B3 /* DiscoveryCell.h */,
@@ -179,6 +192,7 @@
 		847CF5161676EFC000CC9411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				847EFB9B168A9E1F006A4035 /* QuartzCore.framework */,
 				84C9FCB6168857F8009E34E3 /* AudioToolbox.framework */,
 				84C9FCB3168857F0009E34E3 /* AVFoundation.framework */,
 				847CF55E1676F0A100CC9411 /* CoreBluetooth.framework */,
@@ -411,6 +425,8 @@
 				84C2281A168563860046A158 /* StickObjectSummary.m in Sources */,
 				84C2281B168563860046A158 /* UserDefaultsHelper.m in Sources */,
 				84C2281C168563860046A158 /* Utilities.m in Sources */,
+				847EFB99168A9B7D006A4035 /* SMCalloutView.m in Sources */,
+				847EFBB6168AB905006A4035 /* ButtonWithCallOut.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

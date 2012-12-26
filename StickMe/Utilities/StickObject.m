@@ -42,7 +42,7 @@
 @synthesize isRinging = _isRinging;
 @synthesize range = _range;
 @synthesize currentDistance = _currentDistance;
-@synthesize setupDistance = _setupDistance;
+//@synthesize setupDistance = _setupDistance;
 
 @synthesize cancelConnectionTimer = _cancelConnectionTimer;
 @synthesize readRSSITimer = _readRSSITimer;
@@ -62,7 +62,7 @@
         _isRinging = NO;
         _range = NSMakeRange(NSNotFound, 0);
         _currentDistance = 0;
-        _setupDistance = 50;
+//        _setupDistance = 50;
         _counterReadRSSI = 0;
         
         _RSSIsArray = [[NSMutableArray array] retain];
@@ -176,7 +176,8 @@
 {
     int averageRSSI = [Utilities averageOfInts:_RSSIsArray];
     self.range = [Utilities convertToRangeDistanceFromRSSI:averageRSSI];
-    self.currentDistance = averageRSSI;
+//    self.currentDistance = averageRSSI;
+    self.currentDistance = (2*self.range.location + self.range.length)/2;
 //    NSLog(@"average : %i", averageRSSI);
     
     BLEDiscoveryHelper* BLEDiscover = [BLEDiscoveryHelper sharedInstance];

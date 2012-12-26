@@ -222,7 +222,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 -(void) noticeInRangeObjectAtIndex:(int)index
 {
-    NSLog(@"Notice In %i", index);
+//    NSLog(@"Notice In %i", index);
     [self noticeAction];
 }
 
@@ -233,7 +233,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 -(void) noticeOutRangeObjectAtIndex:(int)index
 {
-    NSLog(@"Notice Out %i", index);
+//    NSLog(@"Notice Out %i", index);
     [self noticeAction];
 }
 
