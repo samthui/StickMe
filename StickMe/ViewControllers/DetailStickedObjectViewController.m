@@ -20,10 +20,13 @@
 
 #define CONFIG_ITEM_TAG 1
 #define DISTANCE_LBL_TAG    2
+#define NAME_TEXTFIELD_TAG  3
 
 @interface DetailStickedObjectViewController ()
 {
     NSString* _UUID;
+    
+    BOOL _isEditingName;
 }
 
 @property (nonatomic, retain) NSString* UUID;
@@ -35,6 +38,8 @@
 -(void) noticeInRange:(id)sender;
 -(void) noticeOutRange:(id)sender;
 -(void) setupDistance:(id)sender;
+
+-(void) hideKeyboard:(id)sender;
 
 @end
 
@@ -62,6 +67,13 @@
     [super dealloc];
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [self hideKeyboard:nil];
+
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -71,8 +83,16 @@
     NSMutableArray* discoveredArray = BLEDiscover.discoveredStickedObjectsList;
     StickObject* stick = [discoveredArray objectAtIndex:_stickObjectIndex];
     self.UUID = [Utilities UUIDofPeripheral:stick.peripheral];
+
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];   
+    gestureRecognizer.cancelsTouchesInView = NO;// For selecting cell.
+    gestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:gestureRecognizer];
+    [gestureRecognizer release];
     
+    _isEditingName = NO;
 }
+
 
 - (void)viewDidUnload
 {
@@ -87,202 +107,6 @@
 }
 
 #pragma mark - Table
-//-(int) numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 2;
-//}
-//
-//-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    NSString* headerTitle;
-//    switch (section) {
-//        case 0:
-//            headerTitle = nil;
-//            break;
-//            
-//        case 1:
-//            headerTitle = @"Services";
-//            break;
-//            
-//        default:
-//            headerTitle = nil;
-//            break;
-//    }
-//    return headerTitle;
-//}
-//
-//-(int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    int numbRow;
-//    switch (section) {
-//        case 0:
-//            numbRow = 1;
-//            break;
-//          
-//        case 1:
-//            numbRow = 3;
-//            break;
-//            
-//        default:
-//            numbRow = 0;
-//            break;
-//    }
-//    
-//    return numbRow;
-//}
-
-//-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSString* cellID = @"Cell_With_Switch";
-//    if (indexPath.section == 1 && indexPath.row == 2) {//distance cell
-//        cellID = @"Cell_With_Slider";
-//    }
-//    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-//    
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-//    }
-//    
-//    BOOL hadConfigItem = NO;
-//    UIView* subview = [cell viewWithTag:CONFIG_ITEM_TAG];
-//    if (subview) {
-//        hadConfigItem = YES;
-//    }
-//    
-//    switch (indexPath.section) {
-//        case 0:{
-//            switch (indexPath.row) {
-//                case 0:{
-////                    NSLog(@"_stickObjectIndex");
-//                    if (_stickObjectIndex >= 0) {     
-////                        NSLog(@"======= %i", _stickObjectIndex);
-//                        NSMutableArray* usersDevicesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
-//                        StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:_stickObjectIndex];
-//                        NSString* deviceName = stickSummary.name;
-//                        [cell.textLabel setText:deviceName];
-//                        
-//                        if (!hadConfigItem) {
-//                            CGSize switchSize = CGSizeMake(80, 20);
-//                            UISwitch* connectStateSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
-//                            connectStateSwitch.tag = CONFIG_ITEM_TAG;
-//                            [connectStateSwitch addTarget:self action:@selector(switchConnectState) forControlEvents:UIControlEventValueChanged];
-//                            
-//                            //set state
-//                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
-//                            //                    NSLog(@"....... 9 .......");
-//                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
-//                            //                    NSLog(@"....... 10 .......");
-//                            CBPeripheral* peripheral = stick.peripheral;
-//                            [connectStateSwitch setOn: ([peripheral isConnected] ? YES : NO)];
-//                            
-//                            [cell addSubview:connectStateSwitch];
-//                            [connectStateSwitch release];
-//                        }                    
-//                    }
-//                    else {
-////                        NSLog(@"======= blaablaa");
-//                        UISwitch* connectStateSwitch = (UISwitch*) subview;
-//                        [connectStateSwitch setOn:NO];
-//                    }
-//                
-//                    break;
-//                 }   
-//                default:
-//                    break;
-//            }
-//            break;
-//        } 
-//        case 1:
-//            switch (indexPath.row) {
-//                case 0:{
-//                    [cell.textLabel setText:@"Light"];
-//              
-//                    if (!hadConfigItem) {
-//                        CGSize switchSize = CGSizeMake(80, 20);
-//                        UISwitch* lightSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
-//                        lightSwitch.tag = CONFIG_ITEM_TAG;
-//                        [lightSwitch addTarget:self action:@selector(light:) forControlEvents:UIControlEventValueChanged];
-//                        
-//                        //set state
-//                        if(_stickObjectIndex >= 0)
-//                        {
-//                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
-//                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
-//                            [lightSwitch setOn: (stick.isBlinking ? YES : NO)];
-//                        }
-//                        
-//                        [cell addSubview:lightSwitch];
-//                        [lightSwitch release];
-//                    }
-//                    
-//                    break;
-//                }
-//                    
-//                case 1:{
-//                    [cell.textLabel setText:@"Ring"];
-//                    
-//                    if (!hadConfigItem) {
-//                        CGSize switchSize = CGSizeMake(80, 20);
-//                        UISwitch* ringSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - switchSize.width - 11, (cell.frame.size.height - switchSize.height)/2, switchSize.width, switchSize.height)];
-//                        ringSwitch.tag = CONFIG_ITEM_TAG;
-//                        [ringSwitch addTarget:self action:@selector(ring:) forControlEvents:UIControlEventValueChanged];
-//                        
-//                        //set state
-//                        if(_stickObjectIndex >= 0)
-//                        {
-//                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
-//                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
-//                            [ringSwitch setOn: (stick.isRinging ? YES : NO)];
-//                        }
-//                        
-//                        [cell addSubview:ringSwitch];
-//                        [ringSwitch release];
-//                    }
-//                    
-//                    break;
-//                }
-//                    
-//                case 2:{
-//                    [cell.textLabel setText:@"Distance"];
-//                
-//                    if (!hadConfigItem) {
-//                        CGSize slideSize = CGSizeMake(80, 20);
-//                        UISlider* distanceSlider = [[UISlider alloc] initWithFrame:CGRectMake(cell.frame.size.width - slideSize.width - 11, (cell.frame.size.height - slideSize.height)/2, slideSize.width, slideSize.height)];
-//                        distanceSlider.tag = CONFIG_ITEM_TAG;
-//                        [distanceSlider addTarget:self action:@selector(setupDistance:) forControlEvents:UIControlEventValueChanged];
-//                        
-//                        //set state
-//                        if(_stickObjectIndex >= 0)
-//                        {
-//                            NSMutableArray* discoveredSticksList = [[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList];
-//                            StickObject* stick = (StickObject*)[discoveredSticksList objectAtIndex:_stickObjectIndex];
-//                            distanceSlider.value = stick.setupDistance / MAX_DISTANCE;
-//                        }
-////                        [distanceSlider setValue:0.0];
-//                        //                    StickObject* stick = (StickObject*)[[[BLEDiscoveryHelper sharedInstance] discoveredStickedObjectsList] objectAtIndex:_stickObjectIndex];
-//                        //                    float distanceRef = -(float)stick.currentDistance / 17.0f;
-//                        //                    NSLog(@"WRONG FORMULA distanceRef: %f", distanceRef);
-//                        //                    [distanceSlider setValue:distanceRef];
-//                        
-//                        [cell addSubview:distanceSlider];
-//                        [distanceSlider release];
-//                    }
-//                    
-//                    break;
-//                }
-//                    
-//                default:
-//                    break;
-//            }
-//            break;
-//            
-//        default:
-//            break;
-//    }
-//    
-//    return cell;
-//}
-
 -(int) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 4;
@@ -308,10 +132,6 @@
 {
     NSString* headerTitle;
     switch (section) {
-//        case 0:
-//            headerTitle = nil;
-//            break;
-            
         case 1:
             headerTitle = @"Services";
             break;
@@ -361,6 +181,7 @@
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     
     BOOL hadConfigItem = NO;
@@ -377,9 +198,15 @@
                     if (_stickObjectIndex >= 0) {     
                         //                        NSLog(@"======= %i", _stickObjectIndex);
                         NSMutableArray* usersDevicesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
-                        StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:_stickObjectIndex];
-                        NSString* deviceName = stickSummary.name;
-                        [cell.textLabel setText:deviceName];
+                        if(_isEditingName)
+                        {
+                            [cell.textLabel setText:@""];
+                        }
+                        else {
+                            StickObjectSummary* stickSummary = (StickObjectSummary*)[usersDevicesList objectAtIndex:_stickObjectIndex];
+                            NSString* deviceName = stickSummary.name;
+                            [cell.textLabel setText:deviceName];
+                        }
                         
                         if (!hadConfigItem) {
                             CGSize switchSize = CGSizeMake(80, 20);
@@ -573,7 +400,96 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        CGRect cellFrame = cell.frame;
+        CGSize cellSize = cellFrame.size;
+        
+        UIView* subView = [self.view viewWithTag:NAME_TEXTFIELD_TAG];
+        if (!subView){
+            UITextField* textField = [[UITextField alloc] initWithFrame:CGRectMake(cellFrame.origin.x + 20, cellFrame.origin.y + 10, cellSize.width - 2*10 - 80, cellSize.height)];
+            textField.tag = NAME_TEXTFIELD_TAG;
+            textField.delegate = self;
+            [textField setReturnKeyType:UIReturnKeyDone];
+            [textField setTextAlignment:UITextAlignmentLeft];
+            [self.view addSubview:textField];
+            
+            [textField becomeFirstResponder];
+            [textField release];
+        }
+        else {
+            UITextField* nameTextField = (UITextField*) subView;
+            
+            [nameTextField becomeFirstResponder];
+        }
+    }
+}
+
+#pragma mark - Touch Events
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    NSLog(@"touchesBegan:withEvent:");
+//    [self.view endEditing:YES];
+//    [super touchesBegan:touches withEvent:event];
+//}
+
+#pragma mark - UIGestureRecognizerDelegate
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{   
+    if ([touch.view isKindOfClass:[UITextField class]])
+    {
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _isEditingName = YES;
+    [self.detailTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+
+    NSString* name = textField.text;
+
+    [textField removeFromSuperview];
+    
+    NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+    StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:_stickIndex];
+    stickSummary.name = name;
+    [UserDefaultsHelper saveToUserDefaultWithKey:(NSString*)kUUIDsList forArray:stickSummariesList];
+        
+    [self setTitle:name];
+
+    _isEditingName = NO;
+    [self.detailTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+
+    return YES;
+}
+
 #pragma mark - private methods
+-(void)hideKeyboard:(id)sender
+{
+    if(_isEditingName)
+    {
+        [self.view endEditing:YES];
+        
+        UITextField* subView = (UITextField*)[self.view viewWithTag:NAME_TEXTFIELD_TAG];
+        if(subView)
+        {
+            [subView removeFromSuperview];
+        }
+        
+        _isEditingName = NO;
+        [self.detailTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
 //-(void) switchConnectState:(id)sender
 //{
 //    UISwitch* connectStatusSwitch = (UISwitch*) sender;
