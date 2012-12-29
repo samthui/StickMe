@@ -587,6 +587,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
 			NSLog(@"PoweredOn");
 //            [self loadSavedDevice];
 //			[centralManager retrieveConnectedPeripherals];
+            [self reScan];
 			break;
 		}
             
