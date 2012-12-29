@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailStickedObjectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate>
+@interface DetailStickedObjectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate, UIPickerViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView* detailTable;
 @property (nonatomic, assign) int stickObjectIndex;

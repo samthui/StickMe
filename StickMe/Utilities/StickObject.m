@@ -145,9 +145,10 @@
 //    NSLog(@"cancelConnectionByTimer");
     if (![self.peripheral isConnected]){  
 //        NSLog(@"timeOut!!!!!");  
-        [(BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance] disconnectPeripheral:self.peripheral];
-        
-        [self stopReadRSSI];
+//        [(BLEDiscoveryHelper*)[BLEDiscoveryHelper sharedInstance] disconnectPeripheral:self.peripheral];
+//        
+//        [self stopReadRSSI];
+        [self cancelConnection];
     } 
 }
 

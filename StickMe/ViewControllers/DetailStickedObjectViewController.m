@@ -19,7 +19,8 @@
 #import "Utilities.h"
 
 #define CONFIG_ITEM_TAG 1
-#define DISTANCE_LBL_TAG    2
+//#define DISTANCE_LBL_TAG    2
+#define DISTANCE_PICKER_TAG    2
 #define NAME_TEXTFIELD_TAG  3
 
 @interface DetailStickedObjectViewController ()
@@ -361,28 +362,59 @@
                 case 1:{
                     [cell.textLabel setText:@"Distance"];
                     
+//                    if (!hadConfigItem) {
+//                        CGSize slideSize = CGSizeMake(80, 20);
+//                        UISlider* distanceSlider = [[UISlider alloc] initWithFrame:CGRectMake(cell.frame.size.width - slideSize.width - 11, (cell.frame.size.height - slideSize.height)/2, slideSize.width, slideSize.height)];
+//                        distanceSlider.tag = CONFIG_ITEM_TAG;
+//                        [distanceSlider addTarget:self action:@selector(setupDistance:) forControlEvents:UIControlEventValueChanged];
+//                        
+//                        //set state
+//                        NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+//                        StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:_stickIndex];
+//                        [distanceSlider setValue:stickSummary.setupDistance / MAX_DISTANCE];
+//                        
+//                        [cell addSubview:distanceSlider];
+//                        [distanceSlider release];
+//                        
+//                        //setupDistanceLbl
+//                        UILabel* setupDistanceLbl = [[UILabel alloc] initWithFrame:CGRectMake(cell.frame.size.width - 50 - 80 - 2*11, 0, 50, cell.frame.size.height)];
+//                        [setupDistanceLbl setTextAlignment:UITextAlignmentRight];
+//                        [setupDistanceLbl setBackgroundColor:[UIColor clearColor]];
+//                        setupDistanceLbl.tag = DISTANCE_LBL_TAG;
+//                        [setupDistanceLbl setText:[NSString stringWithFormat:@"%im", stickSummary.setupDistance]];
+//                        [cell addSubview:setupDistanceLbl];
+//                        [setupDistanceLbl release];
+//                    }
+//                    else {
+//                        NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+//                        StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:_stickIndex];
+//                        
+//                        UILabel* setupDistanceLbl = (UILabel*)[cell viewWithTag:DISTANCE_LBL_TAG];
+//                        
+//                        [setupDistanceLbl setText:[NSString stringWithFormat:@"%im", stickSummary.setupDistance]];
+//                    }
+                    
                     if (!hadConfigItem) {
-                        CGSize slideSize = CGSizeMake(80, 20);
-                        UISlider* distanceSlider = [[UISlider alloc] initWithFrame:CGRectMake(cell.frame.size.width - slideSize.width - 11, (cell.frame.size.height - slideSize.height)/2, slideSize.width, slideSize.height)];
-                        distanceSlider.tag = CONFIG_ITEM_TAG;
-                        [distanceSlider addTarget:self action:@selector(setupDistance:) forControlEvents:UIControlEventValueChanged];
+                        CGSize btnSize = CGSizeMake(80, 20);
+                        UIButton* setupDistanceBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                        [setupDistanceBtn setFrame:CGRectMake(cell.frame.size.width - btnSize.width - 11, (cell.frame.size.height - btnSize.height)/2, btnSize.width, btnSize.height)];
+                        setupDistanceBtn.tag = CONFIG_ITEM_TAG;
+                        [setupDistanceBtn addTarget:self action:@selector(setupDistance:) forControlEvents:UIControlEventTouchUpInside];
                         
                         //set state
                         NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
                         StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:_stickIndex];
-                        [distanceSlider setValue:stickSummary.setupDistance / MAX_DISTANCE];
+                        [setupDistanceBtn setTitle:[NSString stringWithFormat:@"%i m", stickSummary.setupDistance] forState:UIControlStateNormal];
                         
-                        [cell addSubview:distanceSlider];
-                        [distanceSlider release];
+                        [cell addSubview:setupDistanceBtn];
+                    }
+                    else {
+                        NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+                        StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:_stickIndex];
                         
-                        //setupDistanceLbl
-                        UILabel* setupDistanceLbl = [[UILabel alloc] initWithFrame:CGRectMake(cell.frame.size.width - 50 - 80 - 2*11, 0, 50, cell.frame.size.height)];
-                        [setupDistanceLbl setTextAlignment:UITextAlignmentRight];
-                        [setupDistanceLbl setBackgroundColor:[UIColor clearColor]];
-                        setupDistanceLbl.tag = DISTANCE_LBL_TAG;
-                        [setupDistanceLbl setText:[NSString stringWithFormat:@"%im", stickSummary.setupDistance]];
-                        [cell addSubview:setupDistanceLbl];
-                        [setupDistanceLbl release];
+                        UIButton* setupDistanceBtn = (UIButton*)[cell viewWithTag:CONFIG_ITEM_TAG];
+                        
+                        [setupDistanceBtn setTitle:[NSString stringWithFormat:@"%i m", stickSummary.setupDistance] forState:UIControlStateNormal];
                     }
                     
                     break;
@@ -402,29 +434,36 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
-        CGRect cellFrame = cell.frame;
-        CGSize cellSize = cellFrame.size;
-        
-        UIView* subView = [self.view viewWithTag:NAME_TEXTFIELD_TAG];
-        if (!subView){
-            UITextField* textField = [[UITextField alloc] initWithFrame:CGRectMake(cellFrame.origin.x + 20, cellFrame.origin.y + 10, cellSize.width - 2*10 - 80, cellSize.height)];
-            textField.tag = NAME_TEXTFIELD_TAG;
-            textField.delegate = self;
-            [textField setReturnKeyType:UIReturnKeyDone];
-            [textField setTextAlignment:UITextAlignmentLeft];
-            [self.view addSubview:textField];
+    if (indexPath.section == 0) {
+        if(indexPath.row == 0){
+            UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+            CGRect cellFrame = cell.frame;
+            CGSize cellSize = cellFrame.size;
             
-            [textField becomeFirstResponder];
-            [textField release];
-        }
-        else {
-            UITextField* nameTextField = (UITextField*) subView;
-            
-            [nameTextField becomeFirstResponder];
+            UIView* subView = [self.view viewWithTag:NAME_TEXTFIELD_TAG];
+            if (!subView){
+                UITextField* textField = [[UITextField alloc] initWithFrame:CGRectMake(cellFrame.origin.x + 20, cellFrame.origin.y + 10, cellSize.width - 2*10 - 80, cellSize.height)];
+                textField.tag = NAME_TEXTFIELD_TAG;
+                textField.delegate = self;
+                [textField setReturnKeyType:UIReturnKeyDone];
+                [textField setTextAlignment:UITextAlignmentLeft];
+                [self.view addSubview:textField];
+                
+                [textField becomeFirstResponder];
+                [textField release];
+            }
+            else {
+                UITextField* nameTextField = (UITextField*) subView;
+                
+                [nameTextField becomeFirstResponder];
+            }
         }
     }
+//    else if (indexPath.section == 3) {
+//        if(indexPath.row == 1){
+//            [self setupDistance:nil];
+//        }
+//    }
 }
 
 #pragma mark - Touch Events
@@ -472,6 +511,42 @@
     return YES;
 }
 
+#pragma mark - UIPickerViewDelegate
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)componen{
+    //save to UserDefault
+    NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+    StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:_stickIndex];
+    stickSummary.setupDistance = row;
+    [UserDefaultsHelper saveToUserDefaultWithKey:(NSString*)kUUIDsList forArray:stickSummariesList];
+    
+    [self.detailTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:3]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+// tell the picker how many rows are available for a given component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    NSUInteger numRows = MAX_DISTANCE + 1;
+    
+    return numRows;
+}
+
+// tell the picker how many components it will have
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+// tell the picker the title for a given component
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
+    return [NSString stringWithFormat:@"%i m", row];
+}
+
+// tell the picker the width of each row for a given component
+//- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+//    int sectionWidth = 300;
+//    
+//    return sectionWidth;
+//}
+
 #pragma mark - private methods
 -(void)hideKeyboard:(id)sender
 {
@@ -487,6 +562,13 @@
         
         _isEditingName = NO;
         [self.detailTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+    else  {
+        UIView* subView = [self.view viewWithTag:DISTANCE_PICKER_TAG];
+        if(subView)
+        {
+            [subView removeFromSuperview];
+        }
     }
 }
 
@@ -596,24 +678,43 @@
 ////    NSLog(@"stick.setupDistance: %i", stick.setupDistance);
 //}
 
+//-(void)setupDistance:(id)sender
+//{
+//    UISlider* distanceSlider = (UISlider*) sender;
+//    
+//    NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
+//    StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:_stickIndex];
+//    
+//    stickSummary.setupDistance = distanceSlider.value * MAX_DISTANCE;
+//    //    NSLog(@"stick.setupDistance: %i", stick.setupDistance);
+//    
+//    //set distance text
+//    UITableViewCell* cell = (UITableViewCell*)[distanceSlider superview];
+//    UIView* setupDistanceLbl = [cell viewWithTag:DISTANCE_LBL_TAG];
+//    if (setupDistanceLbl && [setupDistanceLbl isKindOfClass:[UILabel class]]) {
+//        [(UILabel*)setupDistanceLbl setText:[NSString stringWithFormat:@"%im", stickSummary.setupDistance]];
+//    }
+//    
+//    [UserDefaultsHelper saveToUserDefaultWithKey:(NSString*)kUUIDsList forArray:stickSummariesList];
+//}
+
+
 -(void)setupDistance:(id)sender
 {
-    UISlider* distanceSlider = (UISlider*) sender;
-    
+    CGSize viewSize = self.view.frame.size;
+    CGSize pickerSize = CGSizeMake(85, 177);
+    int rightOffset = 10;
+    UIPickerView *myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(viewSize.width - pickerSize.width - rightOffset, viewSize.height - pickerSize.height + 10, pickerSize.width, pickerSize.height)];
+    myPickerView.tag = DISTANCE_PICKER_TAG;
+    myPickerView.delegate = self;
+    myPickerView.showsSelectionIndicator = YES;
+
     NSMutableArray* stickSummariesList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
     StickObjectSummary* stickSummary = [stickSummariesList objectAtIndex:_stickIndex];
-    
-    stickSummary.setupDistance = distanceSlider.value * MAX_DISTANCE;
-    //    NSLog(@"stick.setupDistance: %i", stick.setupDistance);
-    
-    //set distance text
-    UITableViewCell* cell = (UITableViewCell*)[distanceSlider superview];
-    UIView* setupDistanceLbl = [cell viewWithTag:DISTANCE_LBL_TAG];
-    if (setupDistanceLbl && [setupDistanceLbl isKindOfClass:[UILabel class]]) {
-        [(UILabel*)setupDistanceLbl setText:[NSString stringWithFormat:@"%im", stickSummary.setupDistance]];
-    }
-    
-    [UserDefaultsHelper saveToUserDefaultWithKey:(NSString*)kUUIDsList forArray:stickSummariesList];
+    [myPickerView selectRow:stickSummary.setupDistance inComponent:0 animated:NO];
+
+    [self.view addSubview:myPickerView];
+    [myPickerView release];
 }
 
 -(void) reloadBluetoothDeviceUUID:(NSString *)UUID

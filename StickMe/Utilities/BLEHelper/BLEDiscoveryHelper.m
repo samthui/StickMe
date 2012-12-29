@@ -624,7 +624,7 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
     [self addToInRangeDevicesList:pUUID];
     
     //save to NSUserDefault 
-     NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+//    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
     NSMutableArray* UUIDsList = [UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kUUIDsList];
     BOOL existed = NO;
     int index;
@@ -706,8 +706,9 @@ const NSString *kLockingServiceEnteredForegroundNotification = @"LockingServiceE
         }
     }
     
-    [userDefault setObject:[NSKeyedArchiver archivedDataWithRootObject:UUIDsList] forKey:(NSString*)kUUIDsList];
-    [userDefault synchronize];    
+//    [userDefault setObject:[NSKeyedArchiver archivedDataWithRootObject:UUIDsList] forKey:(NSString*)kUUIDsList];
+//    [userDefault synchronize];   
+    [UserDefaultsHelper saveToUserDefaultWithKey:(NSString*)kUUIDsList forArray:UUIDsList];
     
     if (self.BLEDiscoveryHelperDelegate && [_BLEDiscoveryHelperDelegate respondsToSelector:@selector(discoveryDidRefresh)]) {
         [_BLEDiscoveryHelperDelegate discoveryDidRefresh];
